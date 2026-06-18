@@ -1,320 +1,319 @@
-1|<!DOCTYPE html>
-2|<html lang="zh-CN">
-3|<head>
-4|<meta charset="UTF-8">
-5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-6|<title>工具箱 — 开发者日常工具集合</title>
-7|<style>
-8|  :root {
-9|    --bg: #0d0d12;
-10|    --card: #14141c;
-11|    --border: rgb(255 255 255 / .06);
-12|    --text: #c4c4cc;
-13|    --muted: #6b6b78;
-14|    --accent: #615ced;
-15|  }
-16|  * { box-sizing: border-box; margin: 0; padding: 0; }
-17|  body {
-18|    font-family: Inter, system-ui, -apple-system, sans-serif;
-19|    background: var(--bg);
-20|    color: var(--text);
-21|    line-height: 1.6;
-22|    min-height: 100vh;
-23|  }
-24|
-25|  /* Hero */
-26|  .hero {
-27|    padding: 100px 32px 60px;
-28|    text-align: center;
-29|    background: linear-gradient(180deg, #1a1740 0%, var(--bg) 100%);
-30|  }
-31|  .hero h1 {
-32|    font-size: 56px;
-33|    font-weight: 800;
-34|    letter-spacing: -1px;
-35|    background: linear-gradient(135deg, #615ced, #a78bfa, #00a884);
-36|    -webkit-background-clip: text;
-37|    -webkit-text-fill-color: transparent;
-38|    margin-bottom: 16px;
-39|  }
-40|  .hero p {
-41|    font-size: 20px;
-42|    color: var(--muted);
-43|    max-width: 600px;
-44|    margin: 0 auto;
-45|  }
-46|  .hero .api-line {
-47|    display: inline-block;
-48|    margin-top: 32px;
-49|    padding: 12px 24px;
-50|    font-family: 'SF Mono', 'Fira Code', monospace;
-51|    font-size: 15px;
-52|    color: #a5a5b8;
-53|    background: var(--card);
-54|    border: 1px solid var(--border);
-55|    border-radius: 8px;
-56|  }
-57|
-58|  /* Tools grid */
-59|  .tools {
-60|    display: grid;
-61|    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-62|    gap: 24px;
-63|    max-width: 1200px;
-64|    margin: 0 auto;
-65|    padding: 0 32px 80px;
-66|  }
-67|  .tool-card {
-68|    background: var(--card);
-69|    border: 1px solid var(--border);
-70|    border-radius: 16px;
-71|    padding: 32px;
-72|    transition: border-color .2s;
-73|  }
-74|  .tool-card:hover {
-75|    border-color: rgb(255 255 255 / .12);
-76|  }
-77|  .tool-icon {
-78|    width: 48px;
-79|    height: 48px;
-80|    border-radius: 12px;
-81|    display: flex;
-82|    align-items: center;
-83|    justify-content: center;
-84|    font-size: 24px;
-85|    margin-bottom: 20px;
-86|  }
-87|  .tool-card h2 {
-88|    font-size: 24px;
-89|    font-weight: 720;
-90|    color: #fff;
-91|    margin-bottom: 8px;
-92|  }
-93|  .tool-card .desc {
-94|    color: var(--muted);
-95|    margin-bottom: 20px;
-96|    font-size: 15px;
-97|  }
-98|  .endpoint {
-99|    display: flex;
-100|    align-items: center;
-101|    gap: 8px;
-102|    margin-bottom: 16px;
-103|  }
-104|  .method {
-105|    font-size: 11px;
-106|    font-weight: 700;
-107|    padding: 3px 8px;
-108|    border-radius: 4px;
-109|    background: #615ced22;
-110|    color: var(--accent);
-111|    text-transform: uppercase;
-112|  }
-113|  .url {
-114|    font-family: 'SF Mono', 'Fira Code', monospace;
-115|    font-size: 14px;
-116|    color: #d4d4dc;
-117|    word-break: break-all;
-118|  }
-119|  .preview {
-120|    border-radius: 10px;
-121|    overflow: hidden;
-122|    border: 1px solid var(--border);
-123|    background: #0d0d12;
-124|  }
-125|  .preview img {
-126|    width: 100%;
-127|    display: block;
-128|  }
-129|  .demo-row {
-130|    display: flex;
-131|    gap: 8px;
-132|    margin-top: 16px;
-133|  }
-134|  .demo-row input {
-135|    flex: 1;
-136|    height: 40px;
-137|    padding: 0 12px;
-138|    background: #0d0d12;
-139|    border: 1px solid var(--border);
-140|    border-radius: 8px;
-141|    color: #fff;
-142|    font-size: 14px;
-143|    outline: none;
-144|  }
-145|  .demo-row input:focus { border-color: var(--accent); }
-146|  .demo-row button {
-147|    height: 40px;
-148|    padding: 0 16px;
-149|    background: var(--accent);
-150|    border: 0;
-151|    border-radius: 8px;
-152|    color: #fff;
-153|    font-weight: 600;
-154|    cursor: pointer;
-155|    font-size: 14px;
-156|    white-space: nowrap;
-157|  }
-158|  .demo-row button:hover { background: #5249d4; }
-159|
-160|  .cli-code {
-161|    background: #0a0a10;
-162|    border: 1px solid var(--border);
-163|    border-radius: 10px;
-164|    padding: 16px 20px;
-165|    overflow-x: auto;
-166|    font-size: 13px;
-167|    line-height: 1.5;
-168|  }
-169|  .cli-code code {
-170|    font-family: 'SF Mono', 'Fira Code', monospace;
-171|    color: #a5b4c4;
-172|    white-space: pre;
-173|  }
-174|
-175|  /* Footer */
-176|  .footer {
-177|    text-align: center;
-178|    padding: 40px 32px;
-179|    color: var(--muted);
-180|    font-size: 13px;
-181|    border-top: 1px solid var(--border);
-182|  }
-183|  .footer a { color: var(--accent); text-decoration: none; }
-184|
-185|  /* Responsive */
-186|  @media (max-width: 768px) {
-187|    .hero h1 { font-size: 36px; }
-188|    .hero p { font-size: 16px; }
-189|    .tools { grid-template-columns: 1fr; padding: 0 16px 60px; }
-190|    .tool-card { padding: 24px; }
-191|  }
-192|</style>
-193|</head>
-194|<body>
-195|
-196|<section class="hero">
-197|  <h1>开发者工具箱</h1>
-198|  <p>一个域名，多个能力。图片即接口，粘贴即使用。</p>
-199|  <div class="api-line">https://boluo66.top/<strong style="color:#fff">{工具}</strong>/?{参数}</div>
-200|</section>
-201|
-202|<section class="tools">
-203|
-204|  <!-- favimg -->
-205|  <article class="tool-card">
-206|    <div class="tool-icon" style="background:#615ced22">🖼</div>
-207|    <h2>favimg <span style="font-size:14px;font-weight:400;color:#6e7681">· 图标获取</span></h2>
-208|    <p class="desc">一行 URL，一张图标。自动提取任意网站的 favicon。可选 <code>?size=64</code> 指定尺寸。</p>
-209|    <div class="endpoint">
-210|      <span class="method">GET</span>
-211|      <code class="url">/favimg/?url=xxx</code>
-212|    </div>
-213|    <div class="demo-row">
-214|      <input id="favimg-input" placeholder="github.com" value="bilibili.com">
-215|      <button onclick="preview('favimg')">预览</button>
-216|    </div>
-217|    <div class="preview" style="margin-top:16px;height:48px;display:flex;align-items:center;padding:0 16px">
-218|      <img id="favimg-preview" src="" style="width:32px;height:32px;border-radius:4px" alt="">
-219|    </div>
-220|  </article>
-221|
-222|  <!-- qr -->
-223|  <article class="tool-card">
-224|    <div class="tool-icon" style="background:#00a88422">📱</div>
-225|    <h2>qr <span style="font-size:14px;font-weight:400;color:#6e7681">· 二维码</span></h2>
-226|    <p class="desc">一行 URL，一张二维码。任意内容，扫码直达。</p>
-227|    <div class="endpoint">
-228|      <span class="method">GET</span>
-229|      <code class="url">/qr/?content=xxx</code>
-230|    </div>
-231|    <div class="demo-row">
-232|      <input id="qr-input" placeholder="要编码的内容" value="https://github.com/VeteranBoLuo/tools">
-233|      <button onclick="preview('qr')">预览</button>
-234|    </div>
-235|    <div class="preview" style="margin-top:16px">
-236|      <img id="qr-preview" src="" alt="">
-237|    </div>
-238|  </article>
-239|
-240|  <!-- og -->
-241|  <article class="tool-card">
-242|    <div class="tool-icon" style="background:#ec489922">📋</div>
-243|    <h2>og <span style="font-size:14px;font-weight:400;color:#6e7681">· 分享卡片</span></h2>
-244|    <p class="desc">一行 URL，一张分享卡片。自动提取标题和描述。</p>
-245|    <div class="endpoint">
-246|      <span class="method">GET</span>
-247|      <code class="url">/og/?url=xxx</code>
-248|    </div>
-249|    <div class="demo-row">
-250|      <input id="og-input" placeholder="网站地址" value="vuejs.org">
-251|      <button onclick="preview('og')">预览</button>
-252|    </div>
-253|    <div class="preview" style="margin-top:16px">
-254|      <img id="og-preview" src="" alt="">
-255|    </div>
-256|  </article>
-257|
-258|<!-- git-heat -->
-259|<article class="tool-card">
-260|  <div class="tool-icon" style="background:#ff8a0022">🔥</div>
-261|  <h2>git-heat <span style="font-size:14px;font-weight:400;color:#6e7681">· 年度报告</span></h2>
-262|  <p class="desc">Git 年度代码报告。在任意 Git 仓库下运行，自动生成精美的可视化年报。</p>
-263|  <div class="mini-heat" style="background:#161b22;border-radius:8px;padding:14px 18px;margin:12px 0;overflow:hidden">
-264|    <svg width="240" height="104" viewBox="0 0 240 104" style="display:block">
-265|      <text x="4" y="10" font-size="8" fill="#484f58">2月</text><text x="28" y="10" font-size="8" fill="#484f58">4月</text><text x="56" y="10" font-size="8" fill="#484f58">6月</text><text x="84" y="10" font-size="8" fill="#484f58">8月</text><text x="112" y="10" font-size="8" fill="#484f58">10月</text><text x="140" y="10" font-size="8" fill="#484f58">12月</text>
-266|      <text x="0" y="22" font-size="7" fill="#484f58" text-anchor="end">日</text><text x="0" y="32" font-size="7" fill="#484f58" text-anchor="end">二</text><text x="0" y="42" font-size="7" fill="#484f58" text-anchor="end">四</text><text x="0" y="52" font-size="7" fill="#484f58" text-anchor="end">六</text>
-267|      <rect x="4" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="4" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="4" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="4" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="4" y="48" width="6" height="6" rx="1" fill="#39d353"/>
-268|      <rect x="12" y="16" width="6" height="6" rx="1" fill="#006d32"/><rect x="12" y="24" width="6" height="6" rx="1" fill="#39d353"/><rect x="12" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="12" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="12" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-269|      <rect x="20" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="20" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="20" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="20" y="40" width="6" height="6" rx="1" fill="#26a641"/><rect x="20" y="48" width="6" height="6" rx="1" fill="#006d32"/>
-270|      <rect x="28" y="16" width="6" height="6" rx="1" fill="#39d353"/><rect x="28" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="28" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="28" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="28" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
-271|      <rect x="36" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="36" y="24" width="6" height="6" rx="1" fill="#26a641"/><rect x="36" y="32" width="6" height="6" rx="1" fill="#39d353"/><rect x="36" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="36" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-272|      <rect x="44" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="44" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="44" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="44" y="40" width="6" height="6" rx="1" fill="#39d353"/><rect x="44" y="48" width="6" height="6" rx="1" fill="#26a641"/>
-273|      <rect x="52" y="16" width="6" height="6" rx="1" fill="#26a641"/><rect x="52" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="52" y="32" width="6" height="6" rx="1" fill="#006d32"/><rect x="52" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="52" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-274|      <rect x="60" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="60" y="24" width="6" height="6" rx="1" fill="#39d353"/><rect x="60" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="60" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="60" y="48" width="6" height="6" rx="1" fill="#006d32"/>
-275|      <rect x="68" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="68" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="68" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="68" y="40" width="6" height="6" rx="1" fill="#26a641"/><rect x="68" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-276|      <rect x="76" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="76" y="24" width="6" height="6" rx="1" fill="#006d32"/><rect x="76" y="32" width="6" height="6" rx="1" fill="#39d353"/><rect x="76" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="76" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
-277|      <rect x="84" y="16" width="6" height="6" rx="1" fill="#26a641"/><rect x="84" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="84" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="84" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="84" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-278|      <rect x="92" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="92" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="92" y="32" width="6" height="6" rx="1" fill="#006d32"/><rect x="92" y="40" width="6" height="6" rx="1" fill="#39d353"/><rect x="92" y="48" width="6" height="6" rx="1" fill="#26a641"/>
-279|      <rect x="100" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="100" y="24" width="6" height="6" rx="1" fill="#26a641"/><rect x="100" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="100" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="100" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-280|      <rect x="108" y="16" width="6" height="6" rx="1" fill="#39d353"/><rect x="108" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="108" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="108" y="40" width="6" height="6" rx="1" fill="#006d32"/><rect x="108" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-281|      <rect x="116" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="116" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="116" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="116" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="116" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
-282|      <rect x="124" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="124" y="24" width="6" height="6" rx="1" fill="#006d32"/><rect x="124" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="124" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="124" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
-283|    </svg>
-284|    <div style="display:flex;align-items:center;gap:3px;justify-content:flex-end;margin-top:6px;font-size:10px;color:#484f58">少<span style="width:8px;height:8px;background:#1b1b24;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#0e4429;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#006d32;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#26a641;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#39d353;border-radius:1px;display:inline-block"></span>多</div>
-285|  </div>
-286|  <pre class="cli-code"><code>$ cd 你的项目
-287|$ npx git-heat</code></pre>
-288|  <p style="margin-top:12px;font-size:13px;color:#6e7681">⚠️ 需要在本地 Git 仓库目录下运行</p>
-289|  <a href="/toolkit/git-heat-demo.html" target="_blank" style="display:inline-block;margin-top:12px;color:#58a6ff;font-size:14px;text-decoration:none">查看演示 →</a>
-290|</article>
-291|
-292|</section>
-293|
-294|<footer class="footer">
-295|  <a href="https://github.com/VeteranBoLuo/tools">GitHub</a>
-296|  &nbsp;·&nbsp;
-297|  开源 · 自部署 · 零依赖
-298|</footer>
-299|
-300|<script>
-301|  const BASE = 'https://boluo66.top';
-302|
-303|  async function preview(tool) {
-304|    const el = document.getElementById(tool + '-input');
-305|    const img = document.getElementById(tool + '-preview');
-306|    const val = el.value.trim();
-307|    if (!val) return;
-308|
-309|    const param = tool === 'qr' ? 'content' : 'url';
-310|    img.src = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
-311|  }
-312|
-313|  // 初始加载
-314|  preview('favimg');
-315|  preview('qr');
-316|  preview('og');
-317|</script>
-318|</body>
-319|</html>
-320|
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工具箱 — 开发者日常工具集合</title>
+<style>
+  :root {
+    --bg: #0d0d12;
+    --card: #14141c;
+    --border: rgb(255 255 255 / .06);
+    --text: #c4c4cc;
+    --muted: #6b6b78;
+    --accent: #615ced;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 100px 32px 60px;
+    text-align: center;
+    background: linear-gradient(180deg, #1a1740 0%, var(--bg) 100%);
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #615ced, #a78bfa, #00a884);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 20px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero .api-line {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 12px 24px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    color: #a5a5b8;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  /* Tools grid */
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: border-color .2s;
+  }
+  .tool-card:hover {
+    border-color: rgb(255 255 255 / .12);
+  }
+  .tool-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .tool-card h2 {
+    font-size: 24px;
+    font-weight: 720;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .tool-card .desc {
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .endpoint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .method {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #615ced22;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .url {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 14px;
+    color: #d4d4dc;
+    word-break: break-all;
+  }
+  .preview {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #0d0d12;
+  }
+  .preview img {
+    width: 100%;
+    display: block;
+  }
+  .demo-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .demo-row input {
+    flex: 1;
+    height: 40px;
+    padding: 0 12px;
+    background: #0d0d12;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+  }
+  .demo-row input:focus { border-color: var(--accent); }
+  .demo-row button {
+    height: 40px;
+    padding: 0 16px;
+    background: var(--accent);
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .demo-row button:hover { background: #5249d4; }
+
+  .cli-code {
+    background: #0a0a10;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .cli-code code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #a5b4c4;
+    white-space: pre;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 32px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 16px; }
+    .tools { grid-template-columns: 1fr; padding: 0 16px 60px; }
+    .tool-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>开发者工具箱</h1>
+  <p>一个域名，多个能力。图片即接口，粘贴即使用。</p>
+  <div class="api-line">https://boluo66.top/<strong style="color:#fff">{工具}</strong>/?{参数}</div>
+</section>
+
+<section class="tools">
+
+  <!-- favimg -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#615ced22">🖼</div>
+    <h2>favimg <span style="font-size:14px;font-weight:400;color:#6e7681">· 图标获取</span></h2>
+    <p class="desc">一行 URL，一张图标。自动提取任意网站的 favicon。可选 <code>?size=64</code> 指定尺寸。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/favimg/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="favimg-input" placeholder="github.com" value="bilibili.com">
+      <button onclick="preview('favimg')">预览</button>
+    </div>
+    <div class="preview" style="margin-top:16px;height:48px;display:flex;align-items:center;padding:0 16px">
+      <img id="favimg-preview" src="" style="width:32px;height:32px;border-radius:4px" alt="">
+    </div>
+  </article>
+
+  <!-- qr -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#00a88422">📱</div>
+    <h2>qr <span style="font-size:14px;font-weight:400;color:#6e7681">· 二维码</span></h2>
+    <p class="desc">一行 URL，一张二维码。任意内容，扫码直达。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/qr/?content=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="qr-input" placeholder="要编码的内容" value="https://github.com/VeteranBoLuo/tools">
+      <button onclick="preview('qr')">预览</button>
+    </div>
+    <div class="preview" style="margin-top:16px">
+      <img id="qr-preview" src="" alt="">
+    </div>
+  </article>
+
+  <!-- og -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#ec489922">📋</div>
+    <h2>og <span style="font-size:14px;font-weight:400;color:#6e7681">· 分享卡片</span></h2>
+    <p class="desc">一行 URL，一张分享卡片。自动提取标题和描述。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/og/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="og-input" placeholder="网站地址" value="vuejs.org">
+      <button onclick="preview('og')">预览</button>
+    </div>
+    <div class="preview" style="margin-top:16px">
+      <img id="og-preview" src="" alt="">
+    </div>
+  </article>
+
+<!-- git-heat -->
+<article class="tool-card">
+  <div class="tool-icon" style="background:#ff8a0022">🔥</div>
+  <h2>git-heat <span style="font-size:14px;font-weight:400;color:#6e7681">· 年度报告</span></h2>
+  <p class="desc">Git 年度代码报告。在任意 Git 仓库下运行，自动生成精美的可视化年报。</p>
+  <div class="mini-heat" style="background:#161b22;border-radius:8px;padding:14px 18px;margin:12px 0;overflow:hidden">
+    <svg width="240" height="104" viewBox="0 0 240 104" style="display:block">
+      <text x="4" y="10" font-size="8" fill="#484f58">2月</text><text x="28" y="10" font-size="8" fill="#484f58">4月</text><text x="56" y="10" font-size="8" fill="#484f58">6月</text><text x="84" y="10" font-size="8" fill="#484f58">8月</text><text x="112" y="10" font-size="8" fill="#484f58">10月</text><text x="140" y="10" font-size="8" fill="#484f58">12月</text>
+      <text x="0" y="22" font-size="7" fill="#484f58" text-anchor="end">日</text><text x="0" y="32" font-size="7" fill="#484f58" text-anchor="end">二</text><text x="0" y="42" font-size="7" fill="#484f58" text-anchor="end">四</text><text x="0" y="52" font-size="7" fill="#484f58" text-anchor="end">六</text>
+      <rect x="4" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="4" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="4" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="4" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="4" y="48" width="6" height="6" rx="1" fill="#39d353"/>
+      <rect x="12" y="16" width="6" height="6" rx="1" fill="#006d32"/><rect x="12" y="24" width="6" height="6" rx="1" fill="#39d353"/><rect x="12" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="12" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="12" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="20" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="20" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="20" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="20" y="40" width="6" height="6" rx="1" fill="#26a641"/><rect x="20" y="48" width="6" height="6" rx="1" fill="#006d32"/>
+      <rect x="28" y="16" width="6" height="6" rx="1" fill="#39d353"/><rect x="28" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="28" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="28" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="28" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
+      <rect x="36" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="36" y="24" width="6" height="6" rx="1" fill="#26a641"/><rect x="36" y="32" width="6" height="6" rx="1" fill="#39d353"/><rect x="36" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="36" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="44" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="44" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="44" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="44" y="40" width="6" height="6" rx="1" fill="#39d353"/><rect x="44" y="48" width="6" height="6" rx="1" fill="#26a641"/>
+      <rect x="52" y="16" width="6" height="6" rx="1" fill="#26a641"/><rect x="52" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="52" y="32" width="6" height="6" rx="1" fill="#006d32"/><rect x="52" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="52" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="60" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="60" y="24" width="6" height="6" rx="1" fill="#39d353"/><rect x="60" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="60" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="60" y="48" width="6" height="6" rx="1" fill="#006d32"/>
+      <rect x="68" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="68" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="68" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="68" y="40" width="6" height="6" rx="1" fill="#26a641"/><rect x="68" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="76" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="76" y="24" width="6" height="6" rx="1" fill="#006d32"/><rect x="76" y="32" width="6" height="6" rx="1" fill="#39d353"/><rect x="76" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="76" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
+      <rect x="84" y="16" width="6" height="6" rx="1" fill="#26a641"/><rect x="84" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="84" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="84" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="84" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="92" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="92" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="92" y="32" width="6" height="6" rx="1" fill="#006d32"/><rect x="92" y="40" width="6" height="6" rx="1" fill="#39d353"/><rect x="92" y="48" width="6" height="6" rx="1" fill="#26a641"/>
+      <rect x="100" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="100" y="24" width="6" height="6" rx="1" fill="#26a641"/><rect x="100" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="100" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="100" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="108" y="16" width="6" height="6" rx="1" fill="#39d353"/><rect x="108" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="108" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="108" y="40" width="6" height="6" rx="1" fill="#006d32"/><rect x="108" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="116" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="116" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="116" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="116" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="116" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
+      <rect x="124" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="124" y="24" width="6" height="6" rx="1" fill="#006d32"/><rect x="124" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="124" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="124" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+    </svg>
+    <div style="display:flex;align-items:center;gap:3px;justify-content:flex-end;margin-top:6px;font-size:10px;color:#484f58">少<span style="width:8px;height:8px;background:#1b1b24;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#0e4429;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#006d32;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#26a641;border-radius:1px;display:inline-block"></span><span style="width:8px;height:8px;background:#39d353;border-radius:1px;display:inline-block"></span>多</div>
+  </div>
+  <pre class="cli-code"><code>$ cd 你的项目
+$ npx git-heat</code></pre>
+  <p style="margin-top:12px;font-size:13px;color:#6e7681">⚠️ 需要在本地 Git 仓库目录下运行</p>
+  <a href="/toolkit/git-heat-demo.html" target="_blank" style="display:inline-block;margin-top:12px;color:#58a6ff;font-size:14px;text-decoration:none">查看演示 →</a>
+</article>
+
+</section>
+
+<footer class="footer">
+  <a href="https://github.com/VeteranBoLuo/tools">GitHub</a>
+  &nbsp;·&nbsp;
+  开源 · 自部署 · 零依赖
+</footer>
+
+<script>
+  const BASE = 'https://boluo66.top';
+
+  async function preview(tool) {
+    const el = document.getElementById(tool + '-input');
+    const img = document.getElementById(tool + '-preview');
+    const val = el.value.trim();
+    if (!val) return;
+
+    const param = tool === 'qr' ? 'content' : 'url';
+    img.src = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
+  }
+
+  // 初始加载
+  preview('favimg');
+  preview('qr');
+  preview('og');
+</script>
+</body>
+</html>
