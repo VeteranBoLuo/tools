@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>git-heat · 演示</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0d1117; color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; padding: 40px 20px;
+  }
+  .page { max-width: 700px; width: 100%; }
+  .hero { text-align: center; margin-bottom: 32px; }
+  .hero .year { font-size: 14px; color: #6e7681; }
+  .hero h1 { font-size: 36px; font-weight: 800; margin: 8px 0 4px; }
+  .hero .sub { font-size: 15px; color: #6e7681; }
+
+  .big-stat {
+    display: flex; justify-content: center; gap: 40px;
+    margin: 32px 0; padding: 28px;
+    background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+  }
+  .big-stat .bs { text-align: center; }
+  .big-stat .bs .val { font-size: 42px; font-weight: 800; }
+  .big-stat .bs .lbl { font-size: 13px; color: #6e7681; margin-top: 6px; }
+
+  .card {
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 12px; padding: 28px 32px; margin-bottom: 20px;
+  }
+  .card h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+
+  .heatmap { overflow-x: auto; }
+  .legend { display: flex; align-items: center; gap: 4px; justify-content: flex-end; margin-top: 8px; font-size: 11px; color: #484f58; }
+  .legend span { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+
+  .insight { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #21262d; }
+  .insight:last-child { border-bottom: 0; }
+  .insight .text { font-size: 14px; line-height: 1.5; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-item .si-val { font-size: 18px; font-weight: 700; color: #58a6ff; }
+  .stat-item .si-lbl { font-size: 12px; color: #6e7681; margin-top: 2px; }
+
+  .footer { text-align: center; margin-top: 32px; font-size: 12px; color: #30363d; }
+  .footer a { color: #30363d; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="year">2025-06-22 ~ 2026-06-18</div>
+    <h1>light-note</h1>
+    <div class="sub"><b>250</b> 次提交 · <b>68</b> 天写代码</div>
+  </div>
+
+  <div class="big-stat">
+    <div class="bs"><div class="val" style="color:#58a6ff">250</div><div class="lbl">总提交</div></div>
+    <div class="bs"><div class="val" style="color:#3fb950">5</div><div class="lbl">最长连击</div></div>
+    <div class="bs"><div class="val" style="color:#d2991d">3.7</div><div class="lbl">日均提交</div></div>
+  </div>
+
+  <div class="card">
+    <h2>🦉 你的开发者人格</h2>
+    <div class="insight"><div class="text">你是 <b style="color:#58a6ff">深夜黑客</b>。夜深人静的时候灵感最多。</div></div>
+    <div class="insight"><div class="text">最爱时间：<b style="color:#3fb950">17:00</b> · 最佳月份：<b style="color:#d2991d">5月</b></div></div>
+  </div>
+
+  <div class="card">
+    <h2>🗓 代码热力图</h2>
+    <div class="heatmap">
+      <svg width="800" height="132" viewBox="0 0 800 132">
+        <text x="58" y="22" font-size="11" fill="#6e7681">6月</text>
+        <text x="156" y="22" font-size="11" fill="#6e7681">7月</text>
+        <text x="268" y="22" font-size="11" fill="#6e7681">8月</text>
+        <text x="380" y="22" font-size="11" fill="#6e7681">9月</text>
+        <text x="492" y="22" font-size="11" fill="#6e7681">10月</text>
+        <text x="604" y="22" font-size="11" fill="#6e7681">11月</text>
+        <text x="716" y="22" font-size="11" fill="#6e7681">12月</text>
+        <text x="46" y="40" font-size="10" fill="#6e7681" text-anchor="end">日</text>
+        <text x="46" y="54" font-size="10" fill="#6e7681" text-anchor="end">一</text>
+        <text x="46" y="68" font-size="10" fill="#6e7681" text-anchor="end">二</text>
+        <text x="46" y="82" font-size="10" fill="#6e7681" text-anchor="end">三</text>
+        <text x="46" y="96" font-size="10" fill="#6e7681" text-anchor="end">四</text>
+        <text x="46" y="110" font-size="10" fill="#6e7681" text-anchor="end">五</text>
+        <text x="46" y="124" font-size="10" fill="#6e7681" text-anchor="end">六</text>
+        <!-- sample heatmap cells -->
+        <rect x="58" y="34" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="72" y="34" width="12" height="12" rx="2" fill="#0e4429"/><rect x="86" y="34" width="12" height="12" rx="2" fill="#006d32"/><rect x="100" y="34" width="12" height="12" rx="2" fill="#39d353"/><rect x="114" y="34" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="128" y="34" width="12" height="12" rx="2" fill="#0e4429"/><rect x="142" y="34" width="12" height="12" rx="2" fill="#26a641"/>
+        <rect x="156" y="34" width="12" height="12" rx="2" fill="#006d32"/><rect x="170" y="34" width="12" height="12" rx="2" fill="#39d353"/>
+        <rect x="58" y="48" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="72" y="48" width="12" height="12" rx="2" fill="#0e4429"/><rect x="86" y="48" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="100" y="48" width="12" height="12" rx="2" fill="#26a641"/><rect x="114" y="48" width="12" height="12" rx="2" fill="#39d353"/><rect x="128" y="48" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="142" y="48" width="12" height="12" rx="2" fill="#0e4429"/>
+        <rect x="156" y="48" width="12" height="12" rx="2" fill="#006d32"/><rect x="170" y="48" width="12" height="12" rx="2" fill="#1b1b24"/>
+        <rect x="58" y="62" width="12" height="12" rx="2" fill="#26a641"/><rect x="72" y="62" width="12" height="12" rx="2" fill="#39d353"/><rect x="86" y="62" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="100" y="62" width="12" height="12" rx="2" fill="#0e4429"/><rect x="114" y="62" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="128" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+        <rect x="58" y="76" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="72" y="76" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="86" y="76" width="12" height="12" rx="2" fill="#0e4429"/><rect x="100" y="76" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="114" y="76" width="12" height="12" rx="2" fill="#26a641"/>
+        <rect x="58" y="90" width="12" height="12" rx="2" fill="#39d353"/><rect x="72" y="90" width="12" height="12" rx="2" fill="#006d32"/><rect x="86" y="90" width="12" height="12" rx="2" fill="#0e4429"/><rect x="100" y="90" width="12" height="12" rx="2" fill="#1b1b24"/>
+        <rect x="58" y="104" width="12" height="12" rx="2" fill="#1b1b24"/><rect x="72" y="104" width="12" height="12" rx="2" fill="#0e4429"/>
+        <rect x="58" y="118" width="12" height="12" rx="2" fill="#1b1b24"/>
+      </svg>
+    </div>
+    <div class="legend">少 <span style="background:#1b1b24"></span><span style="background:#0e4429"></span><span style="background:#006d32"></span><span style="background:#26a641"></span><span style="background:#39d353"></span> 多</div>
+  </div>
+
+  <div class="card">
+    <h2>📊 更多数据</h2>
+    <div class="grid2">
+      <div class="stat-item"><div class="si-val">5月</div><div class="si-lbl">最活跃月份 (51 次)</div></div>
+      <div class="stat-item"><div class="si-val">8%</div><div class="si-lbl">周末提交占比</div></div>
+      <div class="stat-item"><div class="si-val">11 天</div><div class="si-lbl">最长空窗期</div></div>
+      <div class="stat-item"><div class="si-val">68 天</div><div class="si-lbl">活跃天数</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💡 趣味洞察</h2>
+    <div class="insight"><div class="text">如果每天写代码的时间都用来喝咖啡，你喝了 <b style="color:#58a6ff">250 杯</b>。刚好提神。</div></div>
+    <div class="insight"><div class="text">平均每天写 <b style="color:#3fb950">3.7 次</b>提交。高产似母猪。</div></div>
+    <div class="insight"><div class="text">连续写了 <b style="color:#d2991d">5 天</b>代码不中断。下次挑战一周试试？</div></div>
+  </div>
+
+  <div class="footer">
+    用 <a href="https://github.com/VeteranBoLuo/git-heat" target="_blank">git-heat</a> 生成你自己的报告
+  </div>
+</div>
+</body>
+</html>
