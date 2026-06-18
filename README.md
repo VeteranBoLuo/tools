@@ -6,3 +6,4 @@
 |---|---|---|
 | [favimg](https://github.com/VeteranBoLuo/favimg) | 一行 URL，一张图标 | ✅ |
 | [qr](https://github.com/VeteranBoLuo/qr) | 一行 URL，一张二维码 | ✅ |
+| [og](https://github.com/VeteranBoLuo/og) | 一行 URL，一张分享卡片 | ✅ |
