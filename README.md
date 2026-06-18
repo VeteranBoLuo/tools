@@ -15,9 +15,13 @@ npx git-heat                          →  年度报告
 
 | 工具 | 类型 | 说明 |
 |---|---|---|
-| [favimg](https://github.com/VeteranBoLuo/favimg) | API | 一行 URL，一张图标 |
-| [qr](https://github.com/VeteranBoLuo/qr) | API | 一行 URL，一张二维码 |
-| [og](https://github.com/VeteranBoLuo/og) | API | 一行 URL，一张分享卡片 |
-| [git-heat](https://github.com/VeteranBoLuo/git-heat) | CLI | Git 年度代码报告 |
+| favimg | API | 一行 URL，一张图标 |
+| qr | API | 一行 URL，一张二维码 |
+| og | API | 一行 URL，一张分享卡片 |
+| git-heat | CLI | Git 年度代码报告 |
+| code-preview | Web | 代码转精美截图 |
+| timestamp | Web | 时间戳 ↔ 日期互转 |
+
+所有工具入口 → [boluo66.top/toolkit](https://boluo66.top/toolkit/)
 
 → 想加新工具？[提 Issue](https://github.com/VeteranBoLuo/tools/issues)
