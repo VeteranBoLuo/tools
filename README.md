@@ -1,5 +1,7 @@
 # 🛠 开发者日常工具箱
 
+👉 **[在线体验](https://boluo66.top/toolkit/)**
+
 一个 API，多种能力。部署一次，到处使用。
 
 ```
@@ -21,8 +23,8 @@ https://boluo66.top/og/?url=xxx       →  分享卡片
 
 | 工具 | 一句话 | 示例 |
 |---|---|---|
-| [favimg](https://github.com/VeteranBoLuo/favimg) | 获取任意网站图标 | `/?url=github.com` → 图标 |
-| [qr](https://github.com/VeteranBoLuo/qr) | 任意内容生成二维码 | `/?content=hello` → 二维码 |
+| [favimg](https://github.com/VeteranBoLuo/favimg) | 获取任意网站图标 | `/?url=xxx` → 图标 |
+| [qr](https://github.com/VeteranBoLuo/qr) | 任意内容生成二维码 | `/?content=xxx` → 二维码 |
 | [og](https://github.com/VeteranBoLuo/og) | 链接转分享预览卡片 | `/?url=xxx` → 预览卡片 |
 
 ## Q&A

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工具箱 — 开发者日常工具集合</title>
+<style>
+  :root {
+    --bg: #0d0d12;
+    --card: #14141c;
+    --border: rgb(255 255 255 / .06);
+    --text: #c4c4cc;
+    --muted: #6b6b78;
+    --accent: #615ced;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 100px 32px 60px;
+    text-align: center;
+    background: linear-gradient(180deg, #1a1740 0%, var(--bg) 100%);
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #615ced, #a78bfa, #00a884);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 20px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero .api-line {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 12px 24px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    color: #a5a5b8;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  /* Tools grid */
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: border-color .2s;
+  }
+  .tool-card:hover {
+    border-color: rgb(255 255 255 / .12);
+  }
+  .tool-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .tool-card h2 {
+    font-size: 24px;
+    font-weight: 720;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .tool-card .desc {
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .endpoint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .method {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #615ced22;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .url {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 14px;
+    color: #d4d4dc;
+    word-break: break-all;
+  }
+  .preview {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #0d0d12;
+  }
+  .preview img {
+    width: 100%;
+    display: block;
+  }
+  .demo-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .demo-row input {
+    flex: 1;
+    height: 40px;
+    padding: 0 12px;
+    background: #0d0d12;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+  }
+  .demo-row input:focus { border-color: var(--accent); }
+  .demo-row button {
+    height: 40px;
+    padding: 0 16px;
+    background: var(--accent);
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .demo-row button:hover { background: #5249d4; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 32px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 16px; }
+    .tools { grid-template-columns: 1fr; padding: 0 16px 60px; }
+    .tool-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>开发者工具箱</h1>
+  <p>一个域名，多个能力。图片即接口，粘贴即使用。</p>
+  <div class="api-line">https://boluo66.top/<strong style="color:#fff">{工具}</strong>/?{参数}</div>
+</section>
+
+<section class="tools">
+
+  <!-- favimg -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#615ced22">🖼</div>
+    <h2>favimg</h2>
+    <p class="desc">一行 URL，一张图标。自动提取任意网站的 favicon。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/favimg/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="favimg-input" placeholder="github.com" value="bilibili.com">
+      <button onclick="preview('favimg')">预览</button>
+    </div>
+    <div class="preview" style="margin-top:16px;height:48px;display:flex;align-items:center;padding:0 16px">
+      <img id="favimg-preview" src="" style="width:32px;height:32px;border-radius:4px" alt="">
+    </div>
+  </article>
+
+  <!-- qr -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#00a88422">📱</div>
+    <h2>qr</h2>
+    <p class="desc">一行 URL，一张二维码。任意内容，扫码直达。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/qr/?content=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="qr-input" placeholder="要编码的内容" value="https://github.com/VeteranBoLuo/tools">
+      <button onclick="preview('qr')">预览</button>
+    </div>
+    <div class="preview" style="margin-top:16px">
+      <img id="qr-preview" src="" alt="">
+    </div>
+  </article>
+
+  <!-- og -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#ec489922">📋</div>
+    <h2>og</h2>
+    <p class="desc">一行 URL，一张分享卡片。自动提取标题和描述。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/og/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="og-input" placeholder="网站地址" value="vuejs.org">
+      <button onclick="preview('og')">预览</button>
+    </div>
+    <div class="preview" style="margin-top:16px">
+      <img id="og-preview" src="" alt="">
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <a href="https://github.com/VeteranBoLuo/tools">GitHub</a>
+  &nbsp;·&nbsp;
+  开源 · 自部署 · 零依赖
+</footer>
+
+<script>
+  const BASE = 'https://boluo66.top';
+
+  async function preview(tool) {
+    const el = document.getElementById(tool + '-input');
+    const img = document.getElementById(tool + '-preview');
+    const val = el.value.trim();
+    if (!val) return;
+
+    const param = tool === 'qr' ? 'content' : 'url';
+    img.src = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
+  }
+
+  // 初始加载
+  preview('favimg');
+  preview('qr');
+  preview('og');
+</script>
+</body>
+</html>
