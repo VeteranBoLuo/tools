@@ -157,6 +157,21 @@
   }
   .demo-row button:hover { background: #5249d4; }
 
+  .cli-code {
+    background: #0a0a10;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .cli-code code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #a5b4c4;
+    white-space: pre;
+  }
+
   /* Footer */
   .footer {
     text-align: center;
@@ -238,6 +253,21 @@
     <div class="preview" style="margin-top:16px">
       <img id="og-preview" src="" alt="">
     </div>
+  </article>
+
+  <!-- git-heat -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#ff8a0022">🔥</div>
+    <h2>git-heat</h2>
+    <p class="desc">终端里的 Git 年度热力图。一行命令，看见你这一年的代码轨迹。</p>
+    <pre class="cli-code"><code>$ npx git-heat
+
+  1月  2月      3月        4月      5月        6月
+ 日 ░░  ░░  ██  ░░  ██  ██  ██  ░░  ██  ██  ██
+ 一 ░░  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██
+ 二 ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██
+
+  847 commits · 🏆 3月 (142) · ☀️ 日间派</code></pre>
   </article>
 
 </section>
