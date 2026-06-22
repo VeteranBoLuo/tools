@@ -5,7 +5,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-6-success" alt="6 tools">
+  <img src="https://img.shields.io/badge/tools-7-success" alt="6 tools">
 </p>
 
 API 零配置调用，CLI 一行命令出图。全部工具入口在 [boluo66.top/toolkit](https://boluo66.top/toolkit/)，即开即用。
@@ -34,6 +34,7 @@ API 零配置调用，CLI 一行命令出图。全部工具入口在 [boluo66.to
 |---|---|
 | **code-preview · 代码截图** | [→ 打开](https://boluo66.top/toolkit/code-preview.html) |
 | **timestamp · 时间戳转换** | [→ 打开](https://boluo66.top/toolkit/timestamp.html) |
+| **diff · 文本对比** | [→ 打开](https://boluo66.top/toolkit/diff.html) |
 
 ---
 
