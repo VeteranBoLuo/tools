@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette — 配色生成</title>
+<link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
+<style>
+:root { --bg: #0d0d12; --card: #14141c; --border: rgb(255 255 255 / .06); --text: #c4c4cc; --muted: #6b6b78; --accent: #615ced; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; }
+header { text-align: center; margin-bottom: 40px; }
+header h1 { font-size: 28px; font-weight: 800; }
+header span { font-size: 14px; color: var(--muted); }
+header a { color: var(--muted); font-size: 13px; text-decoration: none; display: block; margin-top: 12px; }
+.input-row { display: flex; gap: 10px; align-items: center; max-width: 420px; width: 100%; margin-bottom: 40px; }
+.input-row input[type=text] { flex: 1; height: 44px; padding: 0 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 15px; font-family: 'SF Mono', 'Fira Code', monospace; outline: none; text-transform: uppercase; }
+.input-row input[type=text]:focus { border-color: var(--accent); }
+.input-row input[type=color] { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; background: none; padding: 2px; }
+.input-row input[type=color]:hover { border-color: var(--accent); }
+.input-row button { height: 44px; padding: 0 24px; background: var(--accent); border: 0; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.input-row button:hover { background: #5249d4; }
+
+.scheme { max-width: 700px; width: 100%; margin-bottom: 32px; }
+.scheme-title { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+.swatches { display: flex; gap: 12px; flex-wrap: wrap; }
+.swatch { flex: 1; min-width: 100px; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform .15s; }
+.swatch:hover { transform: scale(1.03); }
+.swatch-color { height: 80px; position: relative; }
+.swatch-info { background: var(--card); padding: 10px 12px; border: 1px solid var(--border); border-top: 0; border-radius: 0 0 10px 10px; }
+.swatch-info .hex { font-size: 13px; font-weight: 600; font-family: 'SF Mono', monospace; color: #fff; }
+.swatch-info .desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); align-items: center; justify-content: center; z-index: 100; }
+.modal.show { display: flex; }
+.modal-inner { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 32px; text-align: center; }
+.modal-inner .big-swatch { width: 120px; height: 60px; border-radius: 8px; margin: 0 auto 12px; }
+.modal-inner .big-hex { font-size: 20px; font-weight: 700; font-family: 'SF Mono', monospace; }
+.modal-inner .hint { font-size: 12px; color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Palette <span>· 配色生成</span></h1>
+  <a href="/toolkit/">← 工具箱</a>
+</header>
+
+<div class="input-row">
+  <input type="text" id="hexInput" value="#615ced" maxlength="7" oninput="updateFromHex()">
+  <input type="color" id="colorPicker" value="#615ced" oninput="updateFromPicker()">
+  <button onclick="updateFromHex()">生成</button>
+</div>
+
+<div id="output"></div>
+
+<div class="modal" id="modal" onclick="this.classList.remove('show')">
+  <div class="modal-inner" onclick="event.stopPropagation()">
+    <div class="big-swatch" id="bigSwatch"></div>
+    <div class="big-hex" id="bigHex"></div>
+    <div class="hint">点击复制 · 点击空白关闭</div>
+  </div>
+</div>
+
+<script>
+const hexInput = document.getElementById('hexInput');
+const colorPicker = document.getElementById('colorPicker');
+const output = document.getElementById('output');
+const modal = document.getElementById('modal');
+const bigSwatch = document.getElementById('bigSwatch');
+const bigHex = document.getElementById('bigHex');
+
+function hexToHsl(h) {
+  h = h.replace('#','');
+  const r = parseInt(h.slice(0,2),16)/255;
+  const g = parseInt(h.slice(2,4),16)/255;
+  const b = parseInt(h.slice(4,6),16)/255;
+  const mx = Math.max(r,g,b), mn = Math.min(r,g,b);
+  let hh=0, s=0, l=(mx+mn)/2;
+  if (mx !== mn) {
+    const d = mx - mn;
+    s = l > .5 ? d/(2-mx-mn) : d/(mx+mn);
+    if (mx===r) hh = ((g-b)/d+(g<b?6:0))/6;
+    else if (mx===g) hh = ((b-r)/d+2)/6;
+    else hh = ((r-b)/d+4)/6;
+  }
+  return [Math.round(hh*360), Math.round(s*100), Math.round(l*100)];
+}
+
+function hslToHex(h,s,l) {
+  s/=100; l/=100;
+  const a = s*Math.min(l,1-l);
+  const f = n => {
+    const k = (n+h/30)%12;
+    return l - a*Math.max(Math.min(k-3,9-k,1),-1);
+  };
+  const toHex = x => Math.round(255*f(x)).toString(16).padStart(2,'0');
+  return '#'+toHex(0)+toHex(8)+toHex(4);
+}
+
+function adjust(h,s,l, dh, ds, dl) {
+  return hslToHex(
+    ((h+dh)%360+360)%360,
+    Math.max(0,Math.min(100,s+ds)),
+    Math.max(0,Math.min(100,l+dl))
+  );
+}
+
+function copyHex(val) {
+  navigator.clipboard.writeText(val);
+  bigSwatch.style.background = val;
+  bigHex.textContent = val;
+  modal.classList.add('show');
+}
+
+function generate(base) {
+  const [h,s,l] = hexToHsl(base);
+  colorPicker.value = base;
+  const schemes = [
+    {
+      title: '互补色',
+      items: [
+        { hex: base, desc: '主色' },
+        { hex: adjust(h,s,l,180,0,0), desc: '互补色' },
+        { hex: adjust(h,s,l,180,0,10), desc: '互补浅色' },
+        { hex: adjust(h,s,l,180,0,-10), desc: '互补深色' },
+      ]
+    },
+    {
+      title: '邻近色',
+      items: [
+        { hex: adjust(h,s,l,-60,0,0), desc: '左邻色' },
+        { hex: adjust(h,s,l,-30,0,0), desc: '邻近色' },
+        { hex: base, desc: '主色' },
+        { hex: adjust(h,s,l,30,0,0), desc: '邻近色' },
+        { hex: adjust(h,s,l,60,0,0), desc: '右邻色' },
+      ]
+    },
+    {
+      title: '三角色',
+      items: [
+        { hex: base, desc: '主色' },
+        { hex: adjust(h,s,l,120,0,0), desc: '三角色' },
+        { hex: adjust(h,s,l,240,0,0), desc: '三角色' },
+        { hex: adjust(h,s,l,120,0,10), desc: '三角浅色' },
+        { hex: adjust(h,s,l,240,0,-10), desc: '三角深色' },
+      ]
+    },
+    {
+      title: '单色渐变',
+      items: [
+        { hex: adjust(h,s,l,0,0,40), desc: '最浅' },
+        { hex: adjust(h,s,l,0,0,20), desc: '浅色' },
+        { hex: base, desc: '主色' },
+        { hex: adjust(h,s,l,0,0,-20), desc: '深色' },
+        { hex: adjust(h,s,l,0,0,-40), desc: '最深' },
+      ]
+    },
+  ];
+
+  let html = '';
+  for (const s of schemes) {
+    html += `<div class="scheme"><div class="scheme-title">${s.title}</div><div class="swatches">`;
+    for (const c of s.items) {
+      const isLight = hexToHsl(c.hex)[2] > 70;
+      html += `<div class="swatch" onclick="copyHex('${c.hex}')">
+        <div class="swatch-color" style="background:${c.hex}"></div>
+        <div class="swatch-info">
+          <div class="hex">${c.hex}</div>
+          <div class="desc">${c.desc}</div>
+        </div>
+      </div>`;
+    }
+    html += `</div></div>`;
+  }
+  output.innerHTML = html;
+}
+
+function updateFromHex() {
+  let val = hexInput.value.trim();
+  if (val === '') val = '#615ced';
+  if (val[0] !== '#') val = '#' + val;
+  if (!/^#[0-9a-f]{6}$/i.test(val)) {
+    hexInput.style.borderColor = '#ff7b72';
+    setTimeout(() => hexInput.style.borderColor = '', 1000);
+    return;
+  }
+  hexInput.style.borderColor = '';
+  hexInput.value = val.toUpperCase();
+  generate(val);
+}
+
+function updateFromPicker() {
+  hexInput.value = colorPicker.value.toUpperCase();
+  generate(colorPicker.value);
+}
+
+// Init
+updateFromHex();
+</script>
+</body>
+</html>
