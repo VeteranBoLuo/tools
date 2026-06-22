@@ -189,9 +189,14 @@ function build(base) {
   const comp = [
     adjust(h,s,l,0,0,0),
     adjust(h,s,l,180,0,0),
-    adjust(h,s,l,180,10,10),
+    adjust(h,s,l,180,15,15),
     adjust(h,s,l,0,-10,-10),
-    adjust(h,s,l,180,0,-15),
+    adjust(h,s,l,180,0,-20),
+    adjust(h,s,l,0,10,10),
+    adjust(h,s,l,180,-5,5),
+    adjust(h,s,l,0,-20,-20),
+    adjust(h,s,l,180,5,-10),
+    adjust(h,s,l,0,0,15),
   ];
 
   // Scheme 2: Triadic palette (bar)
@@ -199,26 +204,41 @@ function build(base) {
     adjust(h,s,l,0,0,0),
     adjust(h,s,l,120,0,0),
     adjust(h,s,l,240,0,0),
-    adjust(h,s,l,120,5,10),
-    adjust(h,s,l,240,-5,-10),
+    adjust(h,s,l,120,10,10),
+    adjust(h,s,l,240,-10,-10),
+    adjust(h,s,l,0,10,10),
+    adjust(h,s,l,120,-5,15),
+    adjust(h,s,l,240,5,-5),
+    adjust(h,s,l,0,-15,-10),
+    adjust(h,s,l,120,0,20),
   ];
 
   // Scheme 3: Analogous palette (bar) 
   const ana = [
-    adjust(h,s,l,-45,0,0),
-    adjust(h,s,l,-22,0,0),
+    adjust(h,s,l,-50,0,0),
+    adjust(h,s,l,-35,0,0),
+    adjust(h,s,l,-18,0,0),
     adjust(h,s,l,0,0,0),
-    adjust(h,s,l,22,0,0),
-    adjust(h,s,l,45,0,0),
+    adjust(h,s,l,18,0,0),
+    adjust(h,s,l,35,0,0),
+    adjust(h,s,l,50,0,0),
+    adjust(h,s,l,-18,5,10),
+    adjust(h,s,l,18,5,10),
+    adjust(h,s,l,0,0,-10),
   ];
 
   // Scheme 4: Monochrome gradient (bar)
   const mono = [
-    adjust(h,s,l,0,0,45),
-    adjust(h,s,l,0,0,25),
+    adjust(h,s,l,0,0,50),
+    adjust(h,s,l,0,0,40),
+    adjust(h,s,l,0,0,28),
+    adjust(h,s,l,0,0,15),
     adjust(h,s,l,0,0,0),
-    adjust(h,s,l,0,-15,-15),
-    adjust(h,s,l,0,-25,-30),
+    adjust(h,s,l,0,-10,-10),
+    adjust(h,s,l,0,-20,-20),
+    adjust(h,s,l,0,-15,5),
+    adjust(h,s,l,0,5,10),
+    adjust(h,s,l,0,-30,-30),
   ];
 
   // Scheme 5: Sunset/creative gradient
@@ -226,17 +246,27 @@ function build(base) {
     base,
     adjust(h,s,l,30,15,5),
     adjust(h,s,l,60,20,-10),
+    adjust(h,s,l,90,10,5),
     adjust(h,s,l,180,-10,10),
+    adjust(h,s,l,225,-5,15),
     adjust(h,s,l,270,-5,-5),
+    adjust(h,s,l,300,5,10),
+    adjust(h,s,l,330,10,-5),
+    adjust(h,s,l,45,5,15),
   ];
 
   // Scheme 6: Vibrant multi-color
   const vibrant = [
     base,
-    adjust(h,s,l,60,20,10),
-    adjust(h,s,l,120,10,-5),
-    adjust(h,s,l,240,5,5),
-    adjust(h,s,l,300,15,-10),
+    adjust(h,s,l,36,20,10),
+    adjust(h,s,l,72,15,-5),
+    adjust(h,s,l,108,10,-10),
+    adjust(h,s,l,144,5,5),
+    adjust(h,s,l,180,0,0),
+    adjust(h,s,l,216,-5,-5),
+    adjust(h,s,l,252,-10,0),
+    adjust(h,s,l,288,5,5),
+    adjust(h,s,l,324,10,10),
   ];
 
   // Scheme 7: Split complementary
@@ -244,8 +274,13 @@ function build(base) {
     adjust(h,s,l,0,0,0),
     adjust(h,s,l,150,0,0),
     adjust(h,s,l,210,0,0),
-    adjust(h,s,l,150,5,10),
-    adjust(h,s,l,210,-5,-10),
+    adjust(h,s,l,150,10,10),
+    adjust(h,s,l,210,-10,-10),
+    adjust(h,s,l,0,10,10),
+    adjust(h,s,l,150,-5,15),
+    adjust(h,s,l,210,5,-5),
+    adjust(h,s,l,0,-15,-15),
+    adjust(h,s,l,150,0,20),
   ];
 
   // Scheme 8: Tetradic (rectangle)
@@ -254,25 +289,40 @@ function build(base) {
     adjust(h,s,l,60,0,0),
     adjust(h,s,l,180,0,0),
     adjust(h,s,l,240,0,0),
-    adjust(h,s,l,60,10,10),
+    adjust(h,s,l,60,15,10),
+    adjust(h,s,l,240,-10,-10),
+    adjust(h,s,l,0,10,5),
+    adjust(h,s,l,180,-5,-5),
+    adjust(h,s,l,60,-5,15),
+    adjust(h,s,l,240,10,5),
   ];
 
   // Scheme 9: Pastel / soft
   const pastel = [
-    adjust(h,s,l,0,-20,35),
-    adjust(h,s,l,60,-25,32),
-    adjust(h,s,l,180,-20,35),
-    adjust(h,s,l,240,-15,30),
-    adjust(h,s,l,300,-20,33),
+    adjust(h,s,l,0,-20,40),
+    adjust(h,s,l,50,-25,35),
+    adjust(h,s,l,120,-20,38),
+    adjust(h,s,l,180,-15,35),
+    adjust(h,s,l,240,-15,33),
+    adjust(h,s,l,300,-20,36),
+    adjust(h,s,l,30,-10,30),
+    adjust(h,s,l,200,-10,28),
+    adjust(h,s,l,150,-15,30),
+    adjust(h,s,l,330,-10,28),
   ];
 
   // Scheme 10: Dark theme palette
   const dark = [
-    adjust(h,s,l,0,0,-40),
-    adjust(h,s,l,0,0,-25),
+    adjust(h,s,l,0,0,-45),
+    adjust(h,s,l,0,0,-30),
+    adjust(h,s,l,0,0,-15),
     adjust(h,s,l,0,0,0),
     adjust(h,s,l,45,10,5),
     adjust(h,s,l,180,-5,10),
+    adjust(h,s,l,0,-5,-5),
+    adjust(h,s,l,90,5,0),
+    adjust(h,s,l,270,0,5),
+    adjust(h,s,l,0,5,10),
   ];
 
   // Gradient for hero
@@ -294,7 +344,8 @@ function build(base) {
 
   // Helper to make gradient bar with color details below
   const bar = (colors, label, descriptions) => {
-    const stops = colors.map((c,i) => `${c} ${i*25}%`).join(', ');
+    const n = colors.length;
+    const stops = colors.map((c,i) => `${c} ${Math.round(i/(n-1||1)*100)}%`).join(', ');
     const gradCSS = `linear-gradient(90deg, ${stops})`;
     const dots = colors.map(c => `
       <div class="swatch" style="background:${c}" onclick="copyText('${c}')">
@@ -322,14 +373,14 @@ function build(base) {
   };
 
   schemes.innerHTML = [
-    bar(comp, '互补色 · Complementary', ['主色','互补色','互补浅色','深色','最深']),
-    bar(splitComp, '分裂互补 · Split Complementary', ['主色','分裂色','分裂色','浅色','深色']),
-    bar(tri, '三角色 · Triadic', ['主色','三角色','三角色','浅色','深色']),
-    bar(tetra, '矩形色 · Tetradic', ['主色','第二色','第三色','第四色','浅色']),
-    bar(ana, '邻近色 · Analogous', ['左邻色','邻近色','主色','邻近色','右邻色']),
-    dotsScheme(mono, '单色渐变 · Monochromatic', ['最浅','浅色','主色','深色','最深']),
-    dotsScheme(pastel, '柔和色调 · Pastel', ['粉色','暖色','冷色','紫色','珊瑚']),
-    dotsScheme(dark, '深色模式 · Dark Mode', ['背景色','暗色','主色','强调色','高亮色']),
+    bar(comp, '互补色 · Complementary', ['主色','互补色','互补浅色','主色深色','互补深色','主色亮色','互补柔色','主色最深','互补暗色','主色浅色']),
+    bar(splitComp, '分裂互补 · Split Complementary', ['主色','分裂色','分裂色','浅色','深色','亮色','柔和色','暗色','最深','浅亮']),
+    bar(tri, '三角色 · Triadic', ['主色','三角色','三角色','第一浅色','第一深色','主色亮色','第二浅色','第二深色','主色暗色','第三浅色']),
+    bar(tetra, '矩形色 · Tetradic', ['主色','第二色','第三色','第四色','第二浅色','第四深色','主色亮色','第三暗色','第二柔和','第四亮色']),
+    bar(ana, '邻近色 · Analogous', ['左邻','偏左','邻近','主色','邻近','偏右','右邻','邻近浅色','邻近浅色','主色深色']),
+    dotsScheme(mono, '单色渐变 · Monochromatic', ['极浅','很浅','浅色','中浅','主色','暗色','深色','中亮','浅亮','最深']),
+    dotsScheme(pastel, '柔和色调 · Pastel', ['粉色','暖黄','薄荷','天蓝','淡紫','珊瑚','奶油','淡青','草绿','玫瑰']),
+    dotsScheme(dark, '深色模式 · Dark Mode', ['背景色','卡片色','次暗色','主色','强调色','高亮色','边框色','辅助色','点缀色','文字色']),
     `<div class="scheme"><div class="scheme-header"><h3>创意渐变 · Creative</h3></div><div class="color-dots">${[
       [sunset,'日落·Sunset'],
       [vibrant,'活力·Vibrant'],
