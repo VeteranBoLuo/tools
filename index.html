@@ -476,6 +476,25 @@
     </div>
   </article>
 
+  <!-- read -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#00a88422">📖</div>
+    <h2>read <span style="font-size:14px;font-weight:400;color:#6e7681">· 正文提取</span></h2>
+    <p class="desc">提取任意网页的干净正文。去广告、去导航、去侧栏，只留文章正文。支持纯文本格式。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/read/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="read-input" placeholder="https://example.com/article" value="https://www.ruanyifeng.com/blog/2025/04/weekly-issue-345.html">
+      <button onclick="preview('read')">提取</button>
+    </div>
+    <div class="preview" style="margin-top:16px;min-height:112px;padding:8px 16px;overflow:auto">
+      <code id="read-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击提取</code>
+    </div>
+  </article>
+
 </div>
 
 <div class="category-label">CLI 工具</div>
@@ -732,7 +751,10 @@ $ npx git-heat</code></pre>
         const res = await fetch(BASE + '/security/?url=' + encodeURIComponent(val));
         const data = await res.json();
         if (data.error) { code.textContent = '❌ ' + data.error; return; }
-        let text = '安全评分: ' + data.score + '/100  (' + data.passed + '/' + data.total + ' 项通过)\n';
+        // Count actual headers present/total
+        const present = Object.values(data.security).filter(v => v.present).length;
+        const total = Object.keys(data.security).length;
+        let text = '安全评分: ' + data.score + '/100  (' + present + '/' + total + ' 项通过)\n';
         for (const [k, v] of Object.entries(data.security)) {
           text += (v.present ? '✅ ' : '❌ ') + v.label;
           if (v.value) text += ': ' + (v.value.length > 60 ? v.value.slice(0,60)+'...' : v.value);
@@ -746,6 +768,25 @@ $ npx git-heat</code></pre>
         }
         code.textContent = text;
       } catch { code.textContent = '❌ 检测失败'; }
+      return;
+    }
+
+    if (tool === 'read') {
+      const code = document.getElementById('read-preview');
+      code.textContent = '提取中...';
+      try {
+        const res = await fetch(BASE + '/read/?url=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = (data.title || '(无标题)') + '\n'
+          + (data.siteName ? '来源: ' + data.siteName + '\n' : '')
+          + (data.byline ? '作者: ' + data.byline + '\n' : '')
+          + (data.excerpt ? '摘要: ' + (data.excerpt.length > 100 ? data.excerpt.slice(0,100)+'...' : data.excerpt) + '\n' : '')
+          + '正文长度: ' + (data.length || 0) + ' 字\n'
+          + '---\n'
+          + (data.textContent ? data.textContent.slice(0,500) + '...' : '');
+        code.textContent = text;
+      } catch { code.textContent = '❌ 提取失败'; }
       return;
     }
 
