@@ -190,14 +190,6 @@
     border-top: 1px solid var(--border);
   }
   .footer a { color: var(--accent); text-decoration: none; }
-  .section-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--muted);
-    margin: 48px 0 -8px;
-    max-width: 1200px;
-    padding: 0 32px;
-  }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -219,12 +211,9 @@
   <div class="api-line">https://boluo66.top/<strong style="color:#fff">{工具}</strong>/?{参数}&nbsp;&nbsp;│&nbsp;&nbsp;npx <strong style="color:#fff">git-heat</strong></div>
 </section>
 
-
 <section class="tools">
 
-<h3 class="section-title">🖼 URL 类 — 改参数返回图片</h3>
-<div class="tools">
-<!-- favimg -->
+  <!-- favimg -->
   <article class="tool-card">
     <div class="tool-icon" style="background:#615ced22">🖼</div>
     <h2>favimg <span style="font-size:14px;font-weight:400;color:#6e7681">· 图标获取</span></h2>
@@ -242,7 +231,7 @@
     </div>
   </article>
 
-<!-- qr -->
+  <!-- qr -->
   <article class="tool-card">
     <div class="tool-icon" style="background:#00a88422">📱</div>
     <h2>qr <span style="font-size:14px;font-weight:400;color:#6e7681">· 二维码</span></h2>
@@ -260,7 +249,7 @@
     </div>
   </article>
 
-<!-- og -->
+  <!-- og -->
   <article class="tool-card">
     <div class="tool-icon" style="background:#ec489922">📋</div>
     <h2>og <span style="font-size:14px;font-weight:400;color:#6e7681">· 分享卡片</span></h2>
@@ -277,83 +266,7 @@
       <img id="og-preview" src="" alt="">
     </div>
   </article>
-<!-- gradient -->
-  <article class="tool-card">
-    <div class="tool-icon" style="background:#ff8a0022">🌅</div>
-    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
-    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
-    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
-    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
-    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
-  </article>
 
-</div>
-
-<h3 class="section-title">🧰 Web 工具 — 打开即用</h3>
-<div class="tools">
-<!-- code-preview -->
-  <article class="tool-card">
-    <div class="tool-icon" style="background:#d2991d22">🖼</div>
-    <h2>code-preview <span style="font-size:14px;font-weight:400;color:#6e7681">· 代码截图</span></h2>
-    <p class="desc">粘贴代码，一键导出精美截图。12 种语言语法高亮，深色主题。</p>
-    <div class="mini-heat" style="background:#1a1b26;border-radius:8px;padding:8px 12px;margin:12px 0;overflow:hidden">
-      <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px">
-        <span style="width:8px;height:8px;border-radius:50%;background:#ff5f56"></span>
-        <span style="width:8px;height:8px;border-radius:50%;background:#ffbd2e"></span>
-        <span style="width:8px;height:8px;border-radius:50%;background:#27c93f"></span>
-        <span style="font-size:9px;color:#6e7681;margin-left:auto">JAVASCRIPT</span>
-      </div>
-      <pre style="font-family:'SF Mono',monospace;font-size:11px;line-height:1.5;color:#c9d1d9;margin:0"><span style="color:#ff7b72">const</span> <span style="color:#d2a8ff">hello</span> = <span style="color:#ff7b72">async</span> (<span style="color:#79c0ff">name</span>) => {
-  <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">\`你好, \${name}!\`</span>;
-};</pre>
-    </div>
-    <a href="/toolkit/code-preview.html" class="tool-link">打开工具 →</a>
-  </article>
-
-<!-- timestamp -->
-  <article class="tool-card">
-    <div class="tool-icon" style="background:#3fb95022">⏱</div>
-    <h2>timestamp <span style="font-size:14px;font-weight:400;color:#6e7681">· 时间戳转换</span></h2>
-    <p class="desc">Unix 时间戳 ↔ 日期互转。支持秒/毫秒，显示相对时间。</p>
-    <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
-      <div style="font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.7">
-        <div style="color:#484f58;margin-bottom:6px">时间戳</div>
-        <div style="color:#79c0ff">1750000000</div>
-        <div style="color:#484f58;margin:4px 0 4px">日期</div>
-        <div style="color:#a5d6ff">2025-06-15 09:46:40</div>
-        <div style="color:#6e7681;font-size:10px">≈ 2 个月前</div>
-      </div>
-    </div>
-    <a href="/toolkit/timestamp.html" class="tool-link">打开工具 →</a>
-  </article>
-
-<!-- palette -->
-  <article class="tool-card">
-    <div class="tool-icon" style="background:#ec489922">🎨</div>
-    <h2>palette <span style="font-size:14px;font-weight:400;color:#6e7681">· 配色生成</span></h2>
-    <p class="desc">输入一个主色，自动生成互补、三角、邻近等 8 种配色方案。</p>
-    <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
-      <div style="display:flex;border-radius:6px;overflow:hidden;height:20px;margin-bottom:8px">
-        <div style="flex:1;background:#615ced"></div>
-        <div style="flex:1;background:#ed5c74"></div>
-        <div style="flex:1;background:#00a884"></div>
-        <div style="flex:1;background:#ec4899"></div>
-        <div style="flex:1;background:#ff8a00"></div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#79c0ff">#615CED</span>
-        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#ED5C74</span>
-        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#00A884</span>
-        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#EC4899</span>
-        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#FF8A00</span>
-      </div>
-    </div>
-    <a href="/toolkit/palette.html" class="tool-link">打开工具 →</a>
-  </article>
-</div>
-
-<h3 class="section-title">🔧 CLI — 一行命令</h3>
-<div class="tools">
 <!-- git-heat -->
 <article class="tool-card">
   <div class="tool-icon" style="background:#ff8a0022">🔥</div>
@@ -387,7 +300,10 @@ $ npx git-heat</code></pre>
   <p style="margin-top:12px;font-size:13px;color:#6e7681">⚠️ 需要在本地 Git 仓库目录下运行</p>
   <a href="/toolkit/git-heat-demo.html" class="tool-link">查看演示 →</a>
 </article>
-</div>
+
+  <!-- code-preview -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#d2991d22">🖼</div>
     <h2>code-preview <span style="font-size:14px;font-weight:400;color:#6e7681">· 代码截图</span></h2>
     <p class="desc">粘贴代码，一键导出精美截图。12 种语言语法高亮，深色主题。</p>
     <div class="mini-heat" style="background:#1a1b26;border-radius:8px;padding:8px 12px;margin:12px 0;overflow:hidden">
@@ -404,7 +320,58 @@ $ npx git-heat</code></pre>
     <a href="/toolkit/code-preview.html" class="tool-link">打开工具 →</a>
   </article>
 
-<!-- diff -->
+  <!-- timestamp -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#3fb95022">⏱</div>
+    <h2>timestamp <span style="font-size:14px;font-weight:400;color:#6e7681">· 时间戳转换</span></h2>
+    <p class="desc">Unix 时间戳 ↔ 日期互转。支持秒/毫秒，显示相对时间。</p>
+    <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+      <div style="font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.7">
+        <div style="color:#484f58;margin-bottom:6px">时间戳</div>
+        <div style="color:#79c0ff">1750000000</div>
+        <div style="color:#484f58;margin:4px 0 4px">日期</div>
+        <div style="color:#a5d6ff">2025-06-15 09:46:40</div>
+        <div style="color:#6e7681;font-size:10px">≈ 2 个月前</div>
+      </div>
+    </div>
+    <a href="/toolkit/timestamp.html" class="tool-link">打开工具 →</a>
+  </article>
+
+  <!-- gradient -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#ff8a0022">🌅</div>
+    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
+    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
+    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
+    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
+    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
+  </article>
+
+  <!-- palette -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#ec489922">🎨</div>
+    <h2>palette <span style="font-size:14px;font-weight:400;color:#6e7681">· 配色生成</span></h2>
+    <p class="desc">输入一个主色，自动生成互补、三角、邻近等 8 种配色方案。</p>
+    <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+      <div style="display:flex;border-radius:6px;overflow:hidden;height:20px;margin-bottom:8px">
+        <div style="flex:1;background:#615ced"></div>
+        <div style="flex:1;background:#ed5c74"></div>
+        <div style="flex:1;background:#00a884"></div>
+        <div style="flex:1;background:#ec4899"></div>
+        <div style="flex:1;background:#ff8a00"></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#79c0ff">#615CED</span>
+        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#ED5C74</span>
+        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#00A884</span>
+        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#EC4899</span>
+        <span style="font-size:10px;font-family:'SF Mono',monospace;color:#6e7681">#FF8A00</span>
+      </div>
+    </div>
+    <a href="/toolkit/palette.html" class="tool-link">打开工具 →</a>
+  </article>
+
+  <!-- diff -->
   <article class="tool-card">
     <div class="tool-icon" style="background:#a371f722">📑</div>
     <h2>diff <span style="font-size:14px;font-weight:400;color:#6e7681">· 文本对比</span></h2>
@@ -417,8 +384,6 @@ $ npx git-heat</code></pre>
     </div>
     <a href="/toolkit/diff.html" class="tool-link">打开工具 →</a>
   </article>
-
-</div>
 
 </section>
 
