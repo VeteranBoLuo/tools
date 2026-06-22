@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient — 渐变生成 API</title>
+<link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
+<style>
+:root { --bg: #0d0d12; --card: #14141c; --border: rgb(255 255 255 / .06); --text: #c4c4cc; --muted: #6b6b78; --accent: #615ced; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; }
+header { text-align: center; margin-bottom: 40px; }
+header h1 { font-size: 28px; font-weight: 800; }
+header span { font-size: 14px; color: var(--muted); }
+header a { color: var(--muted); font-size: 13px; text-decoration: none; display: block; margin-top: 12px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; max-width: 600px; width: 100%; margin-bottom: 16px; }
+.card h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+.card h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--muted); }
+.params { width: 100%; border-collapse: collapse; font-size: 13px; }
+.params th { text-align: left; color: var(--muted); font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--border); }
+.params td { padding: 8px 12px 8px 0; border-bottom: 1px solid var(--border); font-family: 'SF Mono', monospace; font-size: 13px; }
+.params td:first-child { color: #79c0ff; }
+.params td:nth-child(2) { color: var(--text); font-family: inherit; }
+.params td:last-child { color: var(--muted); font-family: inherit; }
+.params tr:last-child td { border-bottom: 0; }
+.example-preview { margin: 12px 0; border-radius: 8px; overflow: hidden; }
+code.url { background: rgba(255,255,255,.04); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #79c0ff; word-break: break-all; }
+pre { background: #0d0d12; border: 1px solid var(--border); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+pre code { font-family: 'SF Mono', 'Fira Code', monospace; color: #c9d1d9; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Gradient <span>· 渐变生成</span></h1>
+  <a href="/toolkit/">← 工具箱</a>
+</header>
+
+<div class="card">
+  <h2>📖 用法</h2>
+  <p style="font-size:14px;line-height:1.6">
+    一个 URL 返回一张渐变色 SVG 图片。改参数就能换颜色、尺寸、角度。
+    浏览器直接打开就能看到，放在 <code class="url">&lt;img&gt;</code> 里当占位图也行。
+  </p>
+</div>
+
+<div class="card">
+  <h2>参数</h2>
+  <table class="params">
+    <tr><th>参数</th><th>说明</th><th>默认</th></tr>
+    <tr><td>from</td><td>起始颜色</td><td>#615ced</td></tr>
+    <tr><td>to</td><td>结束颜色</td><td>#00a884</td></tr>
+    <tr><td>w</td><td>宽度（px）</td><td>1920</td></tr>
+    <tr><td>h</td><td>高度（px）</td><td>1080</td></tr>
+    <tr><td>angle</td><td>渐变角度</td><td>135</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🎨 示例</h2>
+
+  <h3>紫色到绿色</h3>
+  <code class="url">https://boluo66.top/gradient/?from=%23615ced&to=%2300a884&w=600&h=200</code>
+  <div class="example-preview" style="height:80px;background:linear-gradient(135deg,#615ced,#00a884);border-radius:8px"></div>
+
+  <h3 style="margin-top:16px">品牌色到橙</h3>
+  <code class="url">https://boluo66.top/gradient/?from=%23615ced&to=%23ff8a00&w=600&h=200</code>
+  <div class="example-preview" style="height:80px;background:linear-gradient(135deg,#615ced,#ff8a00);border-radius:8px"></div>
+
+  <h3 style="margin-top:16px">横向渐变桌面壁纸</h3>
+  <code class="url">https://boluo66.top/gradient/?from=%230d1117&to=%23615ced&w=1920&h=1080&angle=0</code>
+</div>
+
+<div class="card">
+  <h2>🖼 HTML 中使用</h2>
+  <pre><code>&lt;img src="https://boluo66.top/gradient/?from=#615ced&to=#00a884&w=800&h=200" alt="背景"&gt;</code></pre>
+</div>
+
+<div class="card">
+  <h2>🛠 CSS 中使用</h2>
+  <pre><code>background: url(https://boluo66.top/gradient/?from=#0d1117&to=#615ced&w=1920&h=600) center/cover;</code></pre>
+</div>
+
+</body>
+</html>
