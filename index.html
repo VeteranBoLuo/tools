@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>工具箱 — 开发者日常工具集合</title>
-<link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工具箱 — 开发者日常工具集合</title>
+  <meta name="description" content="免费在线开发者工具箱：图标获取、二维码生成、OG 分享卡片、IP 地理位置、UUID 生成、网站监测、GitHub 年度报告、代码截图、时间戳转换、渐变生成、配色方案、文本对比。一行 URL 完成。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://boluo66.top/toolkit/">
+  <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://boluo66.top/toolkit/">
+  <meta property="og:title" content="工具箱 — 开发者日常工具集合">
+  <meta property="og:description" content="免费在线开发者工具箱：图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变配色、文本对比等。一行 URL，即开即用。">
+  <meta property="og:image" content="https://boluo66.top/favimg/?url=boluo66.top&size=256">
+  <meta property="og:site_name" content="开发者工具箱">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="工具箱 — 开发者日常工具集合">
+  <meta name="twitter:description" content="免费在线开发者工具箱。图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变色、配色方案、文本对比等。">
+  <meta name="twitter:image" content="https://boluo66.top/favimg/?url=boluo66.top&size=256">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "开发者工具箱",
+    "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、GitHub 年度报告、代码截图、时间戳转换、配色方案、文本对比。",
+    "url": "https://boluo66.top/toolkit/",
+    "numberOfItems": 12,
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":2,"name":"qr · 二维码","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":3,"name":"og · 分享卡片","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":4,"name":"gradient · 渐变生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":5,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":6,"name":"uuid · UUID 生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":7,"name":"uptime · 网站监测","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":8,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":9,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":10,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":11,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":12,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"}
+    ]
+  }
+  </script>
+  <style>
   :root {
     --bg: #0d0d12;
     --card: #14141c;
@@ -25,7 +65,7 @@
 
   /* Hero */
   .hero {
-    padding: 100px 32px 60px;
+    padding: 100px 64px 60px;
     text-align: center;
     background: linear-gradient(180deg, #1a1740 0%, var(--bg) 100%);
   }
@@ -56,15 +96,36 @@
     border-radius: 8px;
   }
 
-  /* Tools grid */
+  /* Tools section */
   .tools {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 32px 80px;
+    padding: 0 64px 80px;
   }
+  .category-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0 24px;
+    padding: 0 64px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b6b78;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .category-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgb(255 255 255 / .06);
+  }
+  .category-label:first-child {
+    margin-top: 0;
+  }
+  .category-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+     gap: 24px;
+   }
   .tool-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -73,6 +134,7 @@
     transition: border-color .2s;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .tool-card:hover {
     border-color: rgb(255 255 255 / .12);
@@ -82,6 +144,19 @@
     color: #58a6ff;
     font-size: 14px;
     text-decoration: none;
+  }
+  .tool-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgb(255 255 255 / .04);
+    color: #484f58;
   }
   .tool-icon {
     width: 48px;
@@ -139,6 +214,7 @@
     display: flex;
     gap: 8px;
     margin-top: 16px;
+    flex-wrap: wrap;
   }
   .demo-row input {
     flex: 1;
@@ -203,18 +279,22 @@
 <body>
 
 <section class="hero" style="position:relative">
-  <a href="https://github.com/VeteranBoLuo/tools" target="_blank" style="position:absolute;top:8px;right:16px;color:#6b6b78;text-decoration:none;display:flex;align-items:center;gap:6px">
-    <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  <a href="https://github.com/VeteranBoLuo/tools" target="_blank" style="position:absolute;top:12px;right:24px;color:#8b8b98;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s" onmouseover="this.style.color='#c4c4cc'" onmouseout="this.style.color='#8b8b98'">
+    <svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
   </a>
   <h1>开发者工具箱</h1>
-  <p>API 零配置调用，CLI 一行命令出图。</p>
-  <div class="api-line">https://boluo66.top/<strong style="color:#fff">{工具}</strong>/?{参数}&nbsp;&nbsp;│&nbsp;&nbsp;npx <strong style="color:#fff">git-heat</strong></div>
+  <p>零配置 API · 即开即用 Web 工具 · CLI 一行命令</p>
+  <div class="api-line">https://boluo66.top/<strong style="color:#fff">{工具}</strong>/?{参数}</div>
 </section>
 
 <section class="tools">
 
+  <div class="category-label">API 工具</div>
+  <div class="category-grid">
+
   <!-- favimg -->
   <article class="tool-card">
+    <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#615ced22">🖼</div>
     <h2>favimg <span style="font-size:14px;font-weight:400;color:#6e7681">· 图标获取</span></h2>
     <p class="desc">一行 URL，一张图标。自动提取任意网站的 favicon。可选 <code>?size=64</code> 指定尺寸。</p>
@@ -233,6 +313,7 @@
 
   <!-- qr -->
   <article class="tool-card">
+    <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#00a88422">📱</div>
     <h2>qr <span style="font-size:14px;font-weight:400;color:#6e7681">· 二维码</span></h2>
     <p class="desc">一行 URL，一张二维码。任意内容，扫码直达。</p>
@@ -245,12 +326,13 @@
       <button onclick="preview('qr')">预览</button>
     </div>
     <div class="preview" style="margin-top:16px">
-      <img id="qr-preview" src="" alt="">
+      <img id="qr-preview" src="" alt="" style="max-width:180px;margin:0 auto">
     </div>
   </article>
 
   <!-- og -->
   <article class="tool-card">
+    <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#ec489922">📋</div>
     <h2>og <span style="font-size:14px;font-weight:400;color:#6e7681">· 分享卡片</span></h2>
     <p class="desc">一行 URL，一张分享卡片。自动提取标题和描述。</p>
@@ -267,9 +349,141 @@
     </div>
   </article>
 
+  <!-- gradient -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
+    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
+    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
+    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
+    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
+  </article>
+
+  <!-- ip -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#3fb95022">🌐</div>
+    <h2>ip <span style="font-size:14px;font-weight:400;color:#6e7681">· 地理位置</span></h2>
+    <p class="desc">IP 位置查询。输入 IP，返回国家、城市、ISP、ASN 信息。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/ip/?ip=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="ip-input" placeholder="8.8.8.8" value="8.8.8.8">
+      <button onclick="preview('ip')">查询</button>
+    </div>
+    <div class="preview" style="margin-top:16px;min-height:48px;padding:8px 16px;overflow-x:auto">
+      <code id="ip-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+    </div>
+  </article>
+
+  <!-- uuid -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#a371f722">🔑</div>
+    <h2>uuid <span style="font-size:14px;font-weight:400;color:#6e7681">· UUID 生成</span></h2>
+    <p class="desc">生成 UUID v4。指定数量，批量生成。支持 JSON 和纯文本格式。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/uuid/?count=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="uuid-input" placeholder="数量" value="3" style="width:80px;flex:none">
+      <button onclick="preview('uuid')">生成</button>
+    </div>
+    <div class="preview" style="margin-top:16px;max-height:120px;padding:8px 16px;overflow:auto">
+      <code id="uuid-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击生成</code>
+    </div>
+  </article>
+
+  <!-- uptime -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#d2991d22">📡</div>
+    <h2>uptime <span style="font-size:14px;font-weight:400;color:#6e7681">· 网站监测</span></h2>
+    <p class="desc">检测网站状态：状态码、响应时间、IP、服务器头、SSL 证书到期日。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/uptime/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="uptime-input" placeholder="https://example.com" value="https://github.com">
+      <button onclick="preview('uptime')">检测</button>
+    </div>
+    <div class="preview" style="margin-top:16px;min-height:112px;padding:8px 16px;overflow:auto">
+      <code id="uptime-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+    </div>
+  </article>
+
+  <!-- metadata -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#615ced22">📋</div>
+    <h2>metadata <span style="font-size:14px;font-weight:400;color:#6e7681">· 元数据提取</span></h2>
+    <p class="desc">提取任意网页元数据：title、description、OG 标签、favicon、所有 link 链接、h1-h3 标题结构。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/metadata/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="metadata-input" placeholder="https://example.com" value="https://www.zhihu.com">
+      <button onclick="preview('metadata')">提取</button>
+    </div>
+    <div class="preview" style="margin-top:16px;min-height:64px;padding:8px 16px;overflow:auto">
+      <code id="metadata-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击提取</code>
+    </div>
+  </article>
+
+  <!-- dns -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#ff8a0022">🌐</div>
+    <h2>dns <span style="font-size:14px;font-weight:400;color:#6e7681">· DNS 查询</span></h2>
+    <p class="desc">DNS 记录查询。支持 A、AAAA、MX、NS、TXT、CNAME、SOA、SRV、PTR、CAA 十种记录类型。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/dns/?domain=xxx&type=A</code>
+    </div>
+    <div class="demo-row">
+      <select id="dns-type" style="height:40px;padding:0 8px;background:#0d0d12;border:1px solid var(--border);border-radius:8px;color:#fff;font-size:13px;outline:none;flex:none">
+        <option>A</option><option>AAAA</option><option>MX</option><option selected>NS</option><option>TXT</option><option>CNAME</option>
+      </select>
+      <input id="dns-input" placeholder="example.com" value="github.com" style="flex:1">
+      <button onclick="preview('dns')">查询</button>
+    </div>
+    <div class="preview" style="margin-top:16px;min-height:64px;padding:8px 16px;overflow:auto">
+      <code id="dns-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+    </div>
+  </article>
+
+  <!-- security -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#3fb95022">🛡️</div>
+    <h2>security <span style="font-size:14px;font-weight:400;color:#6e7681">· 安全检测</span></h2>
+    <p class="desc">检测网站安全头：HSTS、CSP、X-Frame-Options、X-Content-Type-Options 等，逐项评分。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/security/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="security-input" placeholder="https://example.com" value="https://github.com">
+      <button onclick="preview('security')">检测</button>
+    </div>
+    <div class="preview" style="margin-top:16px;min-height:112px;padding:8px 16px;overflow:auto">
+      <code id="security-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+    </div>
+  </article>
+
+</div>
+
+<div class="category-label">CLI 工具</div>
+<div class="category-grid">
+
 <!-- git-heat -->
 <article class="tool-card">
-  <div class="tool-icon" style="background:#ff8a0022">🔥</div>
+  <span class="tool-badge">CLI</span>
   <h2>git-heat <span style="font-size:14px;font-weight:400;color:#6e7681">· 年度报告</span></h2>
   <p class="desc">Git 年度代码报告。在任意 Git 仓库下运行，自动生成精美的可视化年报。</p>
   <div class="mini-heat" style="background:#161b22;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
@@ -301,9 +515,14 @@ $ npx git-heat</code></pre>
   <a href="/toolkit/git-heat-demo.html" class="tool-link">查看演示 →</a>
 </article>
 
+</div>
+
+<div class="category-label">Web 工具</div>
+<div class="category-grid">
+
   <!-- code-preview -->
   <article class="tool-card">
-    <div class="tool-icon" style="background:#d2991d22">🖼</div>
+    <span class="tool-badge">Web</span>
     <h2>code-preview <span style="font-size:14px;font-weight:400;color:#6e7681">· 代码截图</span></h2>
     <p class="desc">粘贴代码，一键导出精美截图。12 种语言语法高亮，深色主题。</p>
     <div class="mini-heat" style="background:#1a1b26;border-radius:8px;padding:8px 12px;margin:12px 0;overflow:hidden">
@@ -322,7 +541,7 @@ $ npx git-heat</code></pre>
 
   <!-- timestamp -->
   <article class="tool-card">
-    <div class="tool-icon" style="background:#3fb95022">⏱</div>
+    <span class="tool-badge">Web</span>
     <h2>timestamp <span style="font-size:14px;font-weight:400;color:#6e7681">· 时间戳转换</span></h2>
     <p class="desc">Unix 时间戳 ↔ 日期互转。支持秒/毫秒，显示相对时间。</p>
     <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
@@ -337,19 +556,9 @@ $ npx git-heat</code></pre>
     <a href="/toolkit/timestamp.html" class="tool-link">打开工具 →</a>
   </article>
 
-  <!-- gradient -->
-  <article class="tool-card">
-    <div class="tool-icon" style="background:#ff8a0022">🌅</div>
-    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
-    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
-    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
-    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
-    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
-  </article>
-
   <!-- palette -->
   <article class="tool-card">
-    <div class="tool-icon" style="background:#ec489922">🎨</div>
+    <span class="tool-badge">Web</span>
     <h2>palette <span style="font-size:14px;font-weight:400;color:#6e7681">· 配色生成</span></h2>
     <p class="desc">输入一个主色，自动生成互补、三角、邻近等 8 种配色方案。</p>
     <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
@@ -373,7 +582,7 @@ $ npx git-heat</code></pre>
 
   <!-- diff -->
   <article class="tool-card">
-    <div class="tool-icon" style="background:#a371f722">📑</div>
+    <span class="tool-badge">Web</span>
     <h2>diff <span style="font-size:14px;font-weight:400;color:#6e7681">· 文本对比</span></h2>
     <p class="desc">两段文本对比差异。新增行绿色，删除行红色，在线替代。</p>
     <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
@@ -385,9 +594,12 @@ $ npx git-heat</code></pre>
     <a href="/toolkit/diff.html" class="tool-link">打开工具 →</a>
   </article>
 
+</div>
+
 </section>
 
-<section style="max-width:1200px;margin:0 auto;padding:0 32px 80px">
+<div class="category-label" style="padding:0 64px">友链</div>
+<section style="padding:0 64px 80px">
     <a href="https://boluo66.top/landing" target="_blank" style="text-decoration:none;display:block">
       <article class="tool-card" style="transition:border-color .2s;max-width:none">
         <div class="tool-icon" style="background:#615ced22">📝</div>
@@ -413,10 +625,131 @@ $ npx git-heat</code></pre>
 
   async function preview(tool) {
     const el = document.getElementById(tool + '-input');
-    const img = document.getElementById(tool + '-preview');
     const val = el.value.trim();
     if (!val) return;
 
+    if (tool === 'ip') {
+      // IP tool returns JSON
+      const code = document.getElementById('ip-preview');
+      code.textContent = '查询中...';
+      try {
+        const res = await fetch(BASE + '/ip/?ip=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        if (data.note) {
+          code.textContent = data.ip + '  (' + (data.type || 'IPv4') + ')\n' + data.note;
+          return;
+        }
+        code.textContent = (data.type || 'IPv4') + ': ' + data.ip + '\n'
+          + (data.country ? '国家: ' + data.country : '')
+          + (data.country && data.region ? '  ' : '')
+          + (data.region ? data.region : '')
+          + (data.city ? ' ' + data.city : '') + '\n'
+          + (data.isp ? '运营商: ' + data.isp + '\n' : '')
+          + (data.asn ? 'ASN: ' + data.asn : '');
+      } catch { code.textContent = '❌ 查询失败'; }
+      return;
+    }
+
+    if (tool === 'uuid') {
+      const code = document.getElementById('uuid-preview');
+      const count = parseInt(val) || 1;
+      code.textContent = '生成中...';
+      try {
+        const res = await fetch(BASE + '/uuid/?count=' + Math.min(count, 20));
+        const data = await res.json();
+        code.textContent = data.uuids.join('\n');
+      } catch { code.textContent = '❌ 生成失败'; }
+      return;
+    }
+
+    if (tool === 'uptime') {
+      const code = document.getElementById('uptime-preview');
+      code.textContent = '检测中...';
+      try {
+        const res = await fetch(BASE + '/uptime/?url=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = data.statusCode + ' ' + data.statusMessage + '  (' + data.responseTimeMs + 'ms)\n'
+          + 'IP: ' + data.ip + '\n'
+          + 'Server: ' + (data.server || '-') + '\n';
+        if (data.ssl) {
+          text += 'SSL: ' + (data.ssl.issuer || '?') + '\n'
+            + '到期: ' + (data.ssl.daysRemaining != null ? data.ssl.daysRemaining + ' 天' : data.ssl.validTo || '-');
+        }
+        code.textContent = text;
+      } catch { code.textContent = '❌ 检测失败'; }
+      return;
+    }
+
+    if (tool === 'metadata') {
+      const code = document.getElementById('metadata-preview');
+      code.textContent = '提取中...';
+      try {
+        const res = await fetch(BASE + '/metadata/?url=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = '标题: ' + (data.title || '-') + '\n'
+          + '简介: ' + (data.description ? (data.description.length > 80 ? data.description.slice(0,80)+'...' : data.description) : '-') + '\n'
+          + '语言: ' + (data.lang || '-') + '  编码: ' + (data.charset || '-') + '\n'
+          + (data.og?.title ? 'OG标题: ' + data.og.title + '\n' : '')
+          + (data.og?.description ? 'OG描述: ' + (data.og.description.length > 80 ? data.og.description.slice(0,80)+'...' : data.og.description) + '\n' : '')
+          + (data.og?.image ? 'OG图片: ' + data.og.image.slice(0,60) + '...\n' : '')
+          + (data.favicon ? '图标: ' + data.favicon.slice(0,60) + '\n' : '')
+          + 'Link数: ' + (data.links ? data.links.length : 0);
+        code.textContent = text;
+      } catch { code.textContent = '❌ 提取失败'; }
+      return;
+    }
+
+    if (tool === 'dns') {
+      const code = document.getElementById('dns-preview');
+      const typeEl = document.getElementById('dns-type');
+      const type = typeEl ? typeEl.value : 'A';
+      const domain = val;
+      code.textContent = '查询中...';
+      try {
+        const res = await fetch(BASE + '/dns/?domain=' + encodeURIComponent(domain) + '&type=' + type);
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        if (data.records && data.records.length === 0) { code.textContent = domain + ' ' + type + ' 无记录'; return; }
+        let text = data.domain + '  ' + data.type + '  (' + data.timeMs + 'ms, ' + data.count + '条)\n';
+        data.records.forEach(r => {
+          if (r.value) text += '  ' + r.value + '\n';
+          else if (r.exchange) text += '  ' + r.priority + '  ' + r.exchange + '\n';
+          else if (r.nsname) text += '  ' + r.nsname + ' | ' + r.hostmaster + '\n';
+          else text += '  ' + JSON.stringify(r) + '\n';
+        });
+        code.textContent = text;
+      } catch { code.textContent = '❌ 查询失败'; }
+      return;
+    }
+
+    if (tool === 'security') {
+      const code = document.getElementById('security-preview');
+      code.textContent = '检测中...';
+      try {
+        const res = await fetch(BASE + '/security/?url=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = '安全评分: ' + data.score + '/100  (' + data.passed + '/' + data.total + ' 项通过)\n';
+        for (const [k, v] of Object.entries(data.security)) {
+          text += (v.present ? '✅ ' : '❌ ') + v.label;
+          if (v.value) text += ': ' + (v.value.length > 60 ? v.value.slice(0,60)+'...' : v.value);
+          text += '\n';
+        }
+        if (data.leaks) {
+          text += '\n⚠️ 信息泄漏:\n';
+          for (const [k, v] of Object.entries(data.leaks)) {
+            text += '  ' + v.label + ': ' + v.value + ' (' + v.tip + ')\n';
+          }
+        }
+        code.textContent = text;
+      } catch { code.textContent = '❌ 检测失败'; }
+      return;
+    }
+
+    const img = document.getElementById(tool + '-preview');
     const param = tool === 'qr' ? 'content' : 'url';
     img.src = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
   }
@@ -425,6 +758,7 @@ $ npx git-heat</code></pre>
   preview('favimg');
   preview('qr');
   preview('og');
+  preview('ip');
 </script>
 </body>
 </html>
