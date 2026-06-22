@@ -277,6 +277,15 @@
       <img id="og-preview" src="" alt="">
     </div>
   </article>
+<!-- gradient -->
+  <article class="tool-card">
+    <div class="tool-icon" style="background:#ff8a0022">🌅</div>
+    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
+    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
+    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
+    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
+    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
+  </article>
 
 </div>
 
@@ -321,16 +330,39 @@
 <!-- palette --></div>
 
 <div class="tools">
-<!-- git-heat --><!-- gradient -->
-  <article class="tool-card">
-    <div class="tool-icon" style="background:#ff8a0022">🌅</div>
-    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
-    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
-    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
-    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
-    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
-  </article>
-
+<!-- git-heat -->
+<article class="tool-card">
+  <div class="tool-icon" style="background:#ff8a0022">🔥</div>
+  <h2>git-heat <span style="font-size:14px;font-weight:400;color:#6e7681">· 年度报告</span></h2>
+  <p class="desc">Git 年度代码报告。在任意 Git 仓库下运行，自动生成精美的可视化年报。</p>
+  <div class="mini-heat" style="background:#161b22;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+    <svg width="240" height="62" viewBox="0 0 240 62" style="display:block">
+      <text x="4" y="10" font-size="8" fill="#484f58">2月</text><text x="28" y="10" font-size="8" fill="#484f58">4月</text><text x="56" y="10" font-size="8" fill="#484f58">6月</text><text x="84" y="10" font-size="8" fill="#484f58">8月</text><text x="112" y="10" font-size="8" fill="#484f58">10月</text><text x="140" y="10" font-size="8" fill="#484f58">12月</text>
+      <text x="0" y="22" font-size="7" fill="#484f58" text-anchor="end">日</text><text x="0" y="32" font-size="7" fill="#484f58" text-anchor="end">二</text><text x="0" y="42" font-size="7" fill="#484f58" text-anchor="end">四</text><text x="0" y="52" font-size="7" fill="#484f58" text-anchor="end">六</text>
+      <rect x="4" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="4" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="4" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="4" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="4" y="48" width="6" height="6" rx="1" fill="#39d353"/>
+      <rect x="12" y="16" width="6" height="6" rx="1" fill="#006d32"/><rect x="12" y="24" width="6" height="6" rx="1" fill="#39d353"/><rect x="12" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="12" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="12" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="20" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="20" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="20" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="20" y="40" width="6" height="6" rx="1" fill="#26a641"/><rect x="20" y="48" width="6" height="6" rx="1" fill="#006d32"/>
+      <rect x="28" y="16" width="6" height="6" rx="1" fill="#39d353"/><rect x="28" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="28" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="28" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="28" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
+      <rect x="36" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="36" y="24" width="6" height="6" rx="1" fill="#26a641"/><rect x="36" y="32" width="6" height="6" rx="1" fill="#39d353"/><rect x="36" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="36" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="44" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="44" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="44" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="44" y="40" width="6" height="6" rx="1" fill="#39d353"/><rect x="44" y="48" width="6" height="6" rx="1" fill="#26a641"/>
+      <rect x="52" y="16" width="6" height="6" rx="1" fill="#26a641"/><rect x="52" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="52" y="32" width="6" height="6" rx="1" fill="#006d32"/><rect x="52" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="52" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="60" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="60" y="24" width="6" height="6" rx="1" fill="#39d353"/><rect x="60" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="60" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="60" y="48" width="6" height="6" rx="1" fill="#006d32"/>
+      <rect x="68" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="68" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="68" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="68" y="40" width="6" height="6" rx="1" fill="#26a641"/><rect x="68" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="76" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="76" y="24" width="6" height="6" rx="1" fill="#006d32"/><rect x="76" y="32" width="6" height="6" rx="1" fill="#39d353"/><rect x="76" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="76" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
+      <rect x="84" y="16" width="6" height="6" rx="1" fill="#26a641"/><rect x="84" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="84" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="84" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="84" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="92" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="92" y="24" width="6" height="6" rx="1" fill="#0e4429"/><rect x="92" y="32" width="6" height="6" rx="1" fill="#006d32"/><rect x="92" y="40" width="6" height="6" rx="1" fill="#39d353"/><rect x="92" y="48" width="6" height="6" rx="1" fill="#26a641"/>
+      <rect x="100" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="100" y="24" width="6" height="6" rx="1" fill="#26a641"/><rect x="100" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="100" y="40" width="6" height="6" rx="1" fill="#0e4429"/><rect x="100" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="108" y="16" width="6" height="6" rx="1" fill="#39d353"/><rect x="108" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="108" y="32" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="108" y="40" width="6" height="6" rx="1" fill="#006d32"/><rect x="108" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <rect x="116" y="16" width="6" height="6" rx="1" fill="#0e4429"/><rect x="116" y="24" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="116" y="32" width="6" height="6" rx="1" fill="#26a641"/><rect x="116" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="116" y="48" width="6" height="6" rx="1" fill="#0e4429"/>
+      <rect x="124" y="16" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="124" y="24" width="6" height="6" rx="1" fill="#006d32"/><rect x="124" y="32" width="6" height="6" rx="1" fill="#0e4429"/><rect x="124" y="40" width="6" height="6" rx="1" fill="#1b1b24"/><rect x="124" y="48" width="6" height="6" rx="1" fill="#1b1b24"/>
+      <text x="236" y="58" font-size="9" fill="#484f58" text-anchor="end">少 ░░ ▓▓ 多</text>
+    </svg>
+  </div>
+  <pre class="cli-code"><code>$ cd 你的项目
+$ npx git-heat</code></pre>
+  <p style="margin-top:12px;font-size:13px;color:#6e7681">⚠️ 需要在本地 Git 仓库目录下运行</p>
+  <a href="/toolkit/git-heat-demo.html" class="tool-link">查看演示 →</a>
+</article>
 </div>
     <h2>code-preview <span style="font-size:14px;font-weight:400;color:#6e7681">· 代码截图</span></h2>
     <p class="desc">粘贴代码，一键导出精美截图。12 种语言语法高亮，深色主题。</p>
