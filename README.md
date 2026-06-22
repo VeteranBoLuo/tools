@@ -32,8 +32,8 @@ API 零配置调用，CLI 一行命令出图。全部工具部署在 [boluo66.to
 
 | 工具 | 地址 |
 |---|---|
-| **code-preview** · 代码截图 | [→ 打开](https://boluo66.top/toolkit/code-preview.html) |
-| **timestamp** · 时间戳转换 | [→ 打开](https://boluo66.top/toolkit/timestamp.html) |
+| **code-preview · 代码截图** | [→ 打开](https://boluo66.top/toolkit/code-preview.html) |
+| **timestamp · 时间戳转换** | [→ 打开](https://boluo66.top/toolkit/timestamp.html) |
 
 ---
 
