@@ -239,6 +239,42 @@ function build(base) {
     adjust(h,s,l,300,15,-10),
   ];
 
+  // Scheme 7: Split complementary
+  const splitComp = [
+    adjust(h,s,l,0,0,0),
+    adjust(h,s,l,150,0,0),
+    adjust(h,s,l,210,0,0),
+    adjust(h,s,l,150,5,10),
+    adjust(h,s,l,210,-5,-10),
+  ];
+
+  // Scheme 8: Tetradic (rectangle)
+  const tetra = [
+    adjust(h,s,l,0,0,0),
+    adjust(h,s,l,60,0,0),
+    adjust(h,s,l,180,0,0),
+    adjust(h,s,l,240,0,0),
+    adjust(h,s,l,60,10,10),
+  ];
+
+  // Scheme 9: Pastel / soft
+  const pastel = [
+    adjust(h,s,l,0,-20,35),
+    adjust(h,s,l,60,-25,32),
+    adjust(h,s,l,180,-20,35),
+    adjust(h,s,l,240,-15,30),
+    adjust(h,s,l,300,-20,33),
+  ];
+
+  // Scheme 10: Dark theme palette
+  const dark = [
+    adjust(h,s,l,0,0,-40),
+    adjust(h,s,l,0,0,-25),
+    adjust(h,s,l,0,0,0),
+    adjust(h,s,l,45,10,5),
+    adjust(h,s,l,180,-5,10),
+  ];
+
   // Gradient for hero
   const g1 = base;
   const g2 = adjust(h,s,l,180,10,10);
@@ -287,9 +323,13 @@ function build(base) {
 
   schemes.innerHTML = [
     bar(comp, '互补色 · Complementary', ['主色','互补色','互补浅色','深色','最深']),
+    bar(splitComp, '分裂互补 · Split Complementary', ['主色','分裂色','分裂色','浅色','深色']),
     bar(tri, '三角色 · Triadic', ['主色','三角色','三角色','浅色','深色']),
+    bar(tetra, '矩形色 · Tetradic', ['主色','第二色','第三色','第四色','浅色']),
     bar(ana, '邻近色 · Analogous', ['左邻色','邻近色','主色','邻近色','右邻色']),
     dotsScheme(mono, '单色渐变 · Monochromatic', ['最浅','浅色','主色','深色','最深']),
+    dotsScheme(pastel, '柔和色调 · Pastel', ['粉色','暖色','冷色','紫色','珊瑚']),
+    dotsScheme(dark, '深色模式 · Dark Mode', ['背景色','暗色','主色','强调色','高亮色']),
     `<div class="scheme"><div class="scheme-header"><h3>创意渐变 · Creative</h3></div><div class="color-dots">${[
       [sunset,'日落·Sunset'],
       [vibrant,'活力·Vibrant'],
