@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/tools-6-success" alt="6 tools">
 </p>
 
-API 零配置调用，CLI 一行命令出图。全部工具部署在 [boluo66.top](https://boluo66.top/)，即开即用。
+API 零配置调用，CLI 一行命令出图。全部工具入口在 [boluo66.top/toolkit](https://boluo66.top/toolkit/)，即开即用。
 
 ---
 
