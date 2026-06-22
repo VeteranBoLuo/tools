@@ -77,7 +77,10 @@ header a { color: var(--muted); font-size: 13px; text-decoration: none; margin-l
 <body>
 
 <header>
-  <h1>Palette <span>· 配色生成</span></h1>
+  <div>
+    <h1>Palette <span>· 配色生成</span></h1>
+    <p style="font-size:13px;color:var(--muted);margin-top:4px">输入主色，自动生成互补、三角、邻近等 8 种配色方案。点击色块或渐变复制色值/CSS。</p>
+  </div>
   <a href="/toolkit/">← 工具箱</a>
 </header>
 
@@ -370,13 +373,16 @@ function build(base) {
 
   // Helper for dot-based schemes (flex)
   const dotsScheme = (colors, descriptions, label) => {
+    const n = colors.length;
+    const stops = colors.map((c,i) => `${c} ${Math.round(i/(n-1||1)*100)}%`).join(', ');
+    const gradCSS = `linear-gradient(135deg, ${stops})`;
     const items = colors.map((c,i) => `
       <div class="color-dot" onclick="copyText('${c}')">
         <div class="dot" style="background:${c}"></div>
         <div class="info"><div class="h">${c}</div><div class="d">${descriptions[i]||''}</div></div>
       </div>
     `).join('');
-    return `<div class="scheme"><div class="scheme-header"><h3>${label}</h3></div><div class="color-dots">${items}</div></div>`;
+    return `<div class="scheme"><div class="scheme-header"><h3>${label}</h3><span class="copy-all" onclick="copyText('${gradCSS.replace(/'/g,"\\'").replace(/"/g,"&quot;")}')">📋 复制渐变</span></div><div class="color-dots">${items}</div></div>`;
   };
 
   const sl = (arr, desc) => [arr.slice(0, cnt), desc.slice(0, cnt)];
@@ -387,9 +393,9 @@ function build(base) {
     bar(...sl(tri, ['主色','三角色','三角色','第一浅色','第一深色','主色亮色','第二浅色','第二深色','主色暗色','第三浅色']), '三角色 · Triadic'),
     bar(...sl(tetra, ['主色','第二色','第三色','第四色','第二浅色','第四深色','主色亮色','第三暗色','第二柔和','第四亮色']), '矩形色 · Tetradic'),
     bar(...sl(ana, ['左邻','偏左','邻近','主色','邻近','偏右','右邻','邻近浅色','邻近浅色','主色深色']), '邻近色 · Analogous'),
-    dotsScheme(...sl(mono, ['极浅','很浅','浅色','中浅','主色','暗色','深色','中亮','浅亮','最深']), '单色渐变 · Monochromatic'),
-    dotsScheme(...sl(pastel, ['粉色','暖黄','薄荷','天蓝','淡紫','珊瑚','奶油','淡青','草绿','玫瑰']), '柔和色调 · Pastel'),
-    dotsScheme(...sl(dark, ['背景色','卡片色','次暗色','主色','强调色','高亮色','边框色','辅助色','点缀色','文字色']), '深色模式 · Dark Mode'),
+    bar(...sl(mono, ['极浅','很浅','浅色','中浅','主色','暗色','深色','中亮','浅亮','最深']), '单色渐变 · Monochromatic'),
+    bar(...sl(pastel, ['粉色','暖黄','薄荷','天蓝','淡紫','珊瑚','奶油','淡青','草绿','玫瑰']), '柔和色调 · Pastel'),
+    bar(...sl(dark, ['背景色','卡片色','次暗色','主色','强调色','高亮色','边框色','辅助色','点缀色','文字色']), '深色模式 · Dark Mode'),
     `<div class="scheme"><div class="scheme-header"><h3>创意渐变 · Creative</h3></div><div class="color-dots">${[
       [sunset,'日落·Sunset'],
       [vibrant,'活力·Vibrant'],
