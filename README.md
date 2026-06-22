@@ -18,9 +18,9 @@ API 零配置调用，CLI 一行命令出图。全部工具部署在 [boluo66.to
 
 | 工具 | 示例 | 效果 |
 |---|---|---|
-| **favimg** · 图标获取 | `https://boluo66.top/favimg/?url=github.com` | 返回网站 icon |
-| **qr** · 二维码 | `https://boluo66.top/qr/?content=hello` | 返回二维码图片 |
-| **og** · 分享卡片 | `https://boluo66.top/og/?url=xxx` | 返回 OG 卡片图 |
+| **favimg · 图标获取** | `https://boluo66.top/favimg/?url=github.com` | 返回网站 icon |
+| **qr · 二维码** | `https://boluo66.top/qr/?content=hello` | 返回二维码图片 |
+| **og · 分享卡片** | `https://boluo66.top/og/?url=xxx` | 返回 OG 卡片图 |
 
 ### CLI — 终端运行
 
