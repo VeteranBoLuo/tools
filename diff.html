@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diff — 文本对比</title>
+<link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
+<style>
+:root { --bg: #0d0d12; --card: #14141c; --border: rgb(255 255 255 / .06); --text: #c4c4cc; --muted: #6b6b78; --accent: #615ced; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'SF Mono', 'Fira Code', monospace; min-height: 100vh; display: flex; flex-direction: column; font-size: 13px; }
+header { display: flex; align-items: center; gap: 16px; padding: 16px 24px; border-bottom: 1px solid var(--border); font-family: Inter, system-ui, sans-serif; }
+header h1 { font-size: 18px; font-weight: 700; }
+header span { font-size: 13px; color: var(--muted); margin-left: 6px; }
+header a { color: var(--muted); font-size: 13px; text-decoration: none; margin-left: auto; }
+.container { display: flex; height: calc(100vh - 57px); }
+.panel { flex: 1; display: flex; flex-direction: column; }
+.panel.left { border-right: 1px solid var(--border); }
+.panel-header { display: flex; align-items: center; padding: 10px 16px; gap: 8px; border-bottom: 1px solid var(--border); font-family: Inter, system-ui, sans-serif; font-size: 12px; color: var(--muted); }
+textarea { flex: 1; width: 100%; padding: 16px; background: var(--card); border: 0; color: #c9d1d9; font-size: 13px; line-height: 1.5; resize: none; outline: none; tab-size: 2; font-family: inherit; }
+.toolbar { display: flex; gap: 8px; align-items: center; padding: 10px 16px; border-top: 1px solid var(--border); background: var(--card); font-family: Inter, system-ui, sans-serif; }
+.toolbar button { height: 32px; padding: 0 14px; background: var(--accent); border: 0; border-radius: 6px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.toolbar button:hover { background: #5249d4; }
+.toolbar .count { font-size: 11px; color: var(--muted); margin-left: auto; }
+.diff-output { flex: 1; overflow: auto; padding: 0; }
+.diff-line { display: flex; line-height: 22px; min-height: 22px; }
+.diff-line .ln { width: 48px; text-align: right; padding-right: 12px; color: #484f58; font-size: 12px; flex-shrink: 0; user-select: none; }
+.diff-line .content { flex: 1; white-space: pre-wrap; word-break: break-all; padding-left: 8px; }
+.diff-added { background: rgba(63,185,80,.12); }
+.diff-removed { background: rgba(255,123,114,.12); }
+.diff-added .content { color: #3fb950; }
+.diff-removed .content { color: #ff7b72; }
+.diff-header { background: rgba(88,166,255,.08); }
+.diff-header .content { color: #58a6ff; font-weight: 600; }
+.diff-empty { color: var(--muted); padding: 32px; text-align: center; font-family: Inter, system-ui, sans-serif; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Diff <span>· 文本对比</span></h1>
+  <a href="/toolkit/">← 工具箱</a>
+</header>
+
+<div class="container">
+  <div class="panel left">
+    <div class="panel-header">旧文本</div>
+    <textarea id="oldText" placeholder="粘贴旧文本..." spellcheck="false" oninput="runDiff()">
+function hello(name) {
+  console.log('hello ' + name);
+  return true;
+}</textarea>
+    <div class="toolbar">
+      <button onclick="runDiff()">对比</button>
+      <span class="count" id="oldCount">0 行</span>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-header">新文本</div>
+    <textarea id="newText" placeholder="粘贴新文本..." spellcheck="false" oninput="runDiff()">
+function hello(name) {
+  console.log('你好 ' + name);
+  return true;
+}</textarea>
+    <div class="toolbar">
+      <span class="count" id="diffStats">0 处差异</span>
+    </div>
+    <div class="diff-output" id="output"></div>
+  </div>
+</div>
+
+<script>
+const oldEl = document.getElementById('oldText');
+const newEl = document.getElementById('newText');
+const output = document.getElementById('output');
+const oldCount = document.getElementById('oldCount');
+const diffStats = document.getElementById('diffStats');
+
+function runDiff() {
+  const a = oldEl.value;
+  const b = newEl.value;
+  oldCount.textContent = a.split('\n').length + ' 行';
+
+  if (!a && !b) {
+    output.innerHTML = '<div class="diff-empty">粘贴内容后点击对比</div>';
+    diffStats.textContent = '0 处差异';
+    return;
+  }
+
+  const linesA = a.split('\n');
+  const linesB = b.split('\n');
+
+  // LCS-based diff
+  const m = linesA.length, n = linesB.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = linesA[i-1] === linesB[j-1] ? dp[i-1][j-1] + 1 : Math.max(dp[i-1][j], dp[i][j-1]);
+
+  // Backtrack
+  const result = [];
+  let i = m, j = n;
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && linesA[i-1] === linesB[j-1]) {
+      result.push({ type: 'same', text: linesA[i-1], lnA: i, lnB: j });
+      i--; j--;
+    } else if (j > 0 && (i === 0 || dp[i][j-1] >= dp[i-1][j])) {
+      result.push({ type: 'added', text: linesB[j-1], lnA: '', lnB: j });
+      j--;
+    } else {
+      result.push({ type: 'removed', text: linesA[i-1], lnA: i, lnB: '' });
+      i--;
+    }
+  }
+  result.reverse();
+
+  let added = 0, removed = 0;
+  let html = '';
+  for (const r of result) {
+    if (r.type === 'added') added++;
+    else if (r.type === 'removed') removed++;
+    const cls = r.type === 'added' ? 'diff-added' : r.type === 'removed' ? 'diff-removed' : '';
+    const lnA = r.lnA !== '' ? r.lnA : '';
+    const lnB = r.lnB !== '' ? r.lnB : '';
+    html += `<div class="diff-line ${cls}"><span class="ln">${lnA}</span><span class="content">${esc(r.text)}</span></div>`;
+  }
+
+  if (!html) html = '<div class="diff-empty">两段文本完全一致</div>';
+  output.innerHTML = html;
+  diffStats.textContent = `${added} 处新增, ${removed} 处删除`;
+}
+
+function esc(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Init
+runDiff();
+</script>
+</body>
+</html>
