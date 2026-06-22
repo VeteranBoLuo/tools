@@ -256,8 +256,8 @@ function build(base) {
     </div>
   `;
 
-  // Helper to make gradient bar HTML
-  const bar = (colors, label, scheme) => {
+  // Helper to make gradient bar with color details below
+  const bar = (colors, label, descriptions) => {
     const stops = colors.map((c,i) => `${c} ${i*25}%`).join(', ');
     const gradCSS = `linear-gradient(90deg, ${stops})`;
     const dots = colors.map(c => `
@@ -265,7 +265,13 @@ function build(base) {
         <span class="tip">${c}</span>
       </div>
     `).join('');
-    return `<div class="scheme"><div class="scheme-header"><h3>${label}</h3><span class="copy-all" onclick="copyText('${gradCSS.replace(/'/g,"\\'").replace(/"/g,"&quot;")}')">📋 复制渐变</span></div><div class="swatches">${dots}</div></div>`;
+    const details = colors.map((c,i) => `
+      <div class="color-dot" onclick="copyText('${c}')">
+        <div class="dot" style="background:${c}"></div>
+        <div class="info"><div class="h">${c}</div><div class="d">${descriptions[i]||''}</div></div>
+      </div>
+    `).join('');
+    return `<div class="scheme"><div class="scheme-header"><h3>${label}</h3><span class="copy-all" onclick="copyText('${gradCSS.replace(/'/g,"\\'").replace(/"/g,"&quot;")}')">📋 复制渐变</span></div><div class="swatches">${dots}</div><div class="color-dots">${details}</div></div>`;
   };
 
   // Helper for dot-based schemes (flex)
@@ -280,9 +286,9 @@ function build(base) {
   };
 
   schemes.innerHTML = [
-    bar(comp, '互补色 · Complementary', 'comp'),
-    bar(tri, '三角色 · Triadic', 'tri'),
-    bar(ana, '邻近色 · Analogous', 'ana'),
+    bar(comp, '互补色 · Complementary', ['主色','互补色','互补浅色','深色','最深']),
+    bar(tri, '三角色 · Triadic', ['主色','三角色','三角色','浅色','深色']),
+    bar(ana, '邻近色 · Analogous', ['左邻色','邻近色','主色','邻近色','右邻色']),
     dotsScheme(mono, '单色渐变 · Monochromatic', ['最浅','浅色','主色','深色','最深']),
     `<div class="scheme"><div class="scheme-header"><h3>创意渐变 · Creative</h3></div><div class="color-dots">${[
       [sunset,'日落·Sunset'],
