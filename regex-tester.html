@@ -69,9 +69,9 @@ textarea { min-height: 200px; }
 
 <div class="card" style="margin-bottom:16px">
   <h2>测试文本</h2>
-  <textarea id="text" oninput="run()" placeholder="粘贴要测试的文本...">13812345678
-15987654321
-18611223344</textarea>
+  <textarea id="text" oninput="run()" placeholder="粘贴要测试的文本...">请联系客服：13812345678
+紧急联系：5987654321
+备用号码：18611223344</textarea>
   <div class="stats">
     <div>匹配: <span id="count">0</span></div>
     <div>分组: <span id="groups-count">0</span></div>
@@ -116,7 +116,7 @@ function run() {
 
   let re;
   try {
-    var B = String.fromCharCode(92); re = new RegExp(pattern.split(B).join(B+B), getFlags());
+    re = new RegExp(pattern, getFlags());
   } catch(e) {
     errEl.textContent = '正则无效: ' + e.message;
     outEl.innerHTML = '';

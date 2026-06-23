@@ -347,6 +347,7 @@
 </style>
 </head>
 <body>
+<script>history.scrollRestoration="manual";(function(){var y=sessionStorage.getItem("toolkit-scroll");if(y){sessionStorage.removeItem("toolkit-scroll");window.scrollTo(0,parseInt(y))}})()</script>
 
 <nav class="cat-nav"><div class="dot api active" data-label="API 工具" data-target="cat-api"></div><div class="dot bm" data-label="Bookmarklet" data-target="cat-bm"></div><div class="dot cli" data-label="CLI 工具" data-target="cat-cli"></div><div class="dot web" data-label="Web 工具" data-target="cat-web"></div></nav>
 <section class="hero" style="position:relative">
@@ -837,9 +838,7 @@ $ npx git-heat</code></pre>
 </footer>
 
 <script>
-  const sk="toolkit-scroll";
-  window.addEventListener("beforeunload",()=>sessionStorage.setItem(sk,window.scrollY));
-  (()=>{const y=sessionStorage.getItem(sk);if(y){setTimeout(()=>window.scrollTo(0,parseInt(y)),50);sessionStorage.removeItem(sk)}})();
+  window.addEventListener("beforeunload",()=>sessionStorage.setItem("toolkit-scroll",window.scrollY));
 
   const BASE = 'https://boluo66.top';
 
