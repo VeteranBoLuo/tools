@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、年度报告、端口清理、代码截图、时间戳、配色、文本对比。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比。一行 URL 完成。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -26,9 +26,9 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "开发者工具箱",
-    "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
+    "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 17,
+    "numberOfItems": 18,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -40,13 +40,14 @@
       {"@type":"ListItem","position":8,"name":"gradient · 渐变生成","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":9,"name":"uuid · UUID 生成","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":10,"name":"dns · DNS 查询","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":11,"name":"read · 正文提取","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":12,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":13,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":14,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":15,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":16,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":17,"name":"rmport · 端口清理","url":"https://boluo66.top/toolkit/"}
+      {"@type":"ListItem","position":11,"name":"whois · 域名信息","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":12,"name":"read · 正文提取","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":13,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":14,"name":"rmport · 端口清理","url":"https://boluo66.top/toolkit/"},
+     {"@type":"ListItem","position":15,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":16,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":17,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":18,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"},
     ]
   }
   </script>
@@ -265,6 +266,21 @@
     outline: none;
   }
   .demo-row input:focus { border-color: var(--accent); }
+  .demo-row .copy-btn {
+    height: 40px;
+    padding: 0 14px;
+    background: #2a2a36;
+    color: #8b8b98;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    flex: none;
+    white-space: nowrap;
+    transition: color .2s, background .2s;
+  }
+  .demo-row .copy-btn:hover { color: #c4c4cc; background: #353545; }
+
   .demo-row button {
     height: 40px;
     padding: 0 16px;
@@ -316,7 +332,7 @@
 <body>
 
 <section class="hero" style="position:relative">
-  <a href="https://github.com/VeteranBoLuo/tools" target="_blank" style="position:absolute;top:12px;right:24px;color:#8b8b98;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s" onmouseover="this.style.color='#c4c4cc'" onmouseout="this.style.color='#8b8b98'">
+  <a href="https://github.com/VeteranBoLuo/tools" target="_blank" style="position:absolute;top:12px;right:24px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
     <svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
   </a>
   <h1>开发者工具箱</h1>
@@ -344,7 +360,7 @@
     </div>
     <div class="demo-row">
       <input id="favimg-input" placeholder="github.com" value="bilibili.com">
-      <button onclick="preview('favimg')">预览</button>
+      <button onclick="preview('favimg')">预览</button><button class="copy-btn" onclick="copyApiUrl('favimg')" title="复制链接">复制</button>
     </div>
     <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:140px;display:flex;align-items:center;justify-content:center">
       <img id="favimg-preview" src="" style="width:36px;height:36px;border-radius:8px;object-fit:contain" alt="">
@@ -363,7 +379,7 @@
     </div>
     <div class="demo-row">
       <input id="ip-input" placeholder="8.8.8.8" value="8.8.8.8">
-      <button onclick="preview('ip')">查询</button>
+      <button onclick="preview('ip')">查询</button><button class="copy-btn" onclick="copyApiUrl('ip')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
@@ -384,7 +400,7 @@
     </div>
     <div class="demo-row">
       <input id="uptime-input" placeholder="https://example.com" value="https://boluo66.top/toolkit/">
-      <button onclick="preview('uptime')">检测</button>
+      <button onclick="preview('uptime')">检测</button><button class="copy-btn" onclick="copyApiUrl('uptime')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
@@ -405,7 +421,7 @@
     </div>
     <div class="demo-row">
       <input id="security-input" placeholder="https://example.com" value="https://www.baidu.com">
-      <button onclick="preview('security')">检测</button>
+      <button onclick="preview('security')">检测</button><button class="copy-btn" onclick="copyApiUrl('security')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
@@ -426,7 +442,7 @@
     </div>
     <div class="demo-row">
       <input id="metadata-input" placeholder="https://example.com" value="https://www.zhihu.com">
-      <button onclick="preview('metadata')">提取</button>
+      <button onclick="preview('metadata')">提取</button><button class="copy-btn" onclick="copyApiUrl('metadata')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
@@ -447,7 +463,7 @@
     </div>
     <div class="demo-row">
       <input id="qr-input" placeholder="要编码的内容" value="https://baidu.com">
-      <button onclick="preview('qr')">预览</button>
+      <button onclick="preview('qr')">预览</button><button class="copy-btn" onclick="copyApiUrl('qr')" title="复制链接">复制</button>
     </div>
     <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:164px;display:flex;align-items:center;justify-content:center">
       <img id="qr-preview" src="" alt="" style="max-width:160px;max-height:160px">
@@ -466,9 +482,9 @@
     </div>
     <div class="demo-row">
       <input id="og-input" placeholder="网站地址" value="vuejs.org">
-      <button onclick="preview('og')">预览</button>
+      <button onclick="preview('og')">预览</button><button class="copy-btn" onclick="copyApiUrl('og')" title="复制链接">复制</button>
     </div>
-    <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:164px;padding:4px">
+    <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:180px;padding:8px">
       <img id="og-preview" src="" alt="" style="width:100%;height:100%;object-fit:contain">
     </div>
   </article>
@@ -483,7 +499,7 @@
       <input id="gradient-from" placeholder="起始色" value="615ced" style="flex:1">
       <span style="color:#6b6b78;line-height:40px;flex:none">→</span>
       <input id="gradient-to" placeholder="结束色" value="ff8a00" style="flex:1">
-      <button onclick="previewGradient()">预览</button>
+      <button onclick="previewGradient()">预览</button><button class="copy-btn" onclick="copyApiUrl('gradient')" title="复制链接">复制</button>
     </div>
     <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:164px">
       <img id="gradient-preview" src="" style="width:100%;height:100%;object-fit:cover;display:none" onload="this.style.display='block';document.getElementById('gradient-placeholder').style.display='none'" />
@@ -504,7 +520,7 @@
     </div>
     <div class="demo-row">
       <input id="uuid-input" placeholder="数量" value="3" style="width:80px;flex:none">
-      <button onclick="preview('uuid')">生成</button>
+      <button onclick="preview('uuid')">生成</button><button class="copy-btn" onclick="copyApiUrl('uuid')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
@@ -528,11 +544,32 @@
         <option>A</option><option>AAAA</option><option>MX</option><option selected>NS</option><option>TXT</option><option>CNAME</option>
       </select>
       <input id="dns-input" placeholder="example.com" value="baidu.com" style="flex:1">
-      <button onclick="preview('dns')">查询</button>
+      <button onclick="preview('dns')">查询</button><button class="copy-btn" onclick="copyApiUrl('dns')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
         <code id="dns-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+      </div>
+    </div>
+  </article>
+
+<!-- whois -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#3fb95022">🔍</div>
+    <h2>whois <span style="font-size:14px;font-weight:400;color:#6e7681">· 域名信息</span></h2>
+    <p class="desc">WHOIS 域名注册信息查询。注册商、到期日、DNS 服务器、域名状态。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/whois/?domain=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="whois-input" placeholder="baidu.com" value="baidu.com" style="flex:1">
+      <button onclick="preview('whois')">查询</button><button class="copy-btn" onclick="copyApiUrl('whois')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="whois-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
       </div>
     </div>
   </article>
@@ -549,7 +586,7 @@
     </div>
     <div class="demo-row">
       <input id="read-input" placeholder="https://example.com/article" value="https://www.ruanyifeng.com/blog/2025/04/weekly-issue-345.html">
-      <button onclick="preview('read')">提取</button>
+      <button onclick="preview('read')">提取</button><button class="copy-btn" onclick="copyApiUrl('read')" title="复制链接">复制</button>
     </div>
     <div class="preview">
       <div class="preview-scroll">
@@ -612,7 +649,7 @@ $ npx git-heat</code></pre>
     </div>
   </div>
   <pre class="cli-code"><code>$ npx rmport 3000</code></pre>
-  <p style="margin-top:12px;font-size:13px;color:#6e7681">支持 macOS / Linux，Node.js ≥ 18</p>
+  <p style="margin-top:12px;font-size:13px;color:#6e7681">支持 macOS / Linux / Windows，Node.js ≥ 18</p>
 </article>
 
 </div>
@@ -886,6 +923,31 @@ $ npx git-heat</code></pre>
       return;
     }
 
+        if (tool === 'whois') {
+      const code = document.getElementById('whois-preview');
+      code.textContent = '查询中...';
+      try {
+        const res = await fetch(BASE + '/whois/?domain=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = '域名: ' + data.domain + '\n';
+        if (data.creationDate) text += '创建: ' + data.creationDate + '\n';
+        if (data.expiryDate) text += '到期: ' + data.expiryDate + '\n';
+        if (data.registrar) text += '注册商: ' + data.registrar + '\n';
+        if (data.dnssec) text += 'DNSSEC: ' + data.dnssec + '\n';
+        if (data.nameServers && data.nameServers.length) {
+          text += 'DNS: ' + data.nameServers.slice(0, 3).join(', ');
+          if (data.nameServers.length > 3) text += ' ...';
+          text += '\n';
+        }
+        if (data.status && data.status.length) {
+          text += '状态: ' + data.status.join(', ') + '\n';
+        }
+        code.textContent = text;
+      } catch { code.textContent = '❌ 查询失败'; }
+      return;
+    }
+
     if (tool === 'read') {
       const code = document.getElementById('read-preview');
       code.textContent = '提取中...';
@@ -924,6 +986,42 @@ $ npx git-heat</code></pre>
     img.src = BASE + '/gradient/?from=' + encodeURIComponent(from) + '&to=' + encodeURIComponent(to) + '&width=400&height=164';
   }
 
+
+  function copyApiUrl(tool) {
+    const base = BASE + '/' + tool + '/?';
+    let url;
+    if (tool === 'gradient') {
+      const from = (document.getElementById('gradient-from')?.value || '').trim() || '615ced';
+      const to = (document.getElementById('gradient-to')?.value || '').trim() || 'ff8a00';
+      url = base + 'from=' + encodeURIComponent(from) + '&to=' + encodeURIComponent(to);
+    } else if (tool === 'dns') {
+      const domain = document.getElementById('dns-input').value.trim();
+      const type = document.getElementById('dns-type').value;
+      url = base + 'domain=' + encodeURIComponent(domain) + '&type=' + type;
+    } else {
+      const input = document.getElementById(tool + '-input');
+      const val = input ? input.value.trim() : '';
+      const param = tool === 'qr' ? 'content' : tool === 'ip' ? 'ip' : tool === 'uuid' ? 'count' : 'url';
+      url = base + param + '=' + encodeURIComponent(val);
+      if (tool === 'favimg') url += '&size=128';
+    }
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.querySelector('.copy-btn[onclick*="' + tool + '"]');
+      if (!btn || btn.dataset.copied === '1') return;
+      const orig = btn.textContent;
+      btn.dataset.copied = '1';
+      btn.textContent = '✓ 已复制';
+      btn.style.color = '#3fb950';
+      btn.style.background = '#1a3a2a';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.color = '';
+        btn.style.background = '';
+        btn.dataset.copied = '0';
+      }, 1500);
+    }).catch(() => {});
+  }
+
   // 初始加载
   preview('favimg');
   preview('qr');
@@ -934,6 +1032,7 @@ $ npx git-heat</code></pre>
   preview('security');
   preview('metadata');
   preview('dns');
+  preview('whois');
   preview('read');
   previewGradient();
 </script>
