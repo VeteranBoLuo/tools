@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、二维码生成、OG 分享卡片、IP 地理位置、UUID 生成、网站监测、GitHub 年度报告、代码截图、时间戳转换、渐变生成、配色方案、文本对比。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、代码截图、时间戳、配色、文本对比。一行 URL 完成。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -28,20 +28,24 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、GitHub 年度报告、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 12,
+    "numberOfItems": 16,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":2,"name":"qr · 二维码","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":3,"name":"og · 分享卡片","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":4,"name":"gradient · 渐变生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":5,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":6,"name":"uuid · UUID 生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":7,"name":"uptime · 网站监测","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":8,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":9,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":10,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":11,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":12,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"}
+      {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":3,"name":"uptime · 网站监测","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":4,"name":"security · 安全检测","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":5,"name":"metadata · 元数据提取","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":6,"name":"qr · 二维码","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":7,"name":"og · 分享卡片","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":8,"name":"gradient · 渐变生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":9,"name":"uuid · UUID 生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":10,"name":"dns · DNS 查询","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":11,"name":"read · 正文提取","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":12,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":13,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":14,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":15,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":16,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"}
     ]
   }
   </script>
@@ -328,7 +332,6 @@
   <div class="category-label">API 工具</div>
   <div class="category-grid">
 
-  <!-- favimg -->
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#615ced22">🖼</div>
@@ -347,55 +350,7 @@
     </div>
   </article>
 
-  <!-- qr -->
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <div class="tool-icon" style="background:#00a88422">📱</div>
-    <h2>qr <span style="font-size:14px;font-weight:400;color:#6e7681">· 二维码</span></h2>
-    <p class="desc">一行 URL，一张二维码。任意内容，扫码直达。</p>
-    <div class="endpoint">
-      <span class="method">GET</span>
-      <code class="url">/qr/?content=xxx</code>
-    </div>
-    <div class="demo-row">
-      <input id="qr-input" placeholder="要编码的内容" value="https://baidu.com">
-      <button onclick="preview('qr')">预览</button>
-    </div>
-    <div class="preview">
-      <img id="qr-preview" src="" alt="" style="max-width:180px;margin:0 auto">
-    </div>
-  </article>
 
-  <!-- og -->
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <div class="tool-icon" style="background:#ec489922">📋</div>
-    <h2>og <span style="font-size:14px;font-weight:400;color:#6e7681">· 分享卡片</span></h2>
-    <p class="desc">一行 URL，一张分享卡片。自动提取标题和描述。</p>
-    <div class="endpoint">
-      <span class="method">GET</span>
-      <code class="url">/og/?url=xxx</code>
-    </div>
-    <div class="demo-row">
-      <input id="og-input" placeholder="网站地址" value="vuejs.org">
-      <button onclick="preview('og')">预览</button>
-    </div>
-    <div class="preview">
-      <img id="og-preview" src="" alt="">
-    </div>
-  </article>
-
-  <!-- gradient -->
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
-    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
-    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
-    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
-    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
-  </article>
-
-  <!-- ip -->
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#3fb95022">🌐</div>
@@ -416,28 +371,7 @@
     </div>
   </article>
 
-  <!-- uuid -->
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <div class="tool-icon" style="background:#a371f722">🔑</div>
-    <h2>uuid <span style="font-size:14px;font-weight:400;color:#6e7681">· UUID 生成</span></h2>
-    <p class="desc">生成 UUID v4。指定数量，批量生成。支持 JSON 和纯文本格式。</p>
-    <div class="endpoint">
-      <span class="method">GET</span>
-      <code class="url">/uuid/?count=xxx</code>
-    </div>
-    <div class="demo-row">
-      <input id="uuid-input" placeholder="数量" value="3" style="width:80px;flex:none">
-      <button onclick="preview('uuid')">生成</button>
-    </div>
-    <div class="preview">
-      <div class="preview-scroll">
-        <code id="uuid-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击生成</code>
-      </div>
-    </div>
-  </article>
 
-  <!-- uptime -->
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#d2991d22">📡</div>
@@ -458,7 +392,28 @@
     </div>
   </article>
 
-  <!-- metadata -->
+
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#3fb95022">🛡️</div>
+    <h2>security <span style="font-size:14px;font-weight:400;color:#6e7681">· 安全检测</span></h2>
+    <p class="desc">检测网站安全头：HSTS、CSP、X-Frame-Options、X-Content-Type-Options 等，逐项评分。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/security/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="security-input" placeholder="https://example.com" value="https://www.baidu.com">
+      <button onclick="preview('security')">检测</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="security-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+      </div>
+    </div>
+  </article>
+
+
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#615ced22">📋</div>
@@ -479,7 +434,76 @@
     </div>
   </article>
 
-  <!-- dns -->
+
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#00a88422">📱</div>
+    <h2>qr <span style="font-size:14px;font-weight:400;color:#6e7681">· 二维码</span></h2>
+    <p class="desc">一行 URL，一张二维码。任意内容，扫码直达。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/qr/?content=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="qr-input" placeholder="要编码的内容" value="https://baidu.com">
+      <button onclick="preview('qr')">预览</button>
+    </div>
+    <div class="preview">
+      <img id="qr-preview" src="" alt="" style="max-width:180px;margin:0 auto">
+    </div>
+  </article>
+
+
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#ec489922">📋</div>
+    <h2>og <span style="font-size:14px;font-weight:400;color:#6e7681">· 分享卡片</span></h2>
+    <p class="desc">一行 URL，一张分享卡片。自动提取标题和描述。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/og/?url=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="og-input" placeholder="网站地址" value="vuejs.org">
+      <button onclick="preview('og')">预览</button>
+    </div>
+    <div class="preview">
+      <img id="og-preview" src="" alt="">
+    </div>
+  </article>
+
+
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
+    <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
+    <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
+    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
+    <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
+  </article>
+
+
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#a371f722">🔑</div>
+    <h2>uuid <span style="font-size:14px;font-weight:400;color:#6e7681">· UUID 生成</span></h2>
+    <p class="desc">生成 UUID v4。指定数量，批量生成。支持 JSON 和纯文本格式。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/uuid/?count=xxx</code>
+    </div>
+    <div class="demo-row">
+      <input id="uuid-input" placeholder="数量" value="3" style="width:80px;flex:none">
+      <button onclick="preview('uuid')">生成</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="uuid-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击生成</code>
+      </div>
+    </div>
+  </article>
+
+
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#ff8a0022">🌐</div>
@@ -503,28 +527,7 @@
     </div>
   </article>
 
-  <!-- security -->
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <div class="tool-icon" style="background:#3fb95022">🛡️</div>
-    <h2>security <span style="font-size:14px;font-weight:400;color:#6e7681">· 安全检测</span></h2>
-    <p class="desc">检测网站安全头：HSTS、CSP、X-Frame-Options、X-Content-Type-Options 等，逐项评分。</p>
-    <div class="endpoint">
-      <span class="method">GET</span>
-      <code class="url">/security/?url=xxx</code>
-    </div>
-    <div class="demo-row">
-      <input id="security-input" placeholder="https://example.com" value="https://www.baidu.com">
-      <button onclick="preview('security')">检测</button>
-    </div>
-    <div class="preview">
-      <div class="preview-scroll">
-        <code id="security-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
-      </div>
-    </div>
-  </article>
 
-  <!-- read -->
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#00a88422">📖</div>
@@ -544,6 +547,9 @@
       </div>
     </div>
   </article>
+
+</div>
+
 
 </div>
 
