@@ -5,7 +5,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-16-success" alt="16 tools">
+  <img src="https://img.shields.io/badge/tools-17-success" alt="17 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
@@ -44,6 +44,7 @@
 | 工具 | 命令 |
 |---|---|
 | **git-heat · 年度报告** | `npx git-heat` |
+| **rmport · 端口清理** | `npx rmport 3000` |
 
 ### Web — 打开即用的工具页
 
