@@ -17,24 +17,6 @@
 
 ---
 
-## ⚡ 快速体验
-
-```bash
-# 查 IP 位置
-curl https://boluo66.top/ip/?ip=8.8.8.8
-
-# 网站安全检测
-curl https://boluo66.top/security/?url=https://github.com
-
-# DNS 查询
-curl https://boluo66.top/dns/?domain=baidu.com&type=NS
-
-# 提取网页正文
-curl https://boluo66.top/read/?url=https://sspai.com/post/97852&format=text
-```
-
----
-
 ## 🎨 API 预览
 
 | 工具 | 效果 |
