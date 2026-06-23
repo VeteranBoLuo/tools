@@ -15,6 +15,10 @@
   全部工具入口 <a href="https://boluo66.top/toolkit/">boluo66.top/toolkit</a>，即开即用
 </p>
 
+<p align="center">
+  <img src="https://boluo66.top/toolkit/screenshot.png" alt="开发者工具箱截图" width="90%" style="border-radius: 12px" />
+</p>
+
 ---
 
 ## 📦 全部工具

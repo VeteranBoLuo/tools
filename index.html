@@ -100,6 +100,33 @@
   .tools {
     padding: 0 64px 80px;
   }
+  .search-bar {
+    margin-bottom: 32px;
+  }
+  .search-bar input {
+    width: 100%;
+    max-width: 400px;
+    height: 44px;
+    padding: 0 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    display: block;
+    transition: border-color .2s;
+  }
+  .search-bar input:focus {
+    border-color: var(--accent);
+  }
+  .search-bar input::-webkit-search-cancel-button {
+    filter: invert(0.6);
+    cursor: pointer;
+  }
+  .search-bar input::placeholder {
+    color: #484f58;
+  }
   .category-label {
     display: flex;
     align-items: center;
@@ -202,9 +229,14 @@
   }
   .preview {
     border-radius: 10px;
-    overflow: hidden;
     border: 1px solid var(--border);
     background: #0d0d12;
+    padding: 8px 16px;
+    margin-top: 16px;
+  }
+  .preview-scroll {
+    overflow: auto;
+    height: 164px;
   }
   .preview img {
     width: 100%;
@@ -289,6 +321,10 @@
 
 <section class="tools">
 
+  <div class="search-bar">
+    <input id="tool-search" type="search" placeholder="搜索工具..." oninput="filterTools()">
+  </div>
+
   <div class="category-label">API 工具</div>
   <div class="category-grid">
 
@@ -306,7 +342,7 @@
       <input id="favimg-input" placeholder="github.com" value="bilibili.com">
       <button onclick="preview('favimg')">预览</button>
     </div>
-    <div class="preview" style="margin-top:16px;height:48px;display:flex;align-items:center;padding:0 16px">
+    <div class="preview" style="height:48px;display:flex;align-items:center;padding:0 16px">
       <img id="favimg-preview" src="" style="width:32px;height:32px;border-radius:4px" alt="">
     </div>
   </article>
@@ -322,10 +358,10 @@
       <code class="url">/qr/?content=xxx</code>
     </div>
     <div class="demo-row">
-      <input id="qr-input" placeholder="要编码的内容" value="https://github.com/VeteranBoLuo/tools">
+      <input id="qr-input" placeholder="要编码的内容" value="https://baidu.com">
       <button onclick="preview('qr')">预览</button>
     </div>
-    <div class="preview" style="margin-top:16px">
+    <div class="preview">
       <img id="qr-preview" src="" alt="" style="max-width:180px;margin:0 auto">
     </div>
   </article>
@@ -344,7 +380,7 @@
       <input id="og-input" placeholder="网站地址" value="vuejs.org">
       <button onclick="preview('og')">预览</button>
     </div>
-    <div class="preview" style="margin-top:16px">
+    <div class="preview">
       <img id="og-preview" src="" alt="">
     </div>
   </article>
@@ -373,8 +409,10 @@
       <input id="ip-input" placeholder="8.8.8.8" value="8.8.8.8">
       <button onclick="preview('ip')">查询</button>
     </div>
-    <div class="preview" style="margin-top:16px;min-height:48px;padding:8px 16px;overflow-x:auto">
-      <code id="ip-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="ip-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+      </div>
     </div>
   </article>
 
@@ -392,8 +430,10 @@
       <input id="uuid-input" placeholder="数量" value="3" style="width:80px;flex:none">
       <button onclick="preview('uuid')">生成</button>
     </div>
-    <div class="preview" style="margin-top:16px;max-height:120px;padding:8px 16px;overflow:auto">
-      <code id="uuid-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击生成</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="uuid-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击生成</code>
+      </div>
     </div>
   </article>
 
@@ -408,11 +448,13 @@
       <code class="url">/uptime/?url=xxx</code>
     </div>
     <div class="demo-row">
-      <input id="uptime-input" placeholder="https://example.com" value="https://github.com">
+      <input id="uptime-input" placeholder="https://example.com" value="https://www.baidu.com">
       <button onclick="preview('uptime')">检测</button>
     </div>
-    <div class="preview" style="margin-top:16px;min-height:112px;padding:8px 16px;overflow:auto">
-      <code id="uptime-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="uptime-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+      </div>
     </div>
   </article>
 
@@ -430,8 +472,10 @@
       <input id="metadata-input" placeholder="https://example.com" value="https://www.zhihu.com">
       <button onclick="preview('metadata')">提取</button>
     </div>
-    <div class="preview" style="margin-top:16px;min-height:64px;padding:8px 16px;overflow:auto">
-      <code id="metadata-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击提取</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="metadata-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击提取</code>
+      </div>
     </div>
   </article>
 
@@ -449,11 +493,13 @@
       <select id="dns-type" style="height:40px;padding:0 8px;background:#0d0d12;border:1px solid var(--border);border-radius:8px;color:#fff;font-size:13px;outline:none;flex:none">
         <option>A</option><option>AAAA</option><option>MX</option><option selected>NS</option><option>TXT</option><option>CNAME</option>
       </select>
-      <input id="dns-input" placeholder="example.com" value="github.com" style="flex:1">
+      <input id="dns-input" placeholder="example.com" value="baidu.com" style="flex:1">
       <button onclick="preview('dns')">查询</button>
     </div>
-    <div class="preview" style="margin-top:16px;min-height:64px;padding:8px 16px;overflow:auto">
-      <code id="dns-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="dns-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+      </div>
     </div>
   </article>
 
@@ -468,11 +514,13 @@
       <code class="url">/security/?url=xxx</code>
     </div>
     <div class="demo-row">
-      <input id="security-input" placeholder="https://example.com" value="https://github.com">
+      <input id="security-input" placeholder="https://example.com" value="https://www.baidu.com">
       <button onclick="preview('security')">检测</button>
     </div>
-    <div class="preview" style="margin-top:16px;min-height:112px;padding:8px 16px;overflow:auto">
-      <code id="security-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="security-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+      </div>
     </div>
   </article>
 
@@ -490,8 +538,10 @@
       <input id="read-input" placeholder="https://example.com/article" value="https://www.ruanyifeng.com/blog/2025/04/weekly-issue-345.html">
       <button onclick="preview('read')">提取</button>
     </div>
-    <div class="preview" style="margin-top:16px;min-height:112px;padding:8px 16px;overflow:auto">
-      <code id="read-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击提取</code>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="read-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击提取</code>
+      </div>
     </div>
   </article>
 
@@ -642,10 +692,44 @@ $ npx git-heat</code></pre>
 <script>
   const BASE = 'https://boluo66.top';
 
+  function filterTools() {
+    const q = document.getElementById('tool-search').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.tool-card');
+    const grids = document.querySelectorAll('.category-grid');
+    const labels = document.querySelectorAll('.category-label');
+
+    cards.forEach(card => {
+      if (!q) { card.style.display = ''; return; }
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(q) ? '' : 'none';
+    });
+
+    // Hide/show empty category labels and grids
+    labels.forEach(label => {
+      if (!label.classList.contains('category-label')) return;
+      const grid = label.nextElementSibling;
+      if (!grid || !grid.classList.contains('category-grid')) return;
+      if (!q) {
+        label.style.display = '';
+        grid.style.display = '';
+        return;
+      }
+      const visible = Array.from(grid.querySelectorAll('.tool-card')).some(c => c.style.display !== 'none');
+      label.style.display = visible ? '' : 'none';
+      grid.style.display = visible ? '' : 'none';
+    });
+  }
+
   async function preview(tool) {
     const el = document.getElementById(tool + '-input');
-    const val = el.value.trim();
+    let val = el.value.trim();
     if (!val) return;
+
+    // Auto-prepend protocol for URL-based tools
+    const urlTools = ['uptime', 'metadata', 'security', 'read', 'favimg', 'og'];
+    if (urlTools.includes(tool) && !val.startsWith('http://') && !val.startsWith('https://')) {
+      val = 'https://' + val;
+    }
 
     if (tool === 'ip') {
       // IP tool returns JSON
@@ -781,6 +865,8 @@ $ npx git-heat</code></pre>
         let text = (data.title || '(无标题)') + '\n'
           + (data.siteName ? '来源: ' + data.siteName + '\n' : '')
           + (data.byline ? '作者: ' + data.byline + '\n' : '')
+          + (data.note ? '⚠️ ' + data.note + '\n' : '')
+          + (data.description ? '描述: ' + data.description.slice(0,100) + '\n' : '')
           + (data.excerpt ? '摘要: ' + (data.excerpt.length > 100 ? data.excerpt.slice(0,100)+'...' : data.excerpt) + '\n' : '')
           + '正文长度: ' + (data.length || 0) + ' 字\n'
           + '---\n'
