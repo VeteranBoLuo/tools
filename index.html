@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试、图片批量提取、Cookie 管理。一行 URL 完成。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://boluo66.top/toolkit/">
   <meta property="og:title" content="工具箱 — 开发者日常工具集合">
-  <meta property="og:description" content="免费在线开发者工具箱：图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变配色、文本对比等。一行 URL，即开即用。">
+  <meta property="og:description" content="免费在线开发者工具箱：图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变配色、文本对比、图片批量提取、Cookie 管理等。一行 URL，即开即用。">
   <meta property="og:image" content="https://boluo66.top/favimg/?url=boluo66.top&size=256">
   <meta property="og:site_name" content="开发者工具箱">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="工具箱 — 开发者日常工具集合">
-  <meta name="twitter:description" content="免费在线开发者工具箱。图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变色、配色方案、文本对比等。">
+  <meta name="twitter:description" content="免费在线开发者工具箱。图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变色、配色方案、文本对比、图片批量提取、Cookie 管理等。">
   <meta name="twitter:image" content="https://boluo66.top/favimg/?url=boluo66.top&size=256">
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -28,7 +28,7 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 20,
+    "numberOfItems": 22,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -49,7 +49,9 @@
       {"@type":"ListItem","position":17,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":18,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":19,"name":"all-links · 提取页面链接","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":20,"name":"regex-tester · 正则测试","url":"https://boluo66.top/toolkit/"}
+      {"@type":"ListItem","position":20,"name":"regex-tester · 正则测试","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":21,"name":"imgextract · 图片批量提取","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":22,"name":"cookies · Cookie 管理器","url":"https://boluo66.top/toolkit/"}
     ]
   }
   
@@ -654,6 +656,80 @@
        onclick="return false" draggable="true" title="按住拖到浏览器收藏栏"
        ondragstart="event.dataTransfer.setData('text/plain', this.href)"
        onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🔍 提取页面链接</a>
+  </div>
+  <p style="font-size:12px;color:#6e7681;margin-top:8px">按住按钮拖到浏览器收藏栏即可使用</p>
+</article>
+
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#ec489922">🖼</div>
+  <h2>imgextract <span style="font-size:14px;font-weight:400;color:#6e7681">· 图片批量提取</span></h2>
+  <p class="desc">打开任意网页，侧边栏展示当前页所有图片，支持查看缩略图和尺寸、复制图片 URL、单独下载单张、一键依次下载全部、或打包为 ZIP 一键下载全部。</p>
+  <div style="padding:12px 0;margin:4px 0;overflow:hidden">
+    <div style="background:#14161c;border-radius:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div><div style="font:600 11px system-ui;color:#c4c4cc">页面图片</div><div style="font:9px system-ui;color:#484f58">共 4 张</div></div>
+        <div style="display:flex;gap:4px;align-items:center">
+          <div style="font:8px system-ui;color:#6e7681;background:rgba(255,255,255,.04);border-radius:4px;padding:2px 5px">📦ZIP</div>
+          <div style="font:8px system-ui;color:#6e7681;background:rgba(255,255,255,.04);border-radius:4px;padding:2px 5px">一键下载</div>
+          <div style="font:8px system-ui;color:#6e7681;background:rgba(255,255,255,.04);border-radius:4px;padding:2px 5px">复制</div>
+          <div style="width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#6e7681;font-size:9px">&times;</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;gap:8px;align-items:center;padding:3px 0">
+          <span style="width:18px;height:18px;border-radius:3px;background:linear-gradient(135deg,#615ced,#a78bfa);flex:none"></span>
+          <span style="flex:1;overflow:hidden"><span style="color:#6e7681;font-size:10px">logo</span><span style="color:#484f58;font-size:9px"> · 32×32</span></span>
+          <span style="color:#484f58;font-size:9px">⬇</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:3px 0">
+          <span style="width:18px;height:18px;border-radius:3px;background:linear-gradient(135deg,#3fb950,#26a641);flex:none"></span>
+          <span style="flex:1;overflow:hidden"><span style="color:#6e7681;font-size:10px">hero</span><span style="color:#484f58;font-size:9px"> · 1200×630</span></span>
+          <span style="color:#484f58;font-size:9px">⬇</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:8px">
+    <a href="javascript:(function(){var id='imge-'+Date.now(),__p='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',C={bg:'#14161c',txt:'#c4c4cc',mute:'#6e7681',link:'#58a6ff',bd:'rgba(255,255,255,.06)'},imgs=Array.from(document.querySelectorAll('img[src]')).filter(function(i){return i.src&&!/^data:/i.test(i.src)}),d=document.createElement('div');d.id=id;var st='#'+id+'{position:fixed;top:0;right:0;bottom:0;width:480px;z-index:2147483647;background:'+C.bg+';font:14px system-ui;color:'+C.txt+';display:flex;flex-direction:column;border-left:1px solid '+C.bd+';box-shadow:-4px 0 24px rgba(0,0,0,.3)}#'+id+'-hd{flex:none;padding:12px 16px;border-bottom:1px solid '+C.bd+';display:flex;align-items:center;justify-content:space-between;gap:8px}#'+id+'-hd .h3{margin:0;font:600 14px system-ui;color:'+C.txt+'}#'+id+'-hd .sub{font:11px system-ui;color:'+C.mute+'}#'+id+'-hd .btns{display:flex;gap:6px;align-items:center;flex:none}#'+id+'-hd .btns button{height:28px;padding:0 10px;border-radius:6px;border:1px solid '+C.bd+';background:'+C.bd+';color:'+C.mute+';cursor:pointer;font:11px system-ui;white-space:nowrap;display:inline-flex;align-items:center;gap:4px}#'+id+'-hd .btns button:hover{color:'+C.txt+'}#'+id+'-hd .btns .close{width:28px;min-width:28px;padding:0;justify-content:center;font:16px/1 system-ui}#'+id+'-list{flex:1;overflow:auto;padding:8px 12px}#'+id+'-list .item{display:flex;gap:10px;padding:8px 6px;border-bottom:1px solid '+C.bd+';align-items:flex-start}#'+id+'-list .item:last-child{border:none}#'+id+'-list .thumb{width:52px;height:52px;min-width:52px;border-radius:6px;object-fit:cover;background:#0d0d12}#'+id+'-list .info{flex:1;overflow:hidden;min-width:0}#'+id+'-list .alt{font:13px system-ui;color:'+C.txt+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#'+id+'-list .dim{font:11px system-ui;color:'+C.mute+';margin-top:1px}#'+id+'-list .url{font:10px system-ui;color:'+C.link+';margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}#'+id+'-list .url:hover{text-decoration:underline}#'+id+'-list .dl{width:28px;min-width:28px;height:28px;border-radius:6px;border:1px solid '+C.bd+';background:none;color:'+C.mute+';cursor:pointer;font:14px/1 system-ui;display:flex;align-items:center;justify-content:center;flex:none}#'+id+'-list .dl:hover{color:'+C.txt+';border-color:'+C.mute+'}';d.innerHTML='<style>'+st+'</style><div id='+id+'-hd><div><div class=h3>\u9875\u9762\u56fe\u7247</div><div class=sub>\u5171 '+imgs.length+' \u5f20</div></div><div class=btns><button id='+id+'-zip>\uD83D\uDCE6 ZIP</button><button id='+id+'-dlall>\u4E00\u952E\u4E0B\u8F7D</button><button id='+id+'-cp>\u590D\u5236</button><button class=close id='+id+'-close>\u00D7</button></div></div><div id='+id+'-list></div>';document.body.appendChild(d);var list=document.getElementById(id+'-list'),zipBtn=document.getElementById(id+'-zip'),dlBtn=document.getElementById(id+'-dlall'),cpBtn=document.getElementById(id+'-cp'),closeBtn=document.getElementById(id+'-close'),_dl=function(u,i){var a=document.createElement('a');a.href=u;a.target='_blank';a.click()},_dlFetch=function(u,n,i){fetch(u).then(function(r){if(!r.ok)throw new Error();return r.blob()}).then(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);var e=b.type.split('/')[1]||'png';a.download=(n||'image-'+(i+1))+'.'+e;a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},2000)}).catch(function(){_dl(u,i)})};imgs.forEach(function(img,i){var item=document.createElement('div');item.className='item';var thumb=document.createElement('img');thumb.className='thumb';thumb.src=img.src;thumb.onerror=function(){this.style.display='none'};var info=document.createElement('div');info.className='info';var alt=document.createElement('div');alt.className='alt';alt.textContent=img.alt||'(\u65e0alt)';var dim=document.createElement('div');dim.className='dim';dim.textContent=(img.naturalWidth||'?')+'\u00d7'+(img.naturalHeight||'?');var url=document.createElement('div');url.className='url';var s=img.src;url.textContent=s.length>80?s.slice(0,80)+'...':s;url.title='\u70b9\u51fb\u6253\u5f00';url.onclick=function(s){return function(){window.open(s)}}(s);var dlBtn=document.createElement('button');dlBtn.className='dl';dlBtn.textContent='\u2b07';dlBtn.title='\u4e0b\u8f7d\u6b64\u56fe';dlBtn.onclick=function(u,n,i){return function(){_dlFetch(u,n,i)}}(s,img.alt||'',i);info.appendChild(alt);info.appendChild(dim);info.appendChild(url);item.appendChild(thumb);item.appendChild(info);item.appendChild(dlBtn);list.appendChild(item)});closeBtn.onclick=function(){d.remove()};cpBtn.onclick=function(){var t=imgs.map(function(i){return i.src}).join('\n');navigator.clipboard.writeText(t).then(function(){cpBtn.textContent='\u2713';setTimeout(function(){cpBtn.textContent='\u590D\u5236'},2000)}).catch(function(){})};zipBtn.onclick=function(){var u=imgs.map(function(i){return i.src});if(u.length===0)return;zipBtn.textContent='\u23F3 ...';zipBtn.disabled=true;var sc=document.createElement('script');sc.src=__p;sc.onload=async function(){var z=new JSZip();for(var i=0;i<u.length;i++){try{var r=await fetch(u[i]);if(!r.ok)continue;var b=await r.blob();var e=b.type.split('/')[1]||'png';z.file('image-'+(i+1)+'.'+e,b)}catch(e){}}var c=await z.generateAsync({type:'blob'});var a=document.createElement('a');a.href=URL.createObjectURL(c);a.download='images-'+Date.now()+'.zip';a.click();zipBtn.textContent='\uD83D\uDCE6 ZIP';zipBtn.disabled=false};sc.onerror=function(){zipBtn.textContent='\u274C \u5931\u8d25';setTimeout(function(){zipBtn.textContent='\uD83D\uDCE6 ZIP'},3000);zipBtn.disabled=false};document.head.appendChild(sc)};dlBtn.onclick=function(){var u=imgs.map(function(i){return i.src});if(u.length===0)return;dlBtn.textContent='\u23F3 ...';dlBtn.disabled=true;var done=0;u.forEach(function(url,i){setTimeout(function(){_dlFetch(url,'',i);done++;if(done===u.length){dlBtn.textContent='\u4E00\u952E\u4E0B\u8F7D';dlBtn.disabled=false}},i*500)})}})()"
+       style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab;transition:opacity .15s"
+       onclick="return false" draggable="true" title="按住拖到浏览器收藏栏"
+       ondragstart="event.dataTransfer.setData('text/plain', this.href)"
+       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🖼 图片提取</a>
+  </div>
+  <p style="font-size:12px;color:#6e7681;margin-top:8px">按住按钮拖到浏览器收藏栏即可使用</p>
+</article>
+
+
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#ff8a0022">🍪</div>
+  <h2>cookies <span style="font-size:14px;font-weight:400;color:#6e7681">· Cookie 管理器</span></h2>
+  <p class="desc">查看当前网页所有 cookie，支持搜索、编辑、单个删除、清除全部。</p>
+  <div style="padding:12px 0;margin:4px 0;overflow:hidden">
+    <div style="background:#14161c;border-radius:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div><div style="font:600 11px system-ui;color:#c4c4cc">🍪 Cookies</div><div style="font:9px system-ui;color:#484f58">共 3 条</div></div>
+        <div style="display:flex;gap:4px">
+          <div style="font:8px system-ui;color:#6e7681;background:rgba(255,255,255,.04);border-radius:4px;padding:2px 5px">清除全部</div>
+          <div style="width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#6e7681;font-size:9px">&times;</div>
+        </div>
+      </div>
+      <div style="background:#0d0d12;border:1px solid rgba(255,255,255,.06);border-radius:4px;margin-bottom:6px;padding:0 8px;height:26px;display:flex;align-items:center;font-size:9px;color:#484f58">搜索 cookie…</div>
+      <div style="font:10px system-ui">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="color:#c4c4cc;font-weight:600">session_id</span><span style="color:#484f58;font-size:9px">✕</span></div>
+        <div style="color:#6e7681;padding:2px 0 4px;font-size:9px;border-bottom:1px solid rgba(255,255,255,.04)">abc123def456...</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0"><span style="color:#c4c4cc;font-weight:600">token</span><span style="color:#484f58;font-size:9px">✕</span></div>
+        <div style="color:#6e7681;padding:2px 0 0;font-size:9px">eyJhbGciOiJIUzI1...</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:8px">
+    <a href="javascript:(function(){var id='ckie-'+Date.now(),C={bg:'#14161c',txt:'#c4c4cc',mute:'#6e7681',bd:'rgba(255,255,255,.06)',ok:'#3fb950'},raw=document.cookie,cookies=[];if(raw){raw.split(';').forEach(function(p){var e=p.indexOf('=');if(e<0)return;cookies.push({name:p.slice(0,e).trim(),value:p.slice(e+1).trim()})})}var d=document.createElement('div');d.id=id;var st='#'+id+'{position:fixed;top:0;right:0;bottom:0;width:420px;z-index:2147483647;background:'+C.bg+';font:14px system-ui;color:'+C.txt+';display:flex;flex-direction:column;border-left:1px solid '+C.bd+';box-shadow:-4px 0 24px rgba(0,0,0,.3)}#'+id+'-hd{flex:none;padding:12px 16px;border-bottom:1px solid '+C.bd+';display:flex;align-items:center;justify-content:space-between;gap:8px}#'+id+'-hd .h3{margin:0;font:600 14px system-ui;color:'+C.txt+'}#'+id+'-hd .sub{font:11px system-ui;color:'+C.mute+'}#'+id+'-hd .btns{display:flex;gap:6px;align-items:center}#'+id+'-hd .btns button{height:28px;padding:0 10px;border-radius:6px;border:1px solid '+C.bd+';background:'+C.bd+';color:'+C.mute+';cursor:pointer;font:11px system-ui;white-space:nowrap}#'+id+'-hd .btns button:hover{color:'+C.txt+'}#'+id+'-hd .btns .close{width:28px;min-width:28px;padding:0;justify-content:center;font:16px/1}#'+id+'-search{padding:8px 16px 4px;flex:none}#'+id+'-search input{width:100%;height:32px;padding:0 10px;background:#0d0d12;border:1px solid '+C.bd+';border-radius:6px;color:'+C.txt+';font:13px system-ui;outline:none}#'+id+'-search input:focus{border-color:'+C.ok+'}#'+id+'-list{flex:1;overflow:auto;padding:4px 12px}#'+id+'-list .item{padding:10px 8px;border-bottom:1px solid '+C.bd+'}#'+id+'-list .item:last-child{border:none}#'+id+'-list .nm{font:13px system-ui;color:'+C.txt+';font-weight:600}#'+id+'-list .vl{font:11px system-ui;color:'+C.mute+';margin-top:2px;word-break:break-all;cursor:pointer;padding:2px 4px;border-radius:4px;transition:color .2s}#'+id+'-list .vl:hover{background:rgba(255,255,255,.04)}#'+id+'-list .vl input{width:100%;background:#0d0d12;border:1px solid '+C.bd+';border-radius:4px;color:'+C.txt+';font:11px system-ui;padding:4px 6px;outline:none}#'+id+'-list .vl input:focus{border-color:'+C.ok+'}#'+id+'-list .row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}#'+id+'-list .del{flex:none;width:22px;height:22px;border:1px solid '+C.bd+';border-radius:4px;background:none;color:'+C.mute+';cursor:pointer;font:12px/1;display:flex;align-items:center;justify-content:center}#'+id+'-list .del:hover{color:#ff7b72;border-color:#ff7b72}#'+id+'-empty{text-align:center;padding:40px 20px;color:'+C.mute+';font:13px system-ui}';d.innerHTML='<style>'+st+'</style><div id='+id+'-hd><div><div class=h3>\uD83C\uDF6A Cookies</div><div class=sub>\u5171 '+cookies.length+' \u6761</div></div><div class=btns><button id='+id+'-clear>\u6E05\u9664\u5168\u90E8</button><button class=close id='+id+'-close>\u00D7</button></div></div><div id='+id+'-search><input id='+id+'-inp type=text placeholder=\u641C\u7D22 cookie\u2026></div><div id='+id+'-list></div>';document.body.appendChild(d);var list=document.getElementById(id+'-list'),inp=document.getElementById(id+'-inp');function render(q){list.innerHTML='';if(cookies.length===0){list.innerHTML='<div id='+id+'-empty>\u6CA1\u6709 cookie</div>';return}var items=q?cookies.filter(function(c){return c.name.indexOf(q)>=0||c.value.indexOf(q)>=0}):cookies;if(items.length===0){list.innerHTML='<div id='+id+'-empty>\u65E0\u5339\u914D\u7ED3\u679C</div>';return}items.forEach(function(c,i){var item=document.createElement('div');item.className='item';var row=document.createElement('div');row.className='row';var info=document.createElement('div');info.style.flex='1';info.style.overflow='hidden';var nm=document.createElement('div');nm.className='nm';nm.textContent=c.name;var vl=document.createElement('div');vl.className='vl';vl.textContent=c.value;vl.title='\u70B9\u51FB\u7F16\u8F91';vl.onclick=function(n,v){return function(){var inp=document.createElement('input');inp.type='text';inp.value=v;vl.textContent='';vl.appendChild(inp);inp.focus();inp.select();function save(){var val=inp.value;if(val!==v&&val){document.cookie=n+'='+encodeURIComponent(val)+'; path=/; max-age=31536000';for(var j=0;j<cookies.length;j++){if(cookies[j].name===n){cookies[j].value=val;break}}vl.textContent='';vl.appendChild(document.createTextNode('\u2713 '+val));vl.style.color=C.ok;setTimeout(function(){vl.textContent='';vl.appendChild(document.createTextNode(val));vl.style.color='';document.querySelector('#'+id+'-hd .sub').textContent='\u5171 '+cookies.length+' \u6761'},1000)}else{vl.textContent='';vl.appendChild(document.createTextNode(v))}}inp.onblur=save;inp.onkeydown=function(e){if(e.key==='Enter'){inp.blur()}if(e.key==='Escape'){vl.textContent='';vl.appendChild(document.createTextNode(v))}}}}}(c.name,c.value);var del=document.createElement('button');del.className='del';del.textContent='\u2715';del.title='\u5220\u9664';del.onclick=function(n){return function(){document.cookie=n+'=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';document.cookie=n+'=; path='+location.pathname+'; expires=Thu, 01 Jan 1970 00:00:00 GMT';cookies=cookies.filter(function(c){return c.name!==n});render(inp.value);document.querySelector('#'+id+'-hd .sub').textContent='\u5171 '+cookies.length+' \u6761'}}(c.name);info.appendChild(nm);info.appendChild(vl);row.appendChild(info);row.appendChild(del);item.appendChild(row);list.appendChild(item)})}inp.oninput=function(){render(this.value)};document.getElementById(id+'-close').onclick=function(){d.remove()};document.getElementById(id+'-clear').onclick=function(){if(!confirm('\u786E\u5B9A\u6E05\u9664\u5168\u90E8 '+cookies.length+' \u6761 cookie\uFF1F'))return;cookies.slice().forEach(function(c){document.cookie=c.name+'=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';document.cookie=c.name+'=; path='+location.pathname+'; expires=Thu, 01 Jan 1970 00:00:00 GMT'});cookies=[];render('');document.querySelector('#'+id+'-hd .sub').textContent='\u5171 0 \u6761'};render('')})()"
+       style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab;transition:opacity .15s"
+       onclick="return false" draggable="true" title="按住拖到浏览器收藏栏"
+       ondragstart="event.dataTransfer.setData('text/plain', this.href)"
+       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🍪 Cookie 管理器</a>
   </div>
   <p style="font-size:12px;color:#6e7681;margin-top:8px">按住按钮拖到浏览器收藏栏即可使用</p>
 </article>

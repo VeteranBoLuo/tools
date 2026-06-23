@@ -5,13 +5,13 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-20-success" alt="20 tools">
+  <img src="https://img.shields.io/badge/tools-22-success" alt="22 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
 
 <p align="center">
-  零配置 API · 即开即用 Web 工具 · npx CLI<br>
+  零配置 API · 即开即用在线工具 · npx CLI<br>
   全部工具入口 <a href="https://boluo66.top/toolkit/">boluo66.top/toolkit</a>，即开即用
 </p>
 
@@ -47,7 +47,7 @@
 | **git-heat · 年度报告** | `npx git-heat` |
 | **rmport · 端口清理** | `npx rmport 3000` |
 
-### Web — 打开即用的工具页
+### 在线 — 打开即用的工具页
 
 | 工具 | 地址 |
 |---|---|
@@ -62,6 +62,8 @@
 | 工具 | 地址 |
 |------|------|
 | **all-links · 提取页面链接** | 拖到收藏栏 |
+| **imgextract · 图片批量提取** | 拖到收藏栏 |
+| **cookies · Cookie 管理器** | 拖到收藏栏 |
 
 ---
 
