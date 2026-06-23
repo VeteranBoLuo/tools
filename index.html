@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、Markdown 链接、JSON 格式化。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -28,7 +28,7 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 18,
+    "numberOfItems": 21,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -47,7 +47,10 @@
       {"@type":"ListItem","position":15,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":16,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":17,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":18,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"}
+      {"@type":"ListItem","position":18,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":19,"name":"md-link · Markdown 链接","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":20,"name":"all-links · 提取页面链接","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":21,"name":"json-fmt · JSON 格式化","url":"https://boluo66.top/toolkit/"}
     ]
   }
   </script>
@@ -599,7 +602,53 @@
 </div>
 
 
+<div class="category-label">Bookmarklet</div>
+<div class="category-grid">
+
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#ff8a0022">🔗</div>
+  <h2>md-link <span style="font-size:14px;font-weight:400;color:#6e7681">· Markdown 链接</span></h2>
+  <p class="desc">一键复制当前页标题+URL 为 <code>[标题](URL)</code> 格式，写文档时粘贴即用。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:16px;margin:12px 0;text-align:center">
+    <a href="javascript:(function(){var t=document.title,u=location.href;navigator.clipboard.writeText('['+t+']('+u+')').then(function(){var d=document.createElement('div');d.textContent='✓ 已复制';d.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 16px;border-radius:8px;z-index:99999;font-size:14px';document.body.appendChild(d);setTimeout(function(){d.remove()},1500)})})()" 
+       style="display:inline-block;padding:10px 24px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab"
+       onmousedown="return false" draggable="true"
+       ondragstart="event.dataTransfer.setData('text/plain', this.href)">📋 复制 Markdown 链接</a>
+    <p style="font-size:12px;color:#6e7681;margin-top:8px">⬆ 拖到收藏栏即可使用</p>
+  </div>
+</article>
+
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#00a88422">🔍</div>
+  <h2>all-links <span style="font-size:14px;font-weight:400;color:#6e7681">· 提取页面链接</span></h2>
+  <p class="desc">侧边栏展示当前页所有链接，点击跳转。爬虫或数据分析前快速盘点链接资源。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:16px;margin:12px 0;text-align:center">
+    <a href="javascript:(function(){var a=document.querySelectorAll('a[href]'),h='<div style=position:fixed;top:0;right:0;bottom:0;width:400px;background:%231a1a2e;color:%23c4c4cc;overflow:auto;z-index:99999;padding:20px;font:14px system-ui><h3>链接 ('+a.length+')</h3>';a.forEach(function(e,i){var t=e.textContent.trim()||e.href;h+='<div style=margin:4px 0;display:flex;gap:8px><span style=color:%23666;flex:none>'+(i+1)+'</span><a href='+e.href+' style=color:%2358a6ff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap target=_blank>'+t+'</a></div>'});h+='<button onclick=this.parentElement.remove() style=margin-top:12px;padding:4px 12px;border:1px solid %23444;border-radius:4px;background:none;color:%23999;cursor:pointer>关闭</button></div>';document.body.insertAdjacentHTML('beforeend',h)})()" 
+       style="display:inline-block;padding:10px 24px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab"
+       onmousedown="return false" draggable="true"
+       ondragstart="event.dataTransfer.setData('text/plain', this.href)">🔍 提取页面链接</a>
+    <p style="font-size:12px;color:#6e7681;margin-top:8px">⬆ 拖到收藏栏即可使用</p>
+  </div>
+</article>
+
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#ec489922">✨</div>
+  <h2>json-fmt <span style="font-size:14px;font-weight:400;color:#6e7681">· JSON 格式化</span></h2>
+  <p class="desc">当前页如果是裸 JSON，一键格式化并高亮。调试 API 不用复制到编辑器。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:16px;margin:12px 0;text-align:center">
+    <a href="javascript:(function(){var t=document.body.innerText;try{var o=JSON.parse(t);document.body.innerHTML='<pre style=background:%231a1a2e;color:%23c4c4cc;padding:20px;margin:0;font:13px monospace;min-height:100vh>'+JSON.stringify(o,null,2).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</pre>'}catch(e){alert('Not valid JSON')}})()" 
+       style="display:inline-block;padding:10px 24px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab"
+       onmousedown="return false" draggable="true"
+       ondragstart="event.dataTransfer.setData('text/plain', this.href)">✨ JSON 格式化</a>
+    <p style="font-size:12px;color:#6e7681;margin-top:8px">⬆ 拖到收藏栏即可使用</p>
+  </div>
+</article>
+
 </div>
+
 
 <div class="category-label">CLI 工具</div>
 <div class="category-grid">
@@ -813,6 +862,7 @@ $ npx git-heat</code></pre>
           return;
         }
         code.textContent = (data.type || 'IPv4') + ': ' + data.ip + '\n'
+          + (data.continent ? '区域: ' + data.continent + '\n' : '')
           + (data.country ? '国家: ' + data.country : '')
           + (data.country && data.region ? '  ' : '')
           + (data.region ? data.region : '')
@@ -887,8 +937,9 @@ $ npx git-heat</code></pre>
         if (data.records && data.records.length === 0) { code.textContent = domain + ' ' + type + ' 无记录'; return; }
         let text = data.domain + '  ' + data.type + '  (' + data.timeMs + 'ms, ' + data.count + '条)\n';
         data.records.forEach(r => {
-          if (r.value) text += '  ' + r.value + '\n';
-          else if (r.exchange) text += '  ' + r.priority + '  ' + r.exchange + '\n';
+          const ttl = r.ttl ? '  TTL:' + r.ttl + 's' : '';
+          if (r.value) text += '  ' + r.value + ttl + '\n';
+          else if (r.exchange) text += '  ' + (r.priority||'') + '  ' + r.exchange + ttl + '\n';
           else if (r.nsname) text += '  ' + r.nsname + ' | ' + r.hostmaster + '\n';
           else text += '  ' + JSON.stringify(r) + '\n';
         });
@@ -918,6 +969,9 @@ $ npx git-heat</code></pre>
           for (const [k, v] of Object.entries(data.leaks)) {
             text += '  ' + v.label + ': ' + v.value + ' (' + v.tip + ')\n';
           }
+        }
+        if (data.tls) {
+          text += '\n🔒 TLS: ' + (data.tls.version || '?') + ' / ' + (data.tls.cipher || '?') + '\n';
         }
         code.textContent = text;
       } catch { code.textContent = '❌ 检测失败'; }

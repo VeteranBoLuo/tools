@@ -5,7 +5,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-18-success" alt="18 tools">
+  <img src="https://img.shields.io/badge/tools-21-success" alt="21 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
@@ -55,6 +55,14 @@
 | **timestamp · 时间戳转换** | [→ 打开](https://boluo66.top/toolkit/timestamp.html) |
 | **palette · 配色生成** | [→ 打开](https://boluo66.top/toolkit/palette.html) |
 | **diff · 文本对比** | [→ 打开](https://boluo66.top/toolkit/diff.html) |
+
+### Bookmarklet — 拖到收藏栏即用
+
+| 工具 | 地址 |
+|------|------|
+| **json-fmt · JSON 格式化** | 拖到收藏栏 |
+| **md-link · Markdown 链接** | 拖到收藏栏 |
+| **all-links · 提取页面链接** | 拖到收藏栏 |
 
 ---
 
