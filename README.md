@@ -5,10 +5,10 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-8-success" alt="6 tools">
+  <img src="https://img.shields.io/badge/tools-16-success" alt="16 tools">
 </p>
 
-API 零配置调用，CLI 一行命令出图。全部工具入口在 [boluo66.top/toolkit](https://boluo66.top/toolkit/)，即开即用。
+零配置 API · 即开即用 Web 工具 · CLI 一行命令。全部工具入口在 [boluo66.top/toolkit](https://boluo66.top/toolkit/)，即开即用。
 
 ---
 
@@ -18,15 +18,23 @@ API 零配置调用，CLI 一行命令出图。全部工具入口在 [boluo66.to
 
 | 工具 | 示例 | 效果 |
 |---|---|---|
-| **favimg · 图标获取** | `https://boluo66.top/favimg/?url=github.com` | 返回网站 icon |
-| **qr · 二维码** | `https://boluo66.top/qr/?content=hello` | 返回二维码图片 |
-| **og · 分享卡片** | `https://boluo66.top/og/?url=xxx` | 返回 OG 卡片图 |
+| **favimg · 图标获取** | `/favimg/?url=xxx` | 返回网站 favicon |
+| **qr · 二维码** | `/qr/?content=xxx` | 返回二维码 PNG |
+| **og · 分享卡片** | `/og/?url=xxx` | 返回 OG 卡片图 |
+| **gradient · 渐变生成** | `/gradient/?from=xxx&to=xxx` | 返回渐变色 SVG |
+| **ip · 地理位置** | `/ip/?ip=xxx` | 国家/城市/ISP/ASN |
+| **uuid · UUID 生成** | `/uuid/?count=xxx` | 批量 UUID v4 |
+| **uptime · 网站监测** | `/uptime/?url=xxx` | 状态码/响应时间/SSL 到期 |
+| **metadata · 元数据提取** | `/metadata/?url=xxx` | title/OG/headings/link |
+| **dns · DNS 查询** | `/dns/?domain=xxx&type=A` | 10 种 DNS 记录类型 |
+| **security · 安全检测** | `/security/?url=xxx` | HSTS/CSP/XFO 等 9 项评分 |
+| **read · 正文提取** | `/read/?url=xxx` | Mozilla Readability 去广告正文 |
 
 ### CLI — 终端运行
 
 | 工具 | 命令 |
 |---|---|
-| **git-heat** · 年度报告 | `npx git-heat` → 自动打开浏览器展示热力图 |
+| **git-heat · 年度报告** | `npx git-heat` → 自动打开浏览器展示热力图 |
 
 ### Web — 打开即用的工具页
 
