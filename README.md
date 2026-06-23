@@ -17,16 +17,6 @@
 
 ---
 
-## 🎨 API 预览
-
-| 工具 | 效果 |
-|---|---|
-| favimg · 图标获取 | <img src="https://boluo66.top/favimg/?url=github.com" width="32" alt="favicon"> |
-| qr · 二维码 | <img src="https://boluo66.top/qr/?content=https%3A%2F%2Fgithub.com" width="120" alt="qr"> |
-| gradient · 渐变生成 | <img src="https://boluo66.top/gradient/?from=615ced&to=ff8a00&t=1" height="40" alt="gradient"> |
-
----
-
 ## 📦 全部工具
 
 ### API — 改 URL 参数就能用
