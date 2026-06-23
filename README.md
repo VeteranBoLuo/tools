@@ -5,7 +5,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-22-success" alt="22 tools">
+  <img src="https://img.shields.io/badge/tools-23-success" alt="23 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
@@ -64,6 +64,7 @@
 | **all-links · 提取页面链接** | 拖到收藏栏 |
 | **imgextract · 图片批量提取** | 拖到收藏栏 |
 | **cookies · Cookie 管理器** | 拖到收藏栏 |
+| **lsstorage · LocalStorage 管理器** | 拖到收藏栏 |
 
 ---
 
