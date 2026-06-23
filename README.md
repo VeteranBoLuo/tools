@@ -39,9 +39,9 @@ curl https://boluo66.top/read/?url=https://sspai.com/post/97852&format=text
 
 | 工具 | 效果 |
 |---|---|
-| favimg · 图标获取 | ![](https://boluo66.top/favimg/?url=github.com) |
-| qr · 二维码 | ![](https://boluo66.top/qr/?content=https%3A%2F%2Fgithub.com) |
-| gradient · 渐变生成 | ![](https://boluo66.top/gradient/?from=615ced&to=ff8a00) |
+| favimg · 图标获取 | <img src="https://boluo66.top/favimg/?url=github.com" width="32" alt="favicon"> |
+| qr · 二维码 | <img src="https://boluo66.top/qr/?content=https%3A%2F%2Fgithub.com" width="120" alt="qr"> |
+| gradient · 渐变生成 | <img src="https://boluo66.top/gradient/?from=615ced&to=ff8a00" height="40" alt="gradient"> |
 
 ---
 
