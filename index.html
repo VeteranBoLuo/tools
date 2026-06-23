@@ -346,8 +346,8 @@
       <input id="favimg-input" placeholder="github.com" value="bilibili.com">
       <button onclick="preview('favimg')">预览</button>
     </div>
-    <div class="preview" style="height:48px;display:flex;align-items:center;padding:0 16px">
-      <img id="favimg-preview" src="" style="width:32px;height:32px;border-radius:4px" alt="">
+    <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:140px;display:flex;align-items:center;justify-content:center">
+      <img id="favimg-preview" src="" style="width:36px;height:36px;border-radius:8px;object-fit:contain" alt="">
     </div>
   </article>
 
@@ -383,7 +383,7 @@
       <code class="url">/uptime/?url=xxx</code>
     </div>
     <div class="demo-row">
-      <input id="uptime-input" placeholder="https://example.com" value="https://www.baidu.com">
+      <input id="uptime-input" placeholder="https://example.com" value="https://boluo66.top/toolkit/">
       <button onclick="preview('uptime')">检测</button>
     </div>
     <div class="preview">
@@ -449,12 +449,12 @@
       <input id="qr-input" placeholder="要编码的内容" value="https://baidu.com">
       <button onclick="preview('qr')">预览</button>
     </div>
-    <div class="preview">
-      <img id="qr-preview" src="" alt="" style="max-width:180px;margin:0 auto">
+    <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:164px;display:flex;align-items:center;justify-content:center">
+      <img id="qr-preview" src="" alt="" style="max-width:160px;max-height:160px">
     </div>
   </article>
 
-
+<!-- og -->
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#ec489922">📋</div>
@@ -468,8 +468,8 @@
       <input id="og-input" placeholder="网站地址" value="vuejs.org">
       <button onclick="preview('og')">预览</button>
     </div>
-    <div class="preview">
-      <img id="og-preview" src="" alt="">
+    <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:164px;padding:4px">
+      <img id="og-preview" src="" alt="" style="width:100%;height:100%;object-fit:contain">
     </div>
   </article>
 
@@ -479,7 +479,16 @@
     <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
     <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
     <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
-    <div style="border-radius:8px;overflow:hidden;margin:12px 0;height:48px;background:linear-gradient(135deg,#615ced,#ff8a00)"></div>
+    <div class="demo-row">
+      <input id="gradient-from" placeholder="起始色" value="615ced" style="flex:1">
+      <span style="color:#6b6b78;line-height:40px;flex:none">→</span>
+      <input id="gradient-to" placeholder="结束色" value="ff8a00" style="flex:1">
+      <button onclick="previewGradient()">预览</button>
+    </div>
+    <div style="border-radius:10px;overflow:hidden;margin-top:12px;height:164px">
+      <img id="gradient-preview" src="" style="width:100%;height:100%;object-fit:cover;display:none" onload="this.style.display='block';document.getElementById('gradient-placeholder').style.display='none'" />
+      <span id="gradient-placeholder" style="color:#6b6b78;font-size:13px;display:flex;align-items:center;justify-content:center;height:100%">点击预览</span>
+    </div>
     <a href="/toolkit/gradient.html" class="tool-link">查看文档 →</a>
   </article>
 
@@ -900,7 +909,19 @@ $ npx git-heat</code></pre>
 
     const img = document.getElementById(tool + '-preview');
     const param = tool === 'qr' ? 'content' : 'url';
-    img.src = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
+    let url = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
+    if (tool === 'favimg') url += '&size=128';
+    img.src = url;
+  }
+
+  function previewGradient() {
+    const from = document.getElementById('gradient-from').value.trim() || '615ced';
+    const to = document.getElementById('gradient-to').value.trim() || 'ff8a00';
+    const img = document.getElementById('gradient-preview');
+    const ph = document.getElementById('gradient-placeholder');
+    ph.style.display = 'block';
+    img.style.display = 'none';
+    img.src = BASE + '/gradient/?from=' + encodeURIComponent(from) + '&to=' + encodeURIComponent(to) + '&width=400&height=164';
   }
 
   // 初始加载
@@ -908,6 +929,13 @@ $ npx git-heat</code></pre>
   preview('qr');
   preview('og');
   preview('ip');
+  preview('uuid');
+  preview('uptime');
+  preview('security');
+  preview('metadata');
+  preview('dns');
+  preview('read');
+  previewGradient();
 </script>
 </body>
 </html>
