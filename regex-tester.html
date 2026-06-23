@@ -55,7 +55,7 @@ textarea { min-height: 200px; }
 <div class="card" style="margin-bottom:16px">
   <h2>正则表达式</h2>
   <div class="regex-row">
-    <input id="regex" placeholder="/pattern/" value="1[3-9][0-9]{9}" oninput="run()" autofocus>
+    <input id="regex" placeholder="/pattern/" value="1[3-9]\d{9}" oninput="run()" autofocus>
   </div>
   <div class="flags">
     <button class="flag active" data-flag="g" onclick="toggleFlag(this)">g</button>
@@ -116,7 +116,7 @@ function run() {
 
   let re;
   try {
-    re = new RegExp(pattern.replace(/\\/g, '\\\\'), getFlags());
+    var B = String.fromCharCode(92); re = new RegExp(pattern.split(B).join(B+B), getFlags());
   } catch(e) {
     errEl.textContent = '正则无效: ' + e.message;
     outEl.innerHTML = '';
