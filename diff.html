@@ -39,7 +39,7 @@ textarea { flex: 1; width: 100%; padding: 16px; background: var(--card); border:
 
 <header>
   <h1>Diff <span>· 文本对比</span></h1>
-  <a href="/toolkit/">← 工具箱</a>
+  <a href="/toolkit/" onclick="if(document.referrer && document.referrer.includes('toolkit')){history.back();return false}" style="color:var(--muted);text-decoration:none;font-size:14px">← 工具箱</a>
 </header>
 
 <div class="container">

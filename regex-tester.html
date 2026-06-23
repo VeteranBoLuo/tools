@@ -48,7 +48,7 @@ textarea { min-height: 200px; }
 </head>
 <body>
 <header>
-  <a href="/toolkit/">← 工具箱</a>
+  <a href="/toolkit/" onclick="if(document.referrer && document.referrer.includes('toolkit')){history.back();return false}" style="color:var(--muted);text-decoration:none;font-size:14px">← 工具箱</a>
   <h1>regex-tester · 正则测试</h1>
 </header>
 
