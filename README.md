@@ -5,7 +5,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-18-success" alt="18 tools">
+  <img src="https://img.shields.io/badge/tools-19-success" alt="19 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
@@ -39,6 +39,7 @@
 | **security · 安全检测** | `/security/?url=xxx` | HSTS/CSP/XFO 等 9 项加权评分 |
 | **whois · 域名信息** | `/whois/?domain=xxx` | 注册商、到期日、DNS 服务器 |
 | **read · 正文提取** | `/read/?url=xxx` | Mozilla Readability 去广告正文 |
+| **sitemap · 站点地图** | `/sitemap/?url=xxx&depth=2` | 递归爬取站点链接树 |
 
 ### CLI — 终端运行
 

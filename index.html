@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、站点地图、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比。一行 URL 完成。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -28,26 +28,27 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 18,
+    "numberOfItems": 19,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":3,"name":"uptime · 网站监测","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":4,"name":"security · 安全检测","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":5,"name":"metadata · 元数据提取","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":6,"name":"qr · 二维码","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":7,"name":"og · 分享卡片","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":8,"name":"gradient · 渐变生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":9,"name":"uuid · UUID 生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":10,"name":"dns · DNS 查询","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":11,"name":"whois · 域名信息","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":6,"name":"dns · DNS 查询","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":7,"name":"whois · 域名信息","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":8,"name":"qr · 二维码","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":9,"name":"og · 分享卡片","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":10,"name":"gradient · 渐变生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":11,"name":"uuid · UUID 生成","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":12,"name":"read · 正文提取","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":13,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":14,"name":"rmport · 端口清理","url":"https://boluo66.top/toolkit/"},
-     {"@type":"ListItem","position":15,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":16,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":17,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":18,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":13,"name":"sitemap · 站点地图","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":14,"name":"git-heat · 年度报告","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":15,"name":"rmport · 端口清理","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":16,"name":"code-preview · 代码截图","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":17,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":18,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":19,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"}
     ]
   }
   </script>
@@ -358,7 +359,7 @@
       <span class="method">GET</span>
       <code class="url">/favimg/?url=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="favimg-input" placeholder="github.com" value="bilibili.com">
       <button onclick="preview('favimg')">预览</button><button class="copy-btn" onclick="copyApiUrl('favimg')" title="复制链接">复制</button>
     </div>
@@ -377,7 +378,7 @@
       <span class="method">GET</span>
       <code class="url">/ip/?ip=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="ip-input" placeholder="8.8.8.8" value="8.8.8.8">
       <button onclick="preview('ip')">查询</button><button class="copy-btn" onclick="copyApiUrl('ip')" title="复制链接">复制</button>
     </div>
@@ -398,7 +399,7 @@
       <span class="method">GET</span>
       <code class="url">/uptime/?url=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="uptime-input" placeholder="https://example.com" value="https://boluo66.top/toolkit/">
       <button onclick="preview('uptime')">检测</button><button class="copy-btn" onclick="copyApiUrl('uptime')" title="复制链接">复制</button>
     </div>
@@ -419,7 +420,7 @@
       <span class="method">GET</span>
       <code class="url">/security/?url=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="security-input" placeholder="https://example.com" value="https://www.baidu.com">
       <button onclick="preview('security')">检测</button><button class="copy-btn" onclick="copyApiUrl('security')" title="复制链接">复制</button>
     </div>
@@ -440,7 +441,7 @@
       <span class="method">GET</span>
       <code class="url">/metadata/?url=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="metadata-input" placeholder="https://example.com" value="https://www.zhihu.com">
       <button onclick="preview('metadata')">提取</button><button class="copy-btn" onclick="copyApiUrl('metadata')" title="复制链接">复制</button>
     </div>
@@ -452,6 +453,52 @@
   </article>
 
 
+
+
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#ff8a0022">🌐</div>
+    <h2>dns <span style="font-size:14px;font-weight:400;color:#6e7681">· DNS 查询</span></h2>
+    <p class="desc">DNS 记录查询。支持 A、AAAA、MX、NS、TXT、CNAME、SOA、SRV、PTR、CAA 十种记录类型。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/dns/?domain=xxx&type=A</code>
+    </div>
+    <div class="demo-row" style="flex-wrap:nowrap">
+      <select id="dns-type" style="height:40px;padding:0 8px;background:#0d0d12;border:1px solid var(--border);border-radius:8px;color:#fff;font-size:13px;outline:none;flex:none">
+        <option>A</option><option>AAAA</option><option>MX</option><option selected>NS</option><option>TXT</option><option>CNAME</option>
+      </select>
+      <input id="dns-input" placeholder="example.com" value="baidu.com" style="flex:1;max-width:160px">
+      <button onclick="preview('dns')">查询</button><button class="copy-btn" onclick="copyApiUrl('dns')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="dns-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+      </div>
+    </div>
+  </article>
+
+<!-- whois -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#3fb95022">🔍</div>
+    <h2>whois <span style="font-size:14px;font-weight:400;color:#6e7681">· 域名信息</span></h2>
+    <p class="desc">WHOIS 域名注册信息查询。注册商、到期日、DNS 服务器、域名状态。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/whois/?domain=xxx</code>
+    </div>
+    <div class="demo-row" style="flex-wrap:nowrap">
+      <input id="whois-input" placeholder="baidu.com" value="baidu.com" style="flex:1">
+      <button onclick="preview('whois')">查询</button><button class="copy-btn" onclick="copyApiUrl('whois')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="whois-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+      </div>
+    </div>
+  </article>
+
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#00a88422">📱</div>
@@ -461,7 +508,7 @@
       <span class="method">GET</span>
       <code class="url">/qr/?content=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="qr-input" placeholder="要编码的内容" value="https://baidu.com">
       <button onclick="preview('qr')">预览</button><button class="copy-btn" onclick="copyApiUrl('qr')" title="复制链接">复制</button>
     </div>
@@ -480,7 +527,7 @@
       <span class="method">GET</span>
       <code class="url">/og/?url=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="og-input" placeholder="网站地址" value="vuejs.org">
       <button onclick="preview('og')">预览</button><button class="copy-btn" onclick="copyApiUrl('og')" title="复制链接">复制</button>
     </div>
@@ -495,7 +542,7 @@
     <h2>gradient <span style="font-size:14px;font-weight:400;color:#6e7681">· 渐变生成</span></h2>
     <p class="desc">一个 URL 生成渐变色图。指定颜色、尺寸、角度，返回 SVG 图片。</p>
     <div class="endpoint"><span class="method">GET</span><code class="url">/gradient/?from=xxx&to=xxx</code></div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="gradient-from" placeholder="起始色" value="615ced" style="flex:1">
       <span style="color:#6b6b78;line-height:40px;flex:none">→</span>
       <input id="gradient-to" placeholder="结束色" value="ff8a00" style="flex:1">
@@ -518,7 +565,7 @@
       <span class="method">GET</span>
       <code class="url">/uuid/?count=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="uuid-input" placeholder="数量" value="3" style="width:80px;flex:none">
       <button onclick="preview('uuid')">生成</button><button class="copy-btn" onclick="copyApiUrl('uuid')" title="复制链接">复制</button>
     </div>
@@ -529,52 +576,6 @@
     </div>
   </article>
 
-
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <div class="tool-icon" style="background:#ff8a0022">🌐</div>
-    <h2>dns <span style="font-size:14px;font-weight:400;color:#6e7681">· DNS 查询</span></h2>
-    <p class="desc">DNS 记录查询。支持 A、AAAA、MX、NS、TXT、CNAME、SOA、SRV、PTR、CAA 十种记录类型。</p>
-    <div class="endpoint">
-      <span class="method">GET</span>
-      <code class="url">/dns/?domain=xxx&type=A</code>
-    </div>
-    <div class="demo-row">
-      <select id="dns-type" style="height:40px;padding:0 8px;background:#0d0d12;border:1px solid var(--border);border-radius:8px;color:#fff;font-size:13px;outline:none;flex:none">
-        <option>A</option><option>AAAA</option><option>MX</option><option selected>NS</option><option>TXT</option><option>CNAME</option>
-      </select>
-      <input id="dns-input" placeholder="example.com" value="baidu.com" style="flex:1">
-      <button onclick="preview('dns')">查询</button><button class="copy-btn" onclick="copyApiUrl('dns')" title="复制链接">复制</button>
-    </div>
-    <div class="preview">
-      <div class="preview-scroll">
-        <code id="dns-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
-      </div>
-    </div>
-  </article>
-
-<!-- whois -->
-  <article class="tool-card">
-    <span class="tool-badge">API</span>
-    <div class="tool-icon" style="background:#3fb95022">🔍</div>
-    <h2>whois <span style="font-size:14px;font-weight:400;color:#6e7681">· 域名信息</span></h2>
-    <p class="desc">WHOIS 域名注册信息查询。注册商、到期日、DNS 服务器、域名状态。</p>
-    <div class="endpoint">
-      <span class="method">GET</span>
-      <code class="url">/whois/?domain=xxx</code>
-    </div>
-    <div class="demo-row">
-      <input id="whois-input" placeholder="baidu.com" value="baidu.com" style="flex:1">
-      <button onclick="preview('whois')">查询</button><button class="copy-btn" onclick="copyApiUrl('whois')" title="复制链接">复制</button>
-    </div>
-    <div class="preview">
-      <div class="preview-scroll">
-        <code id="whois-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
-      </div>
-    </div>
-  </article>
-
-
   <article class="tool-card">
     <span class="tool-badge">API</span>
     <div class="tool-icon" style="background:#00a88422">📖</div>
@@ -584,7 +585,7 @@
       <span class="method">GET</span>
       <code class="url">/read/?url=xxx</code>
     </div>
-    <div class="demo-row">
+    <div class="demo-row" style="flex-wrap:nowrap">
       <input id="read-input" placeholder="https://example.com/article" value="https://www.ruanyifeng.com/blog/2025/04/weekly-issue-345.html">
       <button onclick="preview('read')">提取</button><button class="copy-btn" onclick="copyApiUrl('read')" title="复制链接">复制</button>
     </div>
@@ -594,6 +595,28 @@
       </div>
     </div>
   </article>
+<!-- sitemap -->
+  <article class="tool-card">
+    <span class="tool-badge">API</span>
+    <div class="tool-icon" style="background:#ff8a0022">🗺</div>
+    <h2>sitemap <span style="font-size:14px;font-weight:400;color:#6e7681">· 站点地图</span></h2>
+    <p class="desc">递归爬取站点链接，生成层级页面地图。可指定深度 1-3 层。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/sitemap/?url=xxx&depth=2</code>
+    </div>
+    <div class="demo-row" style="flex-wrap:nowrap">
+      <input id="sitemap-input" placeholder="https://example.com" value="https://example.com" style="flex:1">
+      <button onclick="preview('sitemap')">爬取</button><button class="copy-btn" onclick="copyApiUrl('sitemap')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="sitemap-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击爬取</code>
+      </div>
+    </div>
+  </article>
+
+
 
 </div>
 
@@ -948,6 +971,27 @@ $ npx git-heat</code></pre>
       return;
     }
 
+    if (tool === 'sitemap') {
+      const code = document.getElementById('sitemap-preview');
+      code.textContent = '爬取中...';
+      try {
+        const res = await fetch(BASE + '/sitemap/?url=' + encodeURIComponent(val) + '&depth=1');
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = '📊 ' + data.domain + '  (' + data.totalPages + ' 页)\n';
+        for (const level of data.tree) {
+          text += '\n── 第 ' + level.level + ' 层 ──\n';
+          for (const p of level.urls.slice(0, 15)) {
+            const short = p.url.replace(data.baseUrl, '').replace(/^\//, '') || '/';
+            text += '  ' + short + '  ' + (p.title && p.title !== p.url ? '— ' + p.title : '') + '\n';
+          }
+          if (level.urls.length > 15) text += '  ... +' + (level.urls.length - 15) + ' 条\n';
+        }
+        code.textContent = text;
+      } catch { code.textContent = '❌ 爬取失败'; }
+      return;
+    }
+
     if (tool === 'read') {
       const code = document.getElementById('read-preview');
       code.textContent = '提取中...';
@@ -1034,6 +1078,7 @@ $ npx git-heat</code></pre>
   preview('dns');
   preview('whois');
   preview('read');
+  preview('sitemap');
   previewGradient();
 </script>
 </body>
