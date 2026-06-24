@@ -65,6 +65,7 @@
 | **imgextract · 图片批量提取** | 拖到收藏栏 |
 | **cookies · Cookie 管理器** | 拖到收藏栏 |
 | **lsstorage · LocalStorage 管理器** | 拖到收藏栏 |
+| **darkmode · 暗色模式** | 拖到收藏栏 |
 
 ---
 

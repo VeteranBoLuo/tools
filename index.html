@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试、图片批量提取、Cookie 管理、LocalStorage 管理。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试、图片批量提取、Cookie 管理、LocalStorage 管理、暗色模式。一行 URL 完成。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -28,7 +28,7 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 23,
+    "numberOfItems": 24,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -48,11 +48,12 @@
       {"@type":"ListItem","position":16,"name":"timestamp · 时间戳转换","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":17,"name":"palette · 配色生成","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":18,"name":"diff · 文本对比","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":19,"name":"all-links · 提取页面链接","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":19,"name":"lnks · 页面链接提取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":20,"name":"regex-tester · 正则测试","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":21,"name":"imgextract · 图片批量提取","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":21,"name":"imgextract · 图片提取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":22,"name":"cookies · Cookie 管理器","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":23,"name":"lsstorage · LocalStorage 管理器","url":"https://boluo66.top/toolkit/"}
+      {"@type":"ListItem","position":23,"name":"lsstorage · LocalStorage 管理器","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":24,"name":"darkmode · 暗色模式","url":"https://boluo66.top/toolkit/"}
     ]
   }
   
@@ -767,6 +768,43 @@
        onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">💾 LocalStorage 管理器</a>
   </div>
   <p style="font-size:12px;color:#6e7681;margin-top:8px">按住按钮拖到浏览器收藏栏即可使用</p>
+</article>
+
+<!-- darkmode -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#615ced22">🌙</div>
+  <h2>darkmode <span style="font-size:14px;font-weight:400;color:#6e7681">· 暗色模式</span></h2>
+  <p class="desc">为任何网页强制开启暗色模式，再次点击一键恢复原样。</p>
+  <div style="padding:12px 0;margin:4px 0;overflow:hidden">
+    <div style="background:#14161c;border-radius:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div><div style="font:600 11px system-ui;color:#c4c4cc">🌙 暗色预览</div><div style="font:9px system-ui;color:#484f58">点击切换</div></div>
+        <div style="font:8px system-ui;color:#3fb950;background:rgba(59,185,80,.1);border-radius:4px;padding:2px 5px">已开启</div>
+      </div>
+      <div style="overflow:hidden;border-radius:4px">
+        <div style="background:#0d0d12;padding:8px 10px">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+            <div style="width:8px;height:8px;border-radius:50%;background:#ff5f56"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#27c93f"></div>
+          </div>
+          <div style="background:#1a1a2e;border-radius:4px;padding:8px 10px">
+            <div style="color:#e0e0e0;font:11px">关于我们 · 服务条款 · 隐私政策</div>
+            <div style="color:#7a7a8c;font:9px;margin-top:3px">© 2026 Company. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:8px">
+    <a href="javascript:(function(){var id='dm-'+Date.now(),s=document.getElementById(id);if(s){s.remove();var b=document.getElementById(id+'-b');if(b)b.remove();return}var st=document.createElement('style');st.id=id;st.textContent='html{-webkit-filter:invert(.9) hue-rotate(180deg);filter:invert(.9) hue-rotate(180deg)}img,video,canvas,svg,[role=img],[class*=emoji],[style*=background-image],[style*=background],[style*=gradient]{-webkit-filter:invert(.9) hue-rotate(180deg)!important;filter:invert(.9) hue-rotate(180deg)!important}';document.head.appendChild(st);var btn=document.createElement('div');btn.id=id+'-b';btn.innerHTML='\u2600\uFE0F';btn.title='\u70B9\u51FB\u6062\u590D\u539F\u6837';btn.style.cssText='position:fixed;bottom:24px;right:24px;z-index:2147483647;width:40px;height:40px;border-radius:50%;background:#1a1a2e;color:#ffd700;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);transition:transform .15s,opacity .15s';btn.onmouseover=function(){this.style.transform='scale(1.1)'};btn.onmouseout=function(){this.style.transform='scale(1)'};btn.onclick=function(){var x=document.getElementById(id);if(x){x.remove()}this.remove()};document.body.appendChild(btn)})()"
+      style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab;transition:opacity .15s"
+      onclick="return false" draggable="true" title="按住拖到浏览器收藏栏"
+      ondragstart="event.dataTransfer.setData('text/plain', this.href)"
+      onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🌙 暗色模式</a>
+  </div>
+  <p style="font-size:12px;color:#6e7681;margin-top:8px">按住按钮拖到浏览器收藏栏即可使用，再次点击浮动按钮恢复。</p>
 </article>
 
 </div>
