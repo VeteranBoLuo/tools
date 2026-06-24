@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="https://boluo66.top/toolkit/screenshot.png?v=2" alt="开发者工具箱截图" width="90%" style="border-radius: 12px" />
+  <img src="https://boluo66.top/toolkit/screenshot.png?v=3" alt="开发者工具箱截图" width="90%" style="border-radius: 12px" />
 </p>
 
 ---
