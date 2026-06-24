@@ -8,7 +8,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-22-success" alt="22 tools">
+  <img src="https://img.shields.io/badge/tools-24-success" alt="24 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
@@ -73,6 +73,8 @@
 | **palette · 配色生成** | [→ 打开](https://boluo66.top/toolkit/palette.html) |
 | **diff · 文本对比** | [→ 打开](https://boluo66.top/toolkit/diff.html) |
 | **regex-tester · 正则测试** | [→ 打开](https://boluo66.top/toolkit/regex-tester.html) |
+| **api-playground · 接口调试器** | [→ 打开](https://boluo66.top/toolkit/api-playground.html) |
+| **mermaid-editor · 图表编辑器** | [→ 打开](https://boluo66.top/toolkit/mermaid-editor.html) |
 
 ---
 
