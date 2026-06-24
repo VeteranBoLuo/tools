@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试、图片批量提取、Cookie 管理、LocalStorage 管理、暗色模式、熊猫模式、像素化、复制解除。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、二维码、OG 卡片、渐变、UUID、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试、图片批量提取、Cookie 管理、LocalStorage 管理、暗色模式、熊猫模式、像素化、复制解除、断链检测。一行 URL 完成。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -28,7 +28,7 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 27,
+    "numberOfItems": 28,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -56,7 +56,8 @@
       {"@type":"ListItem","position":24,"name":"darkmode · 暗色模式","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":25,"name":"panda · 熊猫模式","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":26,"name":"pixelate · 像素化","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":27,"name":"uncopy · 复制解除","url":"https://boluo66.top/toolkit/"}
+      {"@type":"ListItem","position":27,"name":"uncopy · 复制解除","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":28,"name":"linkcheck · 断链检测","url":"https://boluo66.top/toolkit/"}
     ]
   }
   
@@ -910,6 +911,45 @@
       onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📋 复制解除</a>
   </div>
   <p style="font-size:12px;color:#6e7681;margin-top:8px">拖到收藏栏，打开限制复制的网页点击即可解除。</p>
+</article>
+
+<!-- linkcheck -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ff8a0033;color:#ff8a00">BM</span>
+  <div class="tool-icon" style="background:#615ced22">🔗</div>
+  <h2>linkcheck <span style="font-size:14px;font-weight:400;color:#6e7681">· 断链检测</span></h2>
+  <p class="desc">扫描页面所有链接，检测哪些是断链（404/5xx/超时），正常链接用绿色标注。</p>
+  <div style="padding:12px 0;margin:4px 0;overflow:hidden">
+    <div style="background:#14161c;border-radius:8px;padding:12px 14px;border:1px solid rgba(255,255,255,.06)">
+      <div style="display:flex;gap:12px;margin-bottom:8px">
+        <div style="background:#0d0d12;border-radius:6px;padding:8px 12px;flex:1;text-align:center">
+          <div style="font:9px system-ui;color:#484f58">链接总数</div>
+          <div style="font:22px;color:#c4c4cc;font-weight:700">42</div>
+        </div>
+        <div style="background:#0d0d12;border-radius:6px;padding:8px 12px;flex:1;text-align:center">
+          <div style="font:9px system-ui;color:#484f58">正常</div>
+          <div style="font:22px;color:#3fb950;font-weight:700">38</div>
+        </div>
+        <div style="background:#0d0d12;border-radius:6px;padding:8px 12px;flex:1;text-align:center">
+          <div style="font:9px system-ui;color:#484f58">断链</div>
+          <div style="font:22px;color:#ff7b72;font-weight:700">4</div>
+        </div>
+      </div>
+      <div style="background:#0d0d12;border-radius:4px;padding:8px">
+        <div style="color:#ff7b72;font:9px system-ui">❌ https://example.com/broken — 404</div>
+        <div style="color:#3fb950;font:9px system-ui;margin-top:3px">✅ /about — 200</div>
+        <div style="color:#e3b341;font:9px system-ui;margin-top:3px">⚠️ https://external.site.com — 受限（外部）</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:8px">
+    <a href="javascript:(function(){var id='lc-'+Date.now(),d=document,all=Array.from(d.querySelectorAll('a[href]')).filter(function(a){var h=a.getAttribute('href');return h&&!h.startsWith('#')&&!h.startsWith('javascript:')&&!h.startsWith('mailto:')&&!h.startsWith('tel:')}),C={bg:'#14161c',txt:'#c4c4cc',mute:'#6e7681',ok:'#3fb950',err:'#ff7b72',warn:'#e3b341',bd:'rgba(255,255,255,.06)'},panel=d.createElement('div');panel.id=id;panel.innerHTML='<style>#'+id+'{position:fixed;top:0;right:0;bottom:0;width:480px;z-index:2147483647;background:'+C.bg+';color:'+C.txt+';font:14px system-ui;display:flex;flex-direction:column;border-left:1px solid '+C.bd+';box-shadow:-4px 0 24px rgba(0,0,0,.3)}#'+id+'-hd{flex:none;padding:12px 16px;border-bottom:1px solid '+C.bd+';display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;box-sizing:border-box}'+id+'-hd .h3{font:600 14px;color:'+C.txt+'}'+id+'-list{flex:1;overflow:auto;padding:8px 12px}'+id+'-list .item{padding:8px;border-bottom:1px solid '+C.bd+';font:12px}'+id+'-list .item:last-child{border:none}'+id+'-list .url{word-break:break-all;color:'+C.txt+'}'+id+'-list .st{font:10px;margin-top:2px}</style><div id='+id+'-hd><div class=h3>\u68C0\u6D4B\u94FE\u63A5...</div><div><button id='+id+'-close style=\"border:1px solid '+C.bd+';background:'+C.bd+';color:'+C.mute+';cursor:pointer;border-radius:6px;width:28px;height:28px;font-size:14px\">\u00D7</button></div></div><div id='+id+'-list></div>';d.body.appendChild(panel);var list=d.getElementById(id+'-list'),listTxt=list.innerHTML;list.innerHTML='<div style=\"text-align:center;padding:40px;color:'+C.mute+';font:13px\">\u6B63\u5728\u626B\u63CF '+all.length+' \u4E2A\u94FE\u63A5...</div>';d.getElementById(id+'-close').onclick=function(){panel.remove()};var okCount=0,errCount=0,unkCount=0,results=[];var done=0;function render(){list.innerHTML='<div style=\"display:flex;gap:8px;margin-bottom:8px\"><div style=\"background:#0d0d12;border-radius:6px;padding:6px 10px;flex:1;text-align:center\"><div style=\"font:9px;color:#484f58\">\u603B\u6570</div><div style=\"font:18px;color:'+C.txt+';font-weight:700\">'+all.length+'</div></div><div style=\"background:#0d0d12;border-radius:6px;padding:6px 10px;flex:1;text-align:center\"><div style=\"font:9px;color:#484f58\">\u6B63\u5E38</div><div style=\"font:18px;color:'+C.ok+';font-weight:700\">'+okCount+'</div></div><div style=\"background:#0d0d12;border-radius:6px;padding:6px 10px;flex:1;text-align:center\"><div style=\"font:9px;color:#484f58\">\u65AD\u94FE</div><div style=\"font:18px;color:'+C.err+';font-weight:700\">'+errCount+'</div></div></div>';results.sort(function(a,b){return a.status.localeCompare(b.status)});results.forEach(function(r){var item=d.createElement('div');item.className='item';var col=r.status==='200'||r.status==='ok'?C.ok:r.status==='timeout'||r.status.startsWith('4')||r.status.startsWith('5')?C.err:C.warn;item.innerHTML='<div class=url style=\"color:'+col+'\">'+(r.status==='ok'?'\u2713 ':'\u2717 ')+r.url.slice(0,80)+(r.url.length>80?'...':'')+'</div><div class=st style=\"color:'+C.mute+'\">'+r.status+'</div>';list.appendChild(item)})};all.forEach(function(a,i){var h=a.getAttribute('href');if(!h||!h.trim()){done++;return}var full=h.startsWith('http')?h:new URL(h,location.href).href;var controller=new AbortController(),to=setTimeout(function(){controller.abort()},8000);fetch(full,{method:'HEAD',mode:'no-cors',signal:controller.signal}).then(function(r){clearTimeout(to);okCount++;results.push({url:h,status:'ok'});done++;if(done===all.length)render()}).catch(function(){clearTimeout(to);errCount++;results.push({url:h,status:'timeout'});done++;if(done===all.length)render()})})})()"
+      style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#615ced;color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;cursor:grab;transition:opacity .15s"
+      onclick="return false" draggable="true" title="按住拖到浏览器收藏栏"
+      ondragstart="event.dataTransfer.setData('text/plain', this.href)"
+      onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🔗 断链检测</a>
+  </div>
+  <p style="font-size:12px;color:#6e7681;margin-top:8px">拖到收藏栏，检测当前页面的所有链接状态。</p>
 </article>
 
 </div>
