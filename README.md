@@ -5,7 +5,7 @@
   ·
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
   ·
-  <img src="https://img.shields.io/badge/tools-23-success" alt="23 tools">
+  <img src="https://img.shields.io/badge/tools-22-success" alt="22 tools">
   ·
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
 </p>
@@ -28,11 +28,7 @@
 | 工具 | 示例 | 说明 |
 |---|---|---|
 | **favimg · 图标获取** | `/favimg/?url=xxx` | 一行 URL，一张图标 |
-| **qr · 二维码** | `/qr/?content=xxx` | 任意内容生成二维码 |
-| **og · 分享卡片** | `/og/?url=xxx` | 自动提取 OG 信息并渲染 |
-| **gradient · 渐变生成** | `/gradient/?from=xxx&to=xxx` | URL 即出渐变色 SVG |
 | **ip · 地理位置** | `/ip/?ip=xxx` | 查国家/城市/ISP/ASN |
-| **uuid · UUID 生成** | `/uuid/?count=xxx` | 批量 UUID v4，JSON 或纯文本 |
 | **uptime · 网站监测** | `/uptime/?url=xxx` | 状态码/响应时间/SSL 到期 |
 | **metadata · 元数据提取** | `/metadata/?url=xxx` | title/OG/headings/link |
 | **dns · DNS 查询** | `/dns/?domain=xxx&type=A` | 10 种 DNS 记录类型 |
