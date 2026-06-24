@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>工具箱 — 开发者日常工具集合</title>
-  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 地理位置、网站监测、安全检测、元数据提取、DNS 查询、正文提取、域名信息、年度报告、端口清理、代码截图、时间戳、配色、文本对比、提取页面链接、正则测试、图片批量提取、Cookie 管理、LocalStorage 管理、熊猫模式、复制解除、断链检测。一行 URL 完成。">
+  <meta name="description" content="免费在线开发者工具箱：图标获取、IP 定位、DNS 查询、安全检测、正文提取、代码截图、配色、正则测试、Cookie 管理等。一行 URL 即开即用，不装客户端。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boluo66.top/toolkit/">
   <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
@@ -12,23 +12,23 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://boluo66.top/toolkit/">
   <meta property="og:title" content="工具箱 — 开发者日常工具集合">
-  <meta property="og:description" content="免费在线开发者工具箱：图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变配色、文本对比、图片批量提取、Cookie 管理等。一行 URL，即开即用。">
-  <meta property="og:image" content="https://boluo66.top/favimg/?url=boluo66.top&size=256">
+  <meta property="og:description" content="免费在线开发者工具箱：图标获取、IP 定位、DNS 查询、安全检测、正文提取、API 调试、Mermaid 图表、代码截图、配色生成。一行 URL 即开即用。">
+  <meta property="og:image" content="https://boluo66.top/toolkit/og-image.svg">
   <meta property="og:site_name" content="开发者工具箱">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="工具箱 — 开发者日常工具集合">
-  <meta name="twitter:description" content="免费在线开发者工具箱。图标获取、二维码、OG 卡片、IP 地理位置、UUID 生成、网站监测、代码截图、时间戳、渐变色、配色方案、文本对比、图片批量提取、Cookie 管理等。">
-  <meta name="twitter:image" content="https://boluo66.top/favimg/?url=boluo66.top&size=256">
+  <meta name="twitter:description" content="免费在线开发者工具箱。图标获取、IP 定位、DNS 查询、安全检测、正文提取、API 调试、代码截图、配色生成、Cookie 管理等。">
+  <meta name="twitter:image" content="https://boluo66.top/toolkit/og-image.svg">
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "开发者工具箱",
-    "description": "免费在线开发者工具集合，覆盖图标获取、二维码生成、OG 分享卡片、渐变生成、IP 地理位置、UUID 生成、网站监测、域名信息、GitHub 年度报告、端口清理、代码截图、时间戳转换、配色方案、文本对比。",
+    "description": "免费在线开发者工具集合。图标获取、IP 定位、DNS 查询、安全检测、网站监测、正文提取、域名信息、代码截图、配色方案、文本对比、正则测试。一行 URL 即开即用。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 22,
+    "numberOfItems": 24,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -51,12 +51,14 @@
       {"@type":"ListItem","position":19,"name":"lsstorage · LocalStorage 管理器","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":20,"name":"panda · 熊猫模式","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":21,"name":"uncopy · 复制解除","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":22,"name":"linkcheck · 断链检测","url":"https://boluo66.top/toolkit/"}
-    ]
+      {"@type":"ListItem","position":22,"name":"linkcheck · 断链检测","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":23,"name":"api-playground · 接口调试器","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":24,"name":"mermaid-editor · 图表编辑器","url":"https://boluo66.top/toolkit/"}]
   }
-  
-(()=>{const dots=document.querySelectorAll(".cat-nav .dot"),sections=[...dots].map(d=>document.getElementById(d.dataset.target)).filter(Boolean);dots.forEach(d=>d.addEventListener("click",()=>{const el=document.getElementById(d.dataset.target);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}));let t=!1;window.addEventListener("scroll",()=>{if(t)return;t=!0;requestAnimationFrame(()=>{let a=0;for(let i=sections.length-1;i>=0;i--){if(sections[i]&&sections[i].offsetTop<=window.scrollY+100){a=i;break}}dots.forEach((d,i)=>d.classList.toggle("active",i===a));t=!1})})})();
 
+</script>
+<script>
+(()=>{const dots=document.querySelectorAll(".cat-nav .dot"),sections=[...dots].map(d=>document.getElementById(d.dataset.target)).filter(Boolean);dots.forEach(d=>d.addEventListener("click",()=>{const el=document.getElementById(d.dataset.target);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}));let t=!1;window.addEventListener("scroll",()=>{if(t)return;t=!0;requestAnimationFrame(()=>{let a=0;for(let i=sections.length-1;i>=0;i--){if(sections[i]&&sections[i].offsetTop<=window.scrollY+100){a=i;break}}dots.forEach((d,i)=>d.classList.toggle("active",i===a));t=!1})})})();
 </script>
   <style>
   :root {
@@ -956,6 +958,26 @@ $ npx git-heat</code></pre>
     <a href="/toolkit/regex-tester.html" class="tool-link">打开工具 →</a>
   </article>
 
+<!-- api-playground -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ec489922;color:#ec4899">WEB</span>
+  <div class="tool-icon" style="background:#615ced22">🔌</div>
+  <h2>api-playground <span style="font-size:14px;font-weight:400;color:#6e7681">· 接口调试器</span></h2>
+  <p class="desc">REST 接口调试工具。选方法、填 URL、加 Headers、写 Body，发请求看响应。不装客户端，浏览器即开即用。</p>
+  <a href="/toolkit/api-playground.html" class="tool-link">打开工具 →</a>
+</article>
+
+<!-- mermaid-editor -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ec489922;color:#ec4899">WEB</span>
+  <div class="tool-icon" style="background:#00a88422">📊</div>
+  <h2>mermaid-editor <span style="font-size:14px;font-weight:400;color:#6e7681">· 图表编辑器</span></h2>
+  <p class="desc">流程图、时序图、类图、甘特图、状态图、饼图、ER 图。写 Mermaid 代码，实时预览，导出 SVG/PNG。</p>
+  <a href="/toolkit/mermaid-editor.html" class="tool-link">打开工具 →</a>
+</article>
+
+
+
 </div>
 
 </section>
@@ -1020,7 +1042,7 @@ $ npx git-heat</code></pre>
     if (!val) return;
 
     // Auto-prepend protocol for URL-based tools
-    const urlTools = ['uptime', 'metadata', 'security', 'read', 'favimg', 'og'];
+    const urlTools = ['uptime', 'metadata', 'security', 'read', 'favimg'];
     if (urlTools.includes(tool) && !val.startsWith('http://') && !val.startsWith('https://')) {
       val = 'https://' + val;
     }
@@ -1046,18 +1068,6 @@ $ npx git-heat</code></pre>
           + (data.isp ? '运营商: ' + data.isp + '\n' : '')
           + (data.asn ? 'ASN: ' + data.asn : '');
       } catch { code.textContent = '❌ 查询失败'; }
-      return;
-    }
-
-    if (tool === 'uuid') {
-      const code = document.getElementById('uuid-preview');
-      const count = parseInt(val) || 1;
-      code.textContent = '生成中...';
-      try {
-        const res = await fetch(BASE + '/uuid/?count=' + Math.min(count, 20));
-        const data = await res.json();
-        code.textContent = data.uuids.join('\n');
-      } catch { code.textContent = '❌ 生成失败'; }
       return;
     }
 
@@ -1201,38 +1211,24 @@ $ npx git-heat</code></pre>
     }
 
     const img = document.getElementById(tool + '-preview');
-    const param = tool === 'qr' ? 'content' : 'url';
+    const param = 'url';
     let url = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
     if (tool === 'favimg') url += '&size=128';
     img.src = url;
-  }
-
-  function previewGradient() {
-    const from = document.getElementById('gradient-from').value.trim() || '615ced';
-    const to = document.getElementById('gradient-to').value.trim() || 'ff8a00';
-    const img = document.getElementById('gradient-preview');
-    const ph = document.getElementById('gradient-placeholder');
-    ph.style.display = 'block';
-    img.style.display = 'none';
-    img.src = BASE + '/gradient/?from=' + encodeURIComponent(from) + '&to=' + encodeURIComponent(to) + '&width=400&height=164';
   }
 
 
   function copyApiUrl(tool) {
     const base = BASE + '/' + tool + '/?';
     let url;
-    if (tool === 'gradient') {
-      const from = (document.getElementById('gradient-from')?.value || '').trim() || '615ced';
-      const to = (document.getElementById('gradient-to')?.value || '').trim() || 'ff8a00';
-      url = base + 'from=' + encodeURIComponent(from) + '&to=' + encodeURIComponent(to);
-    } else if (tool === 'dns') {
+    if (tool === 'dns') {
       const domain = document.getElementById('dns-input').value.trim();
       const type = document.getElementById('dns-type').value;
       url = base + 'domain=' + encodeURIComponent(domain) + '&type=' + type;
     } else {
       const input = document.getElementById(tool + '-input');
       const val = input ? input.value.trim() : '';
-      const param = tool === 'qr' ? 'content' : tool === 'ip' ? 'ip' : tool === 'uuid' ? 'count' : 'url';
+      const param = tool === 'ip' ? 'ip' : 'url';
       url = base + param + '=' + encodeURIComponent(val);
       if (tool === 'favimg') url += '&size=128';
     }
@@ -1253,22 +1249,30 @@ $ npx git-heat</code></pre>
     }).catch(() => {});
   }
 
-  // 初始加载
-  preview('favimg');
-  preview('qr');
-  preview('og');
-  preview('ip');
-  preview('uuid');
-  preview('uptime');
-  preview('security');
-  preview('metadata');
-  preview('dns');
-  preview('whois');
-  preview('read');
-  previewGradient();
+  // 初始加载（延迟执行，让页面先渲染）
+  setTimeout(function() {
+    preview('favimg');
+    preview('ip');
+    preview('uptime');
+    preview('security');
+    preview('metadata');
+    preview('dns');
+    preview('whois');
+    preview('read');
+  }, 500);
 
 (()=>{const dots=document.querySelectorAll(".cat-nav .dot"),sections=[...dots].map(d=>document.getElementById(d.dataset.target)).filter(Boolean);dots.forEach(d=>d.addEventListener("click",()=>{const el=document.getElementById(d.dataset.target);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}));let t=!1;window.addEventListener("scroll",()=>{if(t)return;t=!0;requestAnimationFrame(()=>{let a=0;for(let i=sections.length-1;i>=0;i--){if(sections[i]&&sections[i].offsetTop<=window.scrollY+100){a=i;break}}dots.forEach((d,i)=>d.classList.toggle("active",i===a));t=!1})})})();
 
+</script>
+<div style="text-align:center;padding:20px 0 40px;font-size:12px;color:#484f58">今日访问 <span id="stat-today">—</span> · 总访问 <span id="stat-total">—</span></div>
+<script>
+// 访问统计
+fetch('https://boluo66.top/stats/', {
+  headers: { 'Referer': 'https://boluo66.top/toolkit/' }
+}).then(function(r){return r.json()}).then(function(d){
+  document.getElementById('stat-today').textContent = d.today;
+  document.getElementById('stat-total').textContent = d.total;
+}).catch(function(){})
 </script>
 </body>
 </html>

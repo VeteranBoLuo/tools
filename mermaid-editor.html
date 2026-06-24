@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid 图表 · 流程图编辑器 — 开发者工具箱</title>
+  <link rel="icon" href="https://boluo66.top/favimg/?url=boluo66.top">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d0d12;
+      --card: #14141c;
+      --border: rgb(255 255 255 / .06);
+      --text: #c4c4cc;
+      --muted: #6b6b78;
+      --accent: #615ced;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      padding: 10px 24px; transition: color .15s;
+    }
+    .back:hover { color: var(--text); }
+    .container {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px 8px;
+    }
+    h1 {
+      font-size: 22px; font-weight: 700; color: #fff;
+      margin-bottom: 0;
+    }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex; gap: 6px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .toolbar label {
+      font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px;
+    }
+    .toolbar select {
+      height: 28px; padding: 0 8px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 5px; color: #fff; font-size: 12px;
+      outline: none; cursor: pointer;
+      -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%236b6b78' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 6px center;
+      padding-right: 24px;
+    }
+    .toolbar select:focus { border-color: var(--accent); }
+    .toolbar select option { background: var(--card); color: #fff; }
+    .toolbar button, .toolbar .btn {
+      height: 28px; padding: 0 10px;
+      background: rgba(255,255,255,.06); border: 1px solid var(--border);
+      border-radius: 5px; color: var(--text); font-size: 12px;
+      cursor: pointer; transition: all .15s;
+      display: inline-flex; align-items: center; gap: 3px;
+      text-decoration: none;
+    }
+    .toolbar button:hover, .toolbar .btn:hover { background: rgba(255,255,255,.1); }
+    .toolbar .btn-primary {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .toolbar .btn-primary:hover { opacity: .85; }
+    .toolbar .zoom-group {
+      display: inline-flex; gap: 0; align-items: center;
+    }
+    .toolbar .zoom-group button {
+      border-radius: 0; padding: 0 8px; height: 28px;
+    }
+    .toolbar .zoom-group button:first-child { border-radius: 5px 0 0 5px; }
+    .toolbar .zoom-group button:last-child { border-radius: 0 5px 5px 0; }
+    .toolbar .zoom-group button:not(:last-child) { border-right: none; }
+    .toolbar .zoom-group .zoom-lvl {
+      padding: 0 6px; font-size: 10px; color: var(--muted);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      height: 28px; display: flex; align-items: center;
+    }
+    .toolbar .spacer { flex: 1; }
+
+    /* Split layout */
+    .split {
+      display: flex; gap: 12px; height: calc(100vh - 200px); min-height: 300px;
+    }
+    .editor-pane {
+      flex: 1; display: flex; flex-direction: column; min-width: 0;
+    }
+    .editor-pane .label {
+      font-size: 11px; color: var(--muted); margin-bottom: 4px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .editor-pane .label .count {
+      background: rgba(255,255,255,.04); padding: 1px 5px;
+      border-radius: 3px; font-size: 10px;
+    }
+    .editor-pane textarea {
+      flex: 1; width: 100%; padding: 12px 14px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; color: #a5b4c4; font-size: 12px;
+      font-family: 'SF Mono','Fira Code',monospace; line-height: 1.5;
+      outline: none; resize: none; transition: border-color .2s;
+    }
+    .editor-pane textarea:focus { border-color: var(--accent); }
+
+    .preview-pane {
+      flex: 1; display: flex; flex-direction: column; min-width: 0;
+    }
+    .preview-pane .label {
+      font-size: 11px; color: var(--muted); margin-bottom: 4px;
+    }
+    .preview-box {
+      flex: 1; background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 0;
+      overflow: hidden; position: relative; cursor: grab;
+    }
+    .preview-box:active { cursor: grabbing; }
+    .preview-box .zoom-wrap {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .preview-box .zoom-content {
+      transform-origin: center center;
+      transition: transform .15s ease;
+    }
+    .preview-box .zoom-content.dragging {
+      transition: none !important;
+    }
+    .preview-box .mermaid-preview { max-width: none; }
+    .preview-box .mermaid-preview svg { display: block; max-width: none; }
+    .preview-box .error {
+      color: #ff7b72; font-size: 13px; text-align: center;
+      padding: 20px; white-space: pre-wrap; font-family: 'SF Mono','Fira Code',monospace;
+    }
+    .preview-box .placeholder {
+      color: var(--muted); font-size: 14px; text-align: center;
+      padding: 40px;
+    }
+
+    /* Templates */
+    .templates {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .templates button {
+      padding: 5px 12px; border: 1px solid var(--border);
+      border-radius: 6px; background: transparent; color: var(--muted);
+      font-size: 11px; cursor: pointer; transition: all .15s;
+    }
+    .templates button:hover { border-color: var(--accent); color: var(--text); }
+    .templates button.active {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 16px 40px; }
+      .split { flex-direction: column; height: auto; min-height: auto; }
+      .editor-pane textarea { min-height: 200px; }
+      .preview-box { min-height: 300px; }
+      .toolbar .spacer { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="/toolkit/" class="back">← 工具箱</a>
+<div class="container">
+
+<h1>Mermaid 图表编辑器</h1>
+<p class="sub">流程图 · 时序图 · 类图 · 甘特图 — 写代码画图，实时预览</p>
+
+<!-- Templates -->
+<div class="templates" id="templateBar">
+  <button onclick="loadTemplate('flow')" class="active">流程图</button>
+  <button onclick="loadTemplate('seq')">时序图</button>
+  <button onclick="loadTemplate('class')">类图</button>
+  <button onclick="loadTemplate('gantt')">甘特图</button>
+  <button onclick="loadTemplate('state')">状态图</button>
+  <button onclick="loadTemplate('pie')">饼图</button>
+  <button onclick="loadTemplate('er')">ER 图</button>
+  <button onclick="loadTemplate('git')">Git 图</button>
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <label>
+    主题
+    <select id="theme" onchange="render()">
+      <option value="default">Default</option>
+      <option value="dark" selected>Dark</option>
+      <option value="neutral">Neutral</option>
+      <option value="forest">Forest</option>
+      <option value="base">Base</option>
+    </select>
+  </label>
+  <label>
+    方向
+    <select id="direction" onchange="render()">
+      <option value="TB">从上到下</option>
+      <option value="LR" selected>从左到右</option>
+      <option value="BT">从下到上</option>
+      <option value="RL">从右到左</option>
+    </select>
+  </label>
+  <div class="zoom-group">
+    <button onclick="zoomOut()" title="缩小">−</button>
+    <span class="zoom-lvl" id="zoomLevel">100%</span>
+    <button onclick="zoomIn()" title="放大">+</button>
+    <button onclick="zoomReset()" title="重置" style="border-left:none;border-radius:0 6px 6px 0;font-size:11px">↺</button>
+  </div>
+  <span class="spacer"></span>
+  <button onclick="exportSVG()">⬇ SVG</button>
+  <button onclick="exportPNG()">⬇ PNG</button>
+  <button class="btn-primary" onclick="render()">⟳ 渲染</button>
+</div>
+
+<!-- Split -->
+<div class="split">
+  <div class="editor-pane">
+    <div class="label">
+      Mermaid 代码
+      <span class="count" id="lineCount">0 行</span>
+    </div>
+    <textarea id="code" oninput="autoRender()" placeholder="在此输入 Mermaid 代码，例如：&#10;graph LR&#10;  A[开始] --> B[结束]">graph LR
+  A[开始] --> B{判断}
+  B -->|是| C[处理]
+  B -->|否| D[结束]
+  C --> D</textarea>
+  </div>
+  <div class="preview-pane">
+    <div class="label">预览 <span style="color:#484f58;font-size:11px">· 滚轮缩放</span></div>
+    <div class="preview-box" id="previewBox">
+      <div class="zoom-wrap" id="zoomWrap">
+        <div class="zoom-content" id="zoomContent">
+          <div class="mermaid-preview" id="mermaidContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'dark',
+  securityLevel: 'loose',
+  fontFamily: 'Inter, system-ui, sans-serif',
+});
+
+let renderTimer = null;
+let zoom = 1;
+let panX = 0, panY = 0;
+let isDragging = false, dragStartX, dragStartY;
+let currentTemplate = 'flow';
+
+function autoRender() {
+  const lines = document.getElementById('code').value.split('\n').length;
+  document.getElementById('lineCount').textContent = lines + ' 行';
+  clearTimeout(renderTimer);
+  renderTimer = setTimeout(render, 500);
+}
+
+async function render() {
+  const container = document.getElementById('mermaidContainer');
+  const code = document.getElementById('code').value.trim();
+  const theme = document.getElementById('theme').value;
+  const direction = document.getElementById('direction').value;
+
+  if (!code) {
+    container.innerHTML = '<div class="placeholder">输入 Mermaid 代码开始画图</div>';
+    return;
+  }
+
+  // Fix direction replacement — properly handle existing direction
+  let processed = code;
+  if (/^graph\s+(TB|LR|BT|RL)/.test(processed)) {
+    processed = processed.replace(/^(graph\s+)(TB|LR|BT|RL)/, '$1' + direction);
+  } else if (/^graph\s/.test(processed)) {
+    processed = 'graph ' + direction + processed.slice(6);
+  }
+
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: theme,
+    securityLevel: 'loose',
+    fontFamily: 'Inter, system-ui, sans-serif',
+  });
+
+  try {
+    const { svg } = await mermaid.render('mermaid-svg-' + Date.now(), processed);
+    container.innerHTML = svg;
+    const svgEl = container.querySelector('svg');
+    if (svgEl) {
+      svgEl.style.maxWidth = 'none';
+      svgEl.style.height = 'auto';
+    }
+    zoomReset();
+  } catch (e) {
+    container.innerHTML = '<div class="error">' + escHtml(e.message || e) + '</div>';
+  }
+}
+
+function loadTemplate(name) {
+  currentTemplate = name;
+  // Highlight active template
+  document.querySelectorAll('#templateBar button').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector('#templateBar button[onclick="loadTemplate(\'' + name + '\')"]');
+  if (btn) btn.classList.add('active');
+
+  const templates = {
+    flow: `graph LR
+  A[开始] --> B{验证}
+  B -->|通过| C[处理请求]
+  B -->|拒绝| D[返回错误]
+  C --> E[需要数据库]
+  E -->|是| F[查询 DB]
+  E -->|否| G[直接返回]
+  F --> G
+  G --> H[结束]`,
+
+    seq: `sequenceDiagram
+  participant U as 用户
+  participant F as 前端
+  participant B as 后端
+  participant D as 数据库
+
+  U->>F: 点击提交
+  F->>B: POST /api/submit
+  B->>D: INSERT INTO ...
+  D-->>B: OK
+  B-->>F: 200 {id: 1}
+  F-->>U: 显示成功`,
+
+    class: `classDiagram
+  class User {
+    +String name
+    +String email
+    +login()
+    +logout()
+  }
+  class Admin {
+    +String role
+    +banUser()
+  }
+  class Guest {
+    +visit()
+  }
+  User <|-- Admin
+  User <|-- Guest`,
+
+    gantt: `gantt
+  title 项目计划
+  dateFormat  YYYY-MM-DD
+  section 设计
+  需求分析       :a1, 2026-06-01, 7d
+  原型设计       :a2, after a1, 5d
+  section 开发
+  前端开发       :b1, after a2, 10d
+  后端开发       :b2, after a2, 12d
+  联调测试       :b3, after b1, 5d
+  section 上线
+  部署          :c1, after b3, 2d
+  验收          :c2, after c1, 3d`,
+
+    state: `stateDiagram-v2
+  [*] --> 待审核
+  待审核 --> 审核中 : 提交
+  审核中 --> 已通过 : 批准
+  审核中 --> 已拒绝 : 驳回
+  已通过 --> [*]
+  已拒绝 --> 待审核 : 重新提交`,
+
+    pie: `pie
+  "JavaScript" : 45
+  "TypeScript" : 30
+  "Python" : 15
+  "Go" : 10`,
+
+    er: `erDiagram
+  USER ||--o{ ORDER : places
+  USER {
+    int id PK
+    string name
+    string email
+  }
+  ORDER ||--|{ ORDER_ITEM : contains
+  ORDER {
+    int id PK
+    int user_id FK
+    date created_at
+  }
+  ORDER_ITEM {
+    int id PK
+    int order_id FK
+    string product
+    int quantity
+  }`,
+
+    git: `gitGraph
+  commit
+  branch develop
+  checkout develop
+  commit
+  commit
+  checkout main
+  merge develop
+  commit
+  branch feature
+  checkout feature
+  commit
+  checkout main
+  merge feature`,
+  };
+
+  document.getElementById('code').value = templates[name] || '';
+  document.getElementById('lineCount').textContent = (templates[name] || '').split('\n').length + ' 行';
+  render();
+}
+
+function zoomIn() {
+  zoom = Math.min(zoom + 0.25, 3);
+  applyZoom();
+}
+function zoomOut() {
+  zoom = Math.max(zoom - 0.25, 0.25);
+  applyZoom();
+}
+function zoomReset() {
+  zoom = 1; panX = 0; panY = 0;
+  applyZoom();
+}
+function applyZoom() {
+  const el = document.getElementById('zoomContent');
+  el.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')';
+  document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%';
+}
+
+// Drag to pan
+const zoomContent = document.getElementById('zoomContent');
+zoomContent.addEventListener('mousedown', function(e) {
+  if (e.button !== 0) return;
+  isDragging = true;
+  dragStartX = e.clientX - panX;
+  dragStartY = e.clientY - panY;
+  zoomContent.classList.add('dragging');
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (!isDragging) return;
+  panX = e.clientX - dragStartX;
+  panY = e.clientY - dragStartY;
+  zoomContent.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')';
+});
+
+document.addEventListener('mouseup', function() {
+  if (isDragging) {
+    isDragging = false;
+    zoomContent.classList.remove('dragging');
+  }
+});
+
+// Mouse wheel zoom on preview box
+document.getElementById('previewBox').addEventListener('wheel', function(e) {
+  if (e.ctrlKey || e.metaKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) zoomIn(); else zoomOut();
+  }
+}, { passive: false });
+
+async function exportSVG() {
+  const svg = document.querySelector('#mermaidContainer svg');
+  if (!svg) return;
+  const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
+  downloadBlob(blob, 'diagram.svg');
+}
+
+async function exportPNG() {
+  const svg = document.querySelector('#mermaidContainer svg');
+  if (!svg) return;
+
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const img = new Image();
+
+  const bg = document.getElementById('theme').value === 'dark' ? '#0d0d12' : '#ffffff';
+
+  img.onload = function() {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+    canvas.toBlob(function(blob) {
+      downloadBlob(blob, 'diagram.png');
+    }, 'image/png');
+  };
+  img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+}
+
+function downloadBlob(blob, filename) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Initial render
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('lineCount').textContent = document.getElementById('code').value.split('\n').length + ' 行';
+  render();
+});
+</script>
+
+</body>
+</html>
