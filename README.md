@@ -36,6 +36,18 @@
 | **whois · 域名信息** | `/whois/?domain=xxx` | 注册商、到期日、DNS 服务器 |
 | **read · 正文提取** | `/read/?url=xxx` | Mozilla Readability 去广告正文 |
 
+### Bookmarklet — 拖到收藏栏即用
+
+| 工具 | 说明 |
+|------|------|
+| **all-links · 提取页面链接** | 提取当前页面所有链接 |
+| **imgextract · 图片批量提取** | 一键提取全部图片，支持 ZIP 打包 |
+| **cookies · Cookie 管理器** | 查看、搜索、编辑、删除 Cookie |
+| **lsstorage · LocalStorage 管理器** | 查看、搜索、编辑、删除 LocalStorage |
+| **panda · 熊猫模式** | 页面变黑白双色，专注阅读 |
+| **uncopy · 复制解除** | 一键解除禁止复制/右键/选中 |
+| **linkcheck · 断链检测** | 扫描页面所有链接，标记断链 |
+
 ### CLI — 终端运行
 
 | 工具 | 命令 |
@@ -52,16 +64,6 @@
 | **palette · 配色生成** | [→ 打开](https://boluo66.top/toolkit/palette.html) |
 | **diff · 文本对比** | [→ 打开](https://boluo66.top/toolkit/diff.html) |
 | **regex-tester · 正则测试** | [→ 打开](https://boluo66.top/toolkit/regex-tester.html) |
-
-### Bookmarklet — 拖到收藏栏即用
-
-| 工具 | 地址 |
-|------|------|
-| **all-links · 提取页面链接** | 拖到收藏栏 |
-| **imgextract · 图片批量提取** | 拖到收藏栏 |
-| **cookies · Cookie 管理器** | 拖到收藏栏 |
-| **lsstorage · LocalStorage 管理器** | 拖到收藏栏 |
-| **darkmode · 暗色模式** | 拖到收藏栏 |
 
 ---
 
