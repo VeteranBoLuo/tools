@@ -32,16 +32,29 @@
 
 ### API — 改 URL 就出结果
 
-| 工具 | 示例 | 说明 |
-|---|---|---|
-| **favimg · 图标获取** | `GET /favimg/?url=xxx` | 一行 URL，一张 favicon |
-| **ip · 地理位置** | `GET /ip/?ip=xxx` | 返回国家、城市、ISP、ASN |
-| **uptime · 网站监测** | `GET /uptime/?url=xxx` | 状态码、响应耗时、SSL 到期日 |
-| **metadata · 元数据提取** | `GET /metadata/?url=xxx` | title、OG 标签、favicon、h1-h3 |
-| **dns · DNS 查询** | `GET /dns/?domain=xxx&type=A` | 10 种 DNS 记录类型 |
-| **security · 安全检测** | `GET /security/?url=xxx` | 9 项安全头加权评分 + TLS 分析 |
-| **whois · 域名信息** | `GET /whois/?domain=xxx` | 注册商、创建/到期日、DNS 服务器 |
-| **read · 正文提取** | `GET /read/?url=xxx` | Mozilla Readability 去广告正文 |
+所有 API 都支持 `GET` 请求，返回 JSON 或图片。无需 SDK、无需认证，任何语言/平台都能用：
+
+```html
+<!-- 用 <img> 直接嵌入网站 -->
+<img src="https://boluo66.top/favimg/?url=github.com" alt="图标">
+
+<!-- 用 fetch 在页面中调用 -->
+fetch('https://boluo66.top/ip/?ip=8.8.8.8').then(r => r.json())
+
+<!-- 终端里一行命令 -->
+curl https://boluo66.top/uptime/?url=example.com
+```
+
+| 工具 | 示例 | 返回 | 说明 |
+|---|---|---|---|
+| **favimg · 图标获取** | `GET /favimg/?url=xxx` | 图片 | 一行 URL，一张 favicon |
+| **ip · 地理位置** | `GET /ip/?ip=xxx` | JSON | 国家、城市、ISP、ASN |
+| **uptime · 网站监测** | `GET /uptime/?url=xxx` | JSON | 状态码、响应耗时、SSL 到期日 |
+| **metadata · 元数据提取** | `GET /metadata/?url=xxx` | JSON | title、OG 标签、favicon、h1-h3 |
+| **dns · DNS 查询** | `GET /dns/?domain=xxx&type=A` | JSON | 10 种 DNS 记录类型 |
+| **security · 安全检测** | `GET /security/?url=xxx` | JSON | 9 项安全头加权评分 + TLS 分析 |
+| **whois · 域名信息** | `GET /whois/?domain=xxx` | JSON | 注册商、创建/到期日、DNS 服务器 |
+| **read · 正文提取** | `GET /read/?url=xxx` | JSON | Mozilla Readability 去广告正文 |
 
 ### Bookmarklet — 拖到收藏栏，随时可用
 
