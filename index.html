@@ -28,7 +28,7 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合。图标获取、IP 定位、DNS 查询、安全检测、网站监测、正文提取、域名信息、代码截图、配色方案、文本对比、正则测试。一行 URL 即开即用。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 24,
+    "numberOfItems": 26,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -53,7 +53,9 @@
       {"@type":"ListItem","position":21,"name":"uncopy · 复制解除","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":22,"name":"linkcheck · 断链检测","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":23,"name":"api-playground · 接口调试器","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":24,"name":"mermaid-editor · 图表编辑器","url":"https://boluo66.top/toolkit/"}]
+      {"@type":"ListItem","position":24,"name":"mermaid-editor · 图表编辑器","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":25,"name":"dnsprop · DNS 传播检测","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":26,"name":"cron · Cron 解释器","url":"https://boluo66.top/toolkit/"}]
   }
 
 </script>
@@ -554,6 +556,30 @@
     </div>
   </article>
 
+<!-- dnsprop -->
+  <article class="tool-card">
+    <span class="tool-badge" style="background:#615ced22;color:#615ced">API</span>
+    <div class="tool-icon" style="background:#ff8a0022">🌍</div>
+    <h2>dnsprop <span style="font-size:14px;font-weight:400;color:#6e7681">· DNS 传播检测</span></h2>
+    <p class="desc">改了解析记录，多久全网生效？并发查 Cloudflare/Google/Quad9 与 AliDNS/DNSPod/114 等 7 个解析器，对比各家看到的值是否一致。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/dnsprop/?domain=xxx&type=A</code>
+    </div>
+    <div class="demo-row" style="flex-wrap:nowrap">
+      <select id="dnsprop-type" style="height:40px;padding:0 8px;background:#0d0d12;border:1px solid var(--border);border-radius:8px;color:#fff;font-size:13px;outline:none;flex:none">
+        <option selected>A</option><option>AAAA</option><option>MX</option><option>NS</option><option>TXT</option><option>CNAME</option>
+      </select>
+      <input id="dnsprop-input" placeholder="example.com" value="github.com" style="flex:1;max-width:160px">
+      <button onclick="preview('dnsprop')">检测</button><button class="copy-btn" onclick="copyApiUrl('dnsprop')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="dnsprop-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击检测</code>
+      </div>
+    </div>
+  </article>
+
 
 </div>
 
@@ -976,6 +1002,23 @@ $ npx git-heat</code></pre>
   <a href="/toolkit/mermaid-editor.html" class="tool-link">打开工具 →</a>
 </article>
 
+<!-- cron -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ec489922;color:#ec4899">Web</span>
+  <div class="tool-icon" style="background:#d2991d22">⏰</div>
+  <h2>cron <span style="font-size:14px;font-weight:400;color:#6e7681">· Cron 解释器</span></h2>
+  <p class="desc">Crontab 表达式秒懂。输入 5 段 cron，翻译成人话，并算出接下来几次执行时间。支持 * / , - 和步长。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+    <div style="font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.7">
+      <div style="color:#79c0ff">30 2 * * 1-5</div>
+      <div style="color:#484f58;margin:4px 0 2px">含义</div>
+      <div style="color:#a5d6ff">每周一至周五 02:30</div>
+      <div style="color:#6e7681;font-size:10px">下次 · 工作日 02:30</div>
+    </div>
+  </div>
+  <a href="/toolkit/cron.html" class="tool-link">打开工具 →</a>
+</article>
+
 
 
 </div>
@@ -1210,6 +1253,26 @@ $ npx git-heat</code></pre>
       return;
     }
 
+    if (tool === 'dnsprop') {
+      const code = document.getElementById('dnsprop-preview');
+      const type = document.getElementById('dnsprop-type').value;
+      code.textContent = '检测中...(并发查 7 个解析器)';
+      try {
+        const res = await fetch(BASE + '/dnsprop/?domain=' + encodeURIComponent(val) + '&type=' + type);
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = data.domain + '  ' + data.type + '  '
+          + (data.consistent ? '✅ 全网一致' : '⚠️ 尚未一致（' + data.groups.length + ' 种结果）')
+          + '  [' + data.okCount + '/' + data.resolverCount + ']\n';
+        data.results.forEach(r => {
+          const ans = r.error ? '❌ ' + r.error : (r.records.join(', ') || '(空)');
+          text += '  ' + (r.resolver + '        ').slice(0, 11) + ans + '\n';
+        });
+        code.textContent = text;
+      } catch { code.textContent = '❌ 检测失败'; }
+      return;
+    }
+
     const img = document.getElementById(tool + '-preview');
     const param = 'url';
     let url = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
@@ -1221,9 +1284,9 @@ $ npx git-heat</code></pre>
   function copyApiUrl(tool) {
     const base = BASE + '/' + tool + '/?';
     let url;
-    if (tool === 'dns') {
-      const domain = document.getElementById('dns-input').value.trim();
-      const type = document.getElementById('dns-type').value;
+    if (tool === 'dns' || tool === 'dnsprop') {
+      const domain = document.getElementById(tool + '-input').value.trim();
+      const type = document.getElementById(tool + '-type').value;
       url = base + 'domain=' + encodeURIComponent(domain) + '&type=' + type;
     } else {
       const input = document.getElementById(tool + '-input');
