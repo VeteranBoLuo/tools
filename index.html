@@ -28,7 +28,7 @@
     "name": "开发者工具箱",
     "description": "免费在线开发者工具集合。图标获取、IP 定位、DNS 查询、安全检测、网站监测、正文提取、域名信息、代码截图、配色方案、文本对比、正则测试。一行 URL 即开即用。",
     "url": "https://boluo66.top/toolkit/",
-    "numberOfItems": 26,
+    "numberOfItems": 31,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"favimg · 图标获取","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":2,"name":"ip · 地理位置","url":"https://boluo66.top/toolkit/"},
@@ -55,7 +55,12 @@
       {"@type":"ListItem","position":23,"name":"api-playground · 接口调试器","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":24,"name":"mermaid-editor · 图表编辑器","url":"https://boluo66.top/toolkit/"},
       {"@type":"ListItem","position":25,"name":"dnsprop · DNS 传播检测","url":"https://boluo66.top/toolkit/"},
-      {"@type":"ListItem","position":26,"name":"cron · Cron 解释器","url":"https://boluo66.top/toolkit/"}]
+      {"@type":"ListItem","position":26,"name":"cron · Cron 解释器","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":27,"name":"cert · SSL 证书深检","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":28,"name":"trace · HTTP 重定向追踪","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":29,"name":"hash · Hash / 编码","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":30,"name":"cidr · 子网计算器","url":"https://boluo66.top/toolkit/"},
+      {"@type":"ListItem","position":31,"name":"jwt · JWT 解码/校验","url":"https://boluo66.top/toolkit/"}]
   }
 
 </script>
@@ -580,6 +585,48 @@
     </div>
   </article>
 
+<!-- cert -->
+  <article class="tool-card">
+    <span class="tool-badge" style="background:#615ced22;color:#615ced">API</span>
+    <div class="tool-icon" style="background:#3fb95022">🔒</div>
+    <h2>cert <span style="font-size:14px;font-weight:400;color:#6e7681">· SSL 证书深检</span></h2>
+    <p class="desc">查任意域名的 SSL 证书:完整证书链、SAN、密钥类型、TLS 版本、签发者与到期天数。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/cert/?host=xxx</code>
+    </div>
+    <div class="demo-row" style="flex-wrap:nowrap">
+      <input id="cert-input" placeholder="github.com" value="github.com" style="flex:1">
+      <button onclick="preview('cert')">查询</button><button class="copy-btn" onclick="copyApiUrl('cert')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="cert-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击查询</code>
+      </div>
+    </div>
+  </article>
+
+<!-- trace -->
+  <article class="tool-card">
+    <span class="tool-badge" style="background:#615ced22;color:#615ced">API</span>
+    <div class="tool-icon" style="background:#ff8a0022">🔀</div>
+    <h2>trace <span style="font-size:14px;font-weight:400;color:#6e7681">· HTTP 重定向追踪</span></h2>
+    <p class="desc">跟踪一个 URL 的完整跳转链:每一跳的状态码、耗时、Location,直到终点。调 301/302 利器。</p>
+    <div class="endpoint">
+      <span class="method">GET</span>
+      <code class="url">/trace/?url=xxx</code>
+    </div>
+    <div class="demo-row" style="flex-wrap:nowrap">
+      <input id="trace-input" placeholder="http://github.com" value="http://github.com" style="flex:1">
+      <button onclick="preview('trace')">追踪</button><button class="copy-btn" onclick="copyApiUrl('trace')" title="复制链接">复制</button>
+    </div>
+    <div class="preview">
+      <div class="preview-scroll">
+        <code id="trace-preview" style="color:#a5b4c4;white-space:pre;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.6">点击追踪</code>
+      </div>
+    </div>
+  </article>
+
 
 </div>
 
@@ -1019,6 +1066,50 @@ $ npx git-heat</code></pre>
   <a href="/toolkit/cron.html" class="tool-link">打开工具 →</a>
 </article>
 
+<!-- hash -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ec489922;color:#ec4899">Web</span>
+  <div class="tool-icon" style="background:#615ced22">🔑</div>
+  <h2>hash <span style="font-size:14px;font-weight:400;color:#6e7681">· Hash / 编码</span></h2>
+  <p class="desc">一次算出 MD5、SHA-1/256/512,以及 Base64、URL 编解码。纯浏览器,输入不上传。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+    <div style="font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.7">
+      <div style="color:#484f58">MD5(hello world)</div>
+      <div style="color:#79c0ff;word-break:break-all">5eb63bbbe01eeed093cb22bb8f5acdc3</div>
+    </div>
+  </div>
+  <a href="/toolkit/hash.html" class="tool-link">打开工具 →</a>
+</article>
+
+<!-- cidr -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ec489922;color:#ec4899">Web</span>
+  <div class="tool-icon" style="background:#00a88422">🧮</div>
+  <h2>cidr <span style="font-size:14px;font-weight:400;color:#6e7681">· 子网计算器</span></h2>
+  <p class="desc">输入 CIDR,算出网段、子网掩码、广播地址、可用主机范围与数量。IPv4,浏览器本地计算。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+    <div style="font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.7">
+      <div style="color:#79c0ff">192.168.1.0/24</div>
+      <div style="color:#484f58;margin-top:2px">254 台可用 · .1 ~ .254</div>
+    </div>
+  </div>
+  <a href="/toolkit/cidr.html" class="tool-link">打开工具 →</a>
+</article>
+
+<!-- jwt -->
+<article class="tool-card">
+  <span class="tool-badge" style="background:#ec489922;color:#ec4899">Web</span>
+  <div class="tool-icon" style="background:#d2991d22">🎫</div>
+  <h2>jwt <span style="font-size:14px;font-weight:400;color:#6e7681">· JWT 解码/校验</span></h2>
+  <p class="desc">解析 JWT 的 header 与 payload,时间戳转可读、判断过期;可用密钥校验 HS256 签名。令牌不上传。</p>
+  <div class="mini-heat" style="background:#0d0d12;border-radius:8px;padding:10px 14px;margin:12px 0;overflow:hidden">
+    <div style="font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.6;word-break:break-all">
+      <span style="color:#ff7b72">eyJhbGci…</span>.<span style="color:#d2a8ff">eyJzdWIi…</span>.<span style="color:#79c0ff">SflKxw…</span>
+    </div>
+  </div>
+  <a href="/toolkit/jwt.html" class="tool-link">打开工具 →</a>
+</article>
+
 
 
 </div>
@@ -1085,7 +1176,7 @@ $ npx git-heat</code></pre>
     if (!val) return;
 
     // Auto-prepend protocol for URL-based tools
-    const urlTools = ['uptime', 'metadata', 'security', 'read', 'favimg'];
+    const urlTools = ['uptime', 'metadata', 'security', 'read', 'favimg', 'trace'];
     if (urlTools.includes(tool) && !val.startsWith('http://') && !val.startsWith('https://')) {
       val = 'https://' + val;
     }
@@ -1273,6 +1364,43 @@ $ npx git-heat</code></pre>
       return;
     }
 
+    if (tool === 'cert') {
+      const code = document.getElementById('cert-preview');
+      code.textContent = '查询中...';
+      try {
+        const res = await fetch(BASE + '/cert/?host=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = (data.subject || data.host) + '   ' + (data.tls?.protocol || '') + '\n'
+          + '签发者: ' + (data.issuer || '-') + '\n'
+          + '有效期至: ' + (data.validTo || '?') + '\n'
+          + '剩余: ' + (data.daysRemaining != null ? data.daysRemaining + ' 天' : '-') + (data.expired ? '  ⚠️已过期' : '')
+          + '   ' + (data.trusted ? '✅受信任' : '⚠️' + (data.trustError || '不受信任')) + '\n'
+          + '密钥: ' + (data.keyType || '-') + '\n'
+          + 'SAN: ' + (data.san || []).slice(0, 6).join(', ') + ((data.san || []).length > 6 ? ' …' : '') + '\n'
+          + '证书链: ' + (data.chain || []).map(c => c.subject).join(' → ');
+        code.textContent = text;
+      } catch { code.textContent = '❌ 查询失败'; }
+      return;
+    }
+
+    if (tool === 'trace') {
+      const code = document.getElementById('trace-preview');
+      code.textContent = '追踪中...';
+      try {
+        const res = await fetch(BASE + '/trace/?url=' + encodeURIComponent(val));
+        const data = await res.json();
+        if (data.error) { code.textContent = '❌ ' + data.error; return; }
+        let text = '跳转 ' + data.redirectCount + ' 次 → 终点 ' + data.finalStatus + (data.note ? '（' + data.note + '）' : '') + '\n';
+        data.hops.forEach((h, i) => {
+          text += (i + 1) + '. ' + h.status + '  ' + h.url + '  (' + h.timeMs + 'ms)\n';
+          if (h.location && i < data.hops.length - 1) text += '      ↳ ' + h.location + '\n';
+        });
+        code.textContent = text;
+      } catch { code.textContent = '❌ 追踪失败'; }
+      return;
+    }
+
     const img = document.getElementById(tool + '-preview');
     const param = 'url';
     let url = BASE + '/' + tool + '/?' + param + '=' + encodeURIComponent(val);
@@ -1291,7 +1419,7 @@ $ npx git-heat</code></pre>
     } else {
       const input = document.getElementById(tool + '-input');
       const val = input ? input.value.trim() : '';
-      const param = tool === 'ip' ? 'ip' : 'url';
+      const param = tool === 'ip' ? 'ip' : tool === 'cert' ? 'host' : 'url';
       url = base + param + '=' + encodeURIComponent(val);
       if (tool === 'favimg') url += '&size=128';
     }
