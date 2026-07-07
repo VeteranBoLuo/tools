@@ -22,10 +22,10 @@
 几个别处不好找、或者做得特别顺手的：
 
 - **🌐 [myip · 本机 IP](https://boluo66.top/toolkit/myip.html)** —— 不只是查 IP。同时对比国内 / 国际多个回显源,**一眼看穿你走没走代理、是不是多出口分流**(国内看 A、国际看 B),还带 IPv6 与 WebRTC 本地地址探测。
-- **🔒 [cert · SSL 证书深检](https://boluo66.top/cert/?host=github.com)** —— 完整证书链、SAN 列表、密钥类型、TLS 版本、到期天数,一个 URL 全给你。
-- **🌍 [dnsprop · DNS 传播检测](https://boluo66.top/dnsprop/?domain=github.com)** —— 改了解析记录多久全网生效?并发查 Cloudflare / Google / Quad9 + 阿里 / DNSPod / 114 共 7 个解析器,对比是否一致。
-- **📖 [read · 正文提取](https://boluo66.top/read/?url=https://example.com)** —— 去广告、去导航、去侧栏,任意网页只留干净正文。
-- **🔀 [trace · 重定向追踪](https://boluo66.top/trace/?url=http://github.com)** —— 完整跳转链,每一跳的状态码、耗时、Location,调 301/302 利器。
+- **🔒 [cert · SSL 证书深检](https://boluo66.top/toolkit/#cat-api)** —— 完整证书链、SAN 列表、密钥类型、TLS 版本、到期天数,一个 URL 全给你。
+- **🌍 [dnsprop · DNS 传播检测](https://boluo66.top/toolkit/#cat-api)** —— 改了解析记录多久全网生效?并发查 Cloudflare / Google / Quad9 + 阿里 / DNSPod / 114 共 7 个解析器,对比是否一致。
+- **📖 [read · 正文提取](https://boluo66.top/toolkit/#cat-api)** —— 去广告、去导航、去侧栏,任意网页只留干净正文。
+- **🔀 [trace · 重定向追踪](https://boluo66.top/toolkit/#cat-api)** —— 完整跳转链,每一跳的状态码、耗时、Location,调 301/302 利器。
 
 ---
 
