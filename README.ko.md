@@ -1,0 +1,138 @@
+# 🛠 개발자 도구 상자
+
+[简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · **한국어**
+
+> 일상 개발 작업을 URL 하나로. **클라이언트 설치·회원가입·환경 설정 불필요.**
+> API · Bookmarklet · CLI · 웹 도구, 총 35개, 분명 쓸모 있는 게 있습니다.
+
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><b>🌐 온라인 체험</b></a>
+  ·
+  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
+  ·
+  <img src="https://img.shields.io/badge/tools-35-success" alt="35 tools">
+  ·
+  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="zero deps">
+  ·
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
+</p>
+
+---
+
+## ✨ 하이라이트
+
+다른 곳에서는 찾기 어렵거나, 특히 손에 잘 맞는 것들:
+
+- **🌐 [myip · 내 IP](https://boluo66.top/toolkit/myip.html)** —— 단순 IP 조회가 아닙니다. 국내·해외의 여러 에코 소스를 동시에 대조해 **프록시나 분할 라우팅 사용 여부를 한눈에** 알 수 있습니다(소스 A는 다른 IP, 소스 B는 또 다른 IP). IPv6와 WebRTC 로컬 주소 탐지도 포함.
+- **🔒 cert · SSL 인증서 심층 조회** —— 전체 인증서 체인, SAN 목록, 키 종류, TLS 버전, 만료까지 남은 일수를 URL 하나로.
+- **🌍 dnsprop · DNS 전파 확인** —— DNS 레코드를 바꿨는데 반영됐을까? Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7개 리졸버)를 병렬 조회해 비교.
+- **📖 read · 본문 추출** —— 광고·내비게이션·사이드바를 제거하고 기사 본문만 남깁니다.
+- **🔀 trace · 리디렉션 추적** —— 전체 리디렉션 체인, 각 홉의 상태 코드·소요 시간·Location. 301/302 디버깅에 유용.
+
+---
+
+## 왜 이 도구 상자인가
+
+개발에서 흔한 상황들:
+
+- **사이트의 favicon이 필요?** 브라우저로 요소 검사하는 대신 `GET /favimg/?url=xxx`
+- **DNS 변경이 전파됐나?** 리졸버를 하나씩 바꿔 확인하기 번거롭죠 —— `GET /dnsprop/?domain=xxx` 로 7개 한 번에 비교
+- **페이지가 복사 금지?** 콘솔에서 해제 코드 찾는 대신 Bookmarklet 을 드래그해 원클릭
+- **이 페이지, 어디가 느리지?** DevTools의 Network를 열 필요 없이 `perf` 북마클릿을 드래그하면 로딩 시간과 리소스 크기가 바로 보입니다
+- **총 코드 줄 수는?** `npx git-heat` 한 줄로 연간 리포트
+
+**각 도구는 하나의 구체적인 문제를 해결하고, 다 쓰면 바로 사라집니다.**
+
+---
+
+## 📦 도구 목록
+
+### API — URL만 바꾸면 결과가
+
+모든 API는 `GET`을 지원하고 JSON 또는 이미지를 반환합니다. **SDK·인증 불필요**, 어떤 언어 / 플랫폼에서도:
+
+```html
+<!-- <img>로 사이트에 바로 삽입 -->
+<img src="https://boluo66.top/favimg/?url=github.com" alt="icon">
+
+<!-- fetch로 페이지에서 호출 -->
+fetch('https://boluo66.top/ip/?ip=8.8.8.8').then(r => r.json())
+
+<!-- 터미널에서 한 줄 -->
+curl https://boluo66.top/uptime/?url=example.com
+```
+
+| 도구 | 예시 | 반환 | 설명 |
+|---|---|---|---|
+| **favimg** | `GET /favimg/?url=xxx` | 이미지 | URL 하나로 favicon |
+| **ip** | `GET /ip/?ip=xxx` | JSON | 국가·도시·ISP·ASN, `&lang=ko` 지원 |
+| **uptime** | `GET /uptime/?url=xxx` | JSON | 상태 코드·응답 시간·SSL 만료 |
+| **security** | `GET /security/?url=xxx` | JSON | 9개 보안 헤더 가중 채점 + TLS 분석 |
+| **cert** | `GET /cert/?host=xxx` | JSON | 인증서 체인·SAN·키 종류·TLS 버전 |
+| **trace** | `GET /trace/?url=xxx` | JSON | 전체 리디렉션 체인 + 홉별 시간 + 최종 헤더 |
+| **dns** | `GET /dns/?domain=xxx&type=A` | JSON | 10종 레코드, A/AAAA는 실제 TTL |
+| **dnsprop** | `GET /dnsprop/?domain=xxx` | JSON | 7개 글로벌 / 국내 리졸버 병렬 비교 |
+| **whois** | `GET /whois/?domain=xxx` | JSON | 등록기관·등록 / 만료일·네임서버 |
+| **metadata** | `GET /metadata/?url=xxx` | JSON | title·OG 태그·favicon·h1-h3·모든 link |
+| **read** | `GET /read/?url=xxx` | JSON | Mozilla Readability 기반 깔끔한 본문 |
+
+### Bookmarklet — 북마크바에 드래그, 어디서나 사용
+
+**어떤 페이지에서도** 클릭 한 번, 모두 클라이언트에서 실행, 아무것도 업로드하지 않습니다:
+
+| 도구 | 설명 |
+|---|---|
+| **perf** | 해당 페이지의 로딩 시간(DNS/TCP/TTFB/DOM/완료) + 리소스 수와 크기 |
+| **seo** | title/description 길이, H1, canonical, alt 누락, OG, 글자 수 —— 통과 / 경고 / 실패 |
+| **table2csv** | 페이지의 임의의 `<table>`을 CSV로 복사 또는 다운로드 |
+| **linkcheck** | 페이지의 모든 링크를 스캔해 깨진 링크 표시 |
+| **all-links** | 현재 페이지의 모든 링크 추출 |
+| **imgextract** | 모든 이미지 추출, ZIP 다운로드 지원 |
+| **cookies** | 쿠키 조회·검색·편집·삭제 |
+| **lsstorage** | localStorage 조회·검색·편집·삭제 |
+| **panda** | 페이지를 흑백으로 만들어 시각적 잡음 제거 |
+| **uncopy** | 복사 / 우클릭 / 텍스트 선택 금지 해제 |
+
+> 사용법: [도구 상자 페이지](https://boluo66.top/toolkit/)를 열고 버튼을 북마크바에 드래그하세요. 이후 어떤 페이지에서든 클릭하면 됩니다.
+
+### CLI — 명령어 한 줄
+
+| 도구 | 명령어 |
+|---|---|
+| **git-heat** | `npx git-heat` |
+| **rmport** | `npx rmport 3000` |
+
+### 웹 도구 — 열면 바로 사용
+
+| 도구 | 설명 | |
+|---|---|---|
+| **myip** | 공개 IP + 국내 / 해외 다중 소스 비교 + 분할 라우팅 감지 | [→ 열기](https://boluo66.top/toolkit/myip.html) |
+| **jwt** | header/payload 디코딩 + HS256 서명 검증 | [→ 열기](https://boluo66.top/toolkit/jwt.html) |
+| **cidr** | CIDR → 네트워크 / 마스크 / 브로드캐스트 / 호스트 수 | [→ 열기](https://boluo66.top/toolkit/cidr.html) |
+| **hash** | MD5 / SHA / Base64 / URL 인코딩·디코딩 | [→ 열기](https://boluo66.top/toolkit/hash.html) |
+| **cron** | crontab 식 해석 + 다음 실행 시각 | [→ 열기](https://boluo66.top/toolkit/cron.html) |
+| **code-preview** | 코드를 붙여넣어 예쁜 스크린샷 출력 | [→ 열기](https://boluo66.top/toolkit/code-preview.html) |
+| **timestamp** | Unix 타임스탬프 ↔ 날짜 | [→ 열기](https://boluo66.top/toolkit/timestamp.html) |
+| **palette** | 색 하나로 8가지 배색 | [→ 열기](https://boluo66.top/toolkit/palette.html) |
+| **diff** | 두 텍스트의 차이 하이라이트 | [→ 열기](https://boluo66.top/toolkit/diff.html) |
+| **regex-tester** | 실시간 매칭 + 그룹 + 개수 | [→ 열기](https://boluo66.top/toolkit/regex-tester.html) |
+| **api-playground** | 브라우저에서 REST 요청 전송 | [→ 열기](https://boluo66.top/toolkit/api-playground.html) |
+| **mermaid-editor** | Mermaid 작성, 실시간 미리보기, SVG/PNG 내보내기 | [→ 열기](https://boluo66.top/toolkit/mermaid-editor.html) |
+
+---
+
+## 🔒 개인정보와 구현
+
+- **API 도구**: 서드파티 의존성 없음. 서버 측에서 내부 / 예약 주소 차단(SSRF 방어).
+- **Bookmarklet / 웹 도구**: 완전히 브라우저 내에서 동작 —— 입력(키·토큰·텍스트)은 **업로드되지 않습니다**.
+
+---
+
+<p align="center">
+  <img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="개발자 도구 상자 스크린샷" width="70%" style="border-radius: 12px" />
+</p>
+
+<p align="center">
+  도움이 되었다면 ⭐ Star 부탁드립니다 ✨<br>
+  원하는 도구가 있나요? <a href="https://github.com/VeteranBoLuo/tools/issues">Issue 남기기 →</a>
+</p>

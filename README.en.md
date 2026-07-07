@@ -1,6 +1,6 @@
 # 🛠 Developer Toolkit
 
-[简体中文](README.md) · **English**
+[简体中文](README.md) · **English** · [日本語](README.ja.md) · [한국어](README.ko.md)
 
 > One URL for your everyday dev needs. **No client to install, no account, no setup.**
 > API · Bookmarklet · CLI · Web tools — 35 of them, one's bound to come in handy.
@@ -24,10 +24,10 @@
 A few that are hard to find elsewhere, or just feel really smooth:
 
 - **🌐 [myip · My IP](https://boluo66.top/toolkit/myip.html)** — more than an IP lookup. Cross-checks several domestic & international echo sources at once, so you can **tell at a glance whether you're behind a proxy or split routing** (source A sees one IP, source B sees another). Plus IPv6 and WebRTC local-address probing.
-- **🔒 [cert · SSL inspector](https://boluo66.top/toolkit/#cat-api)** — full certificate chain, SAN list, key type, TLS version, days-until-expiry, all from one URL.
-- **🌍 [dnsprop · DNS propagation](https://boluo66.top/toolkit/#cat-api)** — changed a DNS record and wondering if it's live yet? Queries Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114 (7 resolvers) in parallel and compares.
-- **📖 [read · Article extractor](https://boluo66.top/toolkit/#cat-api)** — strip ads, nav and sidebars; keep only the clean article body of any page.
-- **🔀 [trace · Redirect tracer](https://boluo66.top/toolkit/#cat-api)** — the full redirect chain with every hop's status code, timing and Location. Great for debugging 301/302.
+- **🔒 cert · SSL inspector** — full certificate chain, SAN list, key type, TLS version, days-until-expiry, all from one URL.
+- **🌍 dnsprop · DNS propagation** — changed a DNS record and wondering if it's live yet? Queries Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114 (7 resolvers) in parallel and compares.
+- **📖 read · Article extractor** — strip ads, nav and sidebars; keep only the clean article body of any page.
+- **🔀 trace · Redirect tracer** — the full redirect chain with every hop's status code, timing and Location. Great for debugging 301/302.
 
 ---
 
