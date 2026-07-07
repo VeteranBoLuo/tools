@@ -57,3 +57,4 @@ bash scripts/deploy.sh   # 先跑 validate.py,通过才部署
 
 - 截图 `screenshot-v3.png`(在服务器 `/www/wwwroot/toolkit/`)需手动重截更新,AI 无法生成。
 - 客户端工具的输入(密钥/令牌/文本)不要上传服务器——纯浏览器处理是卖点。
+- **README 有中英两版**:`README.md`(简体中文,默认)+ `README.en.md`(English),顶部互相切换。**改一版要同步另一版**(工具增删、数量 badge 都要一起改)。
