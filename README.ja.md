@@ -1,20 +1,23 @@
-# 🛠 開発者ツールボックス
-
-[简体中文](README.md) · [English](README.en.md) · **日本語** · [한국어](README.ko.md)
-
-> 日々の開発作業を URL ひとつで。**クライアント不要・登録不要・環境構築不要。**
-> API · Bookmarklet · CLI · Web ツール、全 35 種、きっと役立つものが見つかります。
+<h1 align="center">🛠 開発者ツールボックス</h1>
 
 <p align="center">
-  <a href="https://boluo66.top/toolkit/"><b>🌐 オンラインで試す</b></a>
-  ·
-  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
-  ·
-  <img src="https://img.shields.io/badge/tools-35-success" alt="35 tools">
-  ·
-  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="zero deps">
-  ·
-  <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
+  日々の開発作業を URL ひとつで —— <b>クライアント不要・登録不要・環境構築不要</b><br>
+  <sub>API · Bookmarklet · CLI · Web ツール · 全 35 種</sub>
+</p>
+
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E4%BD%93%E9%A8%93-615ced?style=for-the-badge" alt="demo"></a>
+  <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
+  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT">
+</p>
+
+<p align="center">
+  <a href="README.md"><img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-555?style=for-the-badge" alt="简体中文"></a>
+  <a href="README.en.md"><img src="https://img.shields.io/badge/English-555?style=for-the-badge" alt="English"></a>
+  <img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-615ced?style=for-the-badge" alt="日本語">
+  <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-555?style=for-the-badge" alt="한국어"></a>
 </p>
 
 ---

@@ -1,20 +1,23 @@
-# 🛠 Developer Toolkit
-
-[简体中文](README.md) · **English** · [日本語](README.ja.md) · [한국어](README.ko.md)
-
-> One URL for your everyday dev needs. **No client to install, no account, no setup.**
-> API · Bookmarklet · CLI · Web tools — 35 of them, one's bound to come in handy.
+<h1 align="center">🛠 Developer Toolkit</h1>
 
 <p align="center">
-  <a href="https://boluo66.top/toolkit/"><b>🌐 Live demo</b></a>
-  ·
-  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
-  ·
-  <img src="https://img.shields.io/badge/tools-35-success" alt="35 tools">
-  ·
-  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="zero deps">
-  ·
-  <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
+  One URL for your everyday dev needs —— <b>no client, no signup, no setup</b><br>
+  <sub>API · Bookmarklet · CLI · Web tools · 35 tools in total</sub>
+</p>
+
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/Live%20Demo-615ced?style=for-the-badge" alt="demo"></a>
+  <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
+  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT">
+</p>
+
+<p align="center">
+  <a href="README.md"><img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-555?style=for-the-badge" alt="简体中文"></a>
+  <img src="https://img.shields.io/badge/English-615ced?style=for-the-badge" alt="English">
+  <a href="README.ja.md"><img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-555?style=for-the-badge" alt="日本語"></a>
+  <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-555?style=for-the-badge" alt="한국어"></a>
 </p>
 
 ---

@@ -1,20 +1,23 @@
-# 🛠 开发者工具箱
-
-**简体中文** · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
-
-> 一个 URL 搞定日常开发需求。**不装客户端、不注册账号、不配环境。**
-> API · Bookmarklet · CLI · 在线工具，35 个小工具，总有一个用得上。
+<h1 align="center">🛠 开发者工具箱</h1>
 
 <p align="center">
-  <a href="https://boluo66.top/toolkit/"><b>🌐 在线体验</b></a>
-  ·
-  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
-  ·
-  <img src="https://img.shields.io/badge/tools-35-success" alt="35 tools">
-  ·
-  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="zero deps">
-  ·
-  <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
+  一个 URL 搞定日常开发需求 —— <b>不装客户端 · 不注册账号 · 不配环境</b><br>
+  <sub>API · Bookmarklet · CLI · 在线工具 · 共 35 个小工具,总有一个用得上</sub>
+</p>
+
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%BD%93%E9%AA%8C-615ced?style=for-the-badge" alt="demo"></a>
+  <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
+  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-615ced?style=for-the-badge" alt="简体中文">
+  <a href="README.en.md"><img src="https://img.shields.io/badge/English-555?style=for-the-badge" alt="English"></a>
+  <a href="README.ja.md"><img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-555?style=for-the-badge" alt="日本語"></a>
+  <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-555?style=for-the-badge" alt="한국어"></a>
 </p>
 
 ---

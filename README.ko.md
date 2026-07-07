@@ -1,20 +1,23 @@
-# 🛠 개발자 도구 상자
-
-[简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · **한국어**
-
-> 일상 개발 작업을 URL 하나로. **클라이언트 설치·회원가입·환경 설정 불필요.**
-> API · Bookmarklet · CLI · 웹 도구, 총 35개, 분명 쓸모 있는 게 있습니다.
+<h1 align="center">🛠 개발자 도구 상자</h1>
 
 <p align="center">
-  <a href="https://boluo66.top/toolkit/"><b>🌐 온라인 체험</b></a>
-  ·
-  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=flat" alt="Stars"></a>
-  ·
-  <img src="https://img.shields.io/badge/tools-35-success" alt="35 tools">
-  ·
-  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="zero deps">
-  ·
-  <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
+  일상 개발 작업을 URL 하나로 —— <b>클라이언트·회원가입·환경설정 불필요</b><br>
+  <sub>API · Bookmarklet · CLI · 웹 도구 · 총 35개</sub>
+</p>
+
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%EC%98%A8%EB%9D%BC%EC%9D%B8%20%EC%B2%B4%ED%97%98-615ced?style=for-the-badge" alt="demo"></a>
+  <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
+  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT">
+</p>
+
+<p align="center">
+  <a href="README.md"><img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-555?style=for-the-badge" alt="简体中文"></a>
+  <a href="README.en.md"><img src="https://img.shields.io/badge/English-555?style=for-the-badge" alt="English"></a>
+  <a href="README.ja.md"><img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-555?style=for-the-badge" alt="日本語"></a>
+  <img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-615ced?style=for-the-badge" alt="한국어">
 </p>
 
 ---
