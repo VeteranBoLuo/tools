@@ -10,7 +10,6 @@
   <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
   <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
-  <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT">
 </p>
 
 <p align="center">
