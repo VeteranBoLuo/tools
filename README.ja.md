@@ -1,14 +1,14 @@
-<h1 align="center">🛠 開発者ツールボックス</h1>
+<h1 align="center">🛠 Boluo 開発者ツールキット｜無料オンラインツール 35 種</h1>
 
 <p align="center">
-  日々の開発作業を URL ひとつで —— <b>クライアント不要・登録不要・環境構築不要</b><br>
-  <sub>API · Bookmarklet · CLI · Web ツール · 全 35 種</sub>
+  日々の開発作業をひとつの場所で —— <b>インストール不要・登録不要・すぐ使える</b><br>
+  <sub>Free Online Developer Toolkit · API · Bookmarklet · CLI · Web Tools</sub>
 </p>
 
 <p align="center">
   <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E4%BD%93%E9%A8%93-615ced?style=for-the-badge" alt="demo"></a>
   <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
-  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <img src="https://img.shields.io/badge/%E7%99%BB%E9%8C%B2%E4%B8%8D%E8%A6%81-3fb950?style=for-the-badge" alt="登録不要">
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
 </p>
 
@@ -19,6 +19,13 @@
   <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-555?style=for-the-badge" alt="한국어"></a>
 </p>
 
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="Boluo 開発者ツールキットのオンライン画面" width="88%" /></a>
+</p>
+
+> [!NOTE]
+> このリポジトリは Boluo Toolkit の公式ナビゲーション兼多言語ショーケースです。ツールの説明とオンライン入口に特化し、サーバのソースコードは含みません。公開ツールはすべて [オンラインツールキット](https://boluo66.top/toolkit/) から無料で利用できます。
+
 ---
 
 ## ✨ ハイライト
@@ -26,10 +33,10 @@
 他ではなかなか無い、または特に使い心地の良いものをいくつか：
 
 - **🌐 [myip · 自分の IP](https://boluo66.top/toolkit/myip.html)** —— 単なる IP 確認ではありません。国内・海外の複数のエコーソースを同時に照合し、**プロキシや分割ルーティングを使っているか一目で分かります**(ソース A は別の IP、ソース B はまた別）。IPv6 と WebRTC ローカルアドレス探索も。
-- **🔒 cert · SSL 証明書チェック** —— 完全な証明書チェーン、SAN リスト、鍵種別、TLS バージョン、有効期限までの日数を URL ひとつで。
-- **🌍 dnsprop · DNS 伝播チェック** —— DNS レコードを変更して反映されたか?Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7 リゾルバ)を並列に問い合わせて比較。
-- **📖 read · 本文抽出** —— 広告・ナビ・サイドバーを除去し、記事本文だけを残します。
-- **🔀 trace · リダイレクト追跡** —— 完全なリダイレクトチェーン、各ホップのステータスコード・所要時間・Location。301/302 のデバッグに最適。
+- **🔒 [cert · SSL 証明書チェック](https://boluo66.top/cert/?host=github.com)** —— 完全な証明書チェーン、SAN リスト、鍵種別、TLS バージョン、有効期限までの日数を URL ひとつで。
+- **🌍 [dnsprop · DNS 伝播チェック](https://boluo66.top/dnsprop/?domain=github.com)** —— DNS レコードを変更して反映されたか?Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7 リゾルバ)を並列に問い合わせて比較。
+- **📖 [read · 本文抽出](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com)** —— 広告・ナビ・サイドバーを除去し、記事本文だけを残します。
+- **🔀 [trace · リダイレクト追跡](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com)** —— 完全なリダイレクトチェーン、各ホップのステータスコード・所要時間・Location。301/302 のデバッグに最適。
 
 ---
 
@@ -61,22 +68,22 @@
 fetch('https://boluo66.top/ip/?ip=8.8.8.8').then(r => r.json())
 
 <!-- ターミナルで一行 -->
-curl https://boluo66.top/uptime/?url=example.com
+curl "https://boluo66.top/dnsprop/?domain=github.com"
 ```
 
 | ツール | 例 | 返却 | 説明 |
 |---|---|---|---|
-| **favimg** | `GET /favimg/?url=xxx` | 画像 | URL ひとつで favicon |
-| **ip** | `GET /ip/?ip=xxx` | JSON | 国・都市・ISP・ASN、`&lang=ja` 対応 |
-| **uptime** | `GET /uptime/?url=xxx` | JSON | ステータス・応答時間・SSL 期限 |
-| **security** | `GET /security/?url=xxx` | JSON | 9 種のセキュリティヘッダを加重採点 + TLS 分析 |
-| **cert** | `GET /cert/?host=xxx` | JSON | 証明書チェーン・SAN・鍵種別・TLS バージョン |
-| **trace** | `GET /trace/?url=xxx` | JSON | 完全なリダイレクトチェーン + 各ホップ時間 + 最終ヘッダ |
-| **dns** | `GET /dns/?domain=xxx&type=A` | JSON | 10 種のレコード、A/AAAA は実 TTL |
-| **dnsprop** | `GET /dnsprop/?domain=xxx` | JSON | 7 つのグローバル / 国内リゾルバを並列比較 |
-| **whois** | `GET /whois/?domain=xxx` | JSON | レジストラ・登録 / 期限日・ネームサーバ |
-| **metadata** | `GET /metadata/?url=xxx` | JSON | title・OG タグ・favicon・h1-h3・全 link |
-| **read** | `GET /read/?url=xxx` | JSON | Mozilla Readability によるクリーンな本文 |
+| [**favicon-api**](https://boluo66.top/favimg/) | `GET /favimg/?url=xxx` | 画像 | URL ひとつで favicon |
+| [**ip**](https://boluo66.top/ip/?ip=8.8.8.8) | `GET /ip/?ip=xxx` | JSON | 国・都市・ISP・ASN、`&lang=ja` 対応 |
+| [**uptime**](https://boluo66.top/toolkit/) | `GET /uptime/?url=xxx` | JSON | ステータス・応答時間・SSL 期限 |
+| [**security**](https://boluo66.top/toolkit/) | `GET /security/?url=xxx` | JSON | 9 種のセキュリティヘッダを加重採点 + TLS 分析 |
+| [**cert**](https://boluo66.top/cert/?host=github.com) | `GET /cert/?host=xxx` | JSON | 証明書チェーン・SAN・鍵種別・TLS バージョン |
+| [**trace**](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com) | `GET /trace/?url=xxx` | JSON | 完全なリダイレクトチェーン + 各ホップ時間 + 最終ヘッダ |
+| [**dns**](https://boluo66.top/dns/?domain=github.com&type=A) | `GET /dns/?domain=xxx&type=A` | JSON | 10 種のレコード、A/AAAA は実 TTL |
+| [**dnsprop**](https://boluo66.top/dnsprop/?domain=github.com) | `GET /dnsprop/?domain=xxx` | JSON | 7 つのグローバル / 国内リゾルバを並列比較 |
+| [**whois**](https://boluo66.top/whois/?domain=github.com) | `GET /whois/?domain=xxx` | JSON | レジストラ・登録 / 期限日・ネームサーバ |
+| [**metadata**](https://boluo66.top/metadata/?url=https%3A%2F%2Fboluo66.top) | `GET /metadata/?url=xxx` | JSON | title・OG タグ・favicon・h1-h3・全 link |
+| [**read**](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com) | `GET /read/?url=xxx` | JSON | Mozilla Readability によるクリーンな本文 |
 
 ### Bookmarklet — ブックマークバーにドラッグ、どこでも使える
 
@@ -101,8 +108,8 @@ curl https://boluo66.top/uptime/?url=example.com
 
 | ツール | コマンド |
 |---|---|
-| **git-heat** | `npx git-heat` |
-| **rmport** | `npx rmport 3000` |
+| [**git-heat**](https://www.npmjs.com/package/git-heat) | `npx git-heat` |
+| [**rmport**](https://www.npmjs.com/package/rmport) | `npx rmport 3000` |
 
 ### Web ツール — 開くだけ
 
@@ -125,14 +132,10 @@ curl https://boluo66.top/uptime/?url=example.com
 
 ## 🔒 プライバシーと実装
 
-- **API ツール**：サードパーティ依存ゼロ。サーバ側で内部 / 予約アドレスをブロック(SSRF 対策)。
-- **Bookmarklet / Web ツール**：完全にブラウザ内で動作 —— 入力(鍵・トークン・テキスト)は**アップロードされません**。
+- **API ツール**：多くはサードパーティのランタイム依存を持たない軽量実装です。サーバ側で内部 / 予約アドレスをブロック(SSRF 対策)し、本文抽出には Mozilla Readability と jsdom を使用します。
+- **Bookmarklet / Web ツール**：多くの機能はブラウザ内で動作します。ネットワークが必要なツールは、開始した操作に必要なリクエストだけを送信します。
 
 ---
-
-<p align="center">
-  <img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="開発者ツールボックスのスクリーンショット" width="70%" style="border-radius: 12px" />
-</p>
 
 <p align="center">
   役に立ったら ⭐ Star をいただけると嬉しいです ✨<br>

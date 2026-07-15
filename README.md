@@ -1,14 +1,14 @@
-<h1 align="center">🛠 开发者工具箱</h1>
+<h1 align="center">🛠 菠萝开发者工具箱｜35 个免费在线工具</h1>
 
 <p align="center">
-  一个 URL 搞定日常开发需求 —— <b>不装客户端 · 不注册账号 · 不配环境</b><br>
-  <sub>API · Bookmarklet · CLI · 在线工具 · 共 35 个小工具,总有一个用得上</sub>
+  一个入口解决日常开发需求 —— <b>不装客户端 · 不注册账号 · 打开即用</b><br>
+  <sub>Free Online Developer Toolkit · API · Bookmarklet · CLI · Web Tools</sub>
 </p>
 
 <p align="center">
   <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%BD%93%E9%AA%8C-615ced?style=for-the-badge" alt="demo"></a>
   <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
-  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <img src="https://img.shields.io/badge/%E6%97%A0%E9%9C%80%E6%B3%A8%E5%86%8C-3fb950?style=for-the-badge" alt="无需注册">
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
 </p>
 
@@ -19,6 +19,13 @@
   <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-555?style=for-the-badge" alt="한국어"></a>
 </p>
 
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="菠萝开发者工具箱在线页面截图" width="88%" /></a>
+</p>
+
+> [!NOTE]
+> 这里是菠萝工具箱的官方导航与多语言展示仓库，专注于工具介绍和在线入口，不包含服务端源码。所有面向用户的工具都可以在 [在线工具箱](https://boluo66.top/toolkit/) 免费使用。
+
 ---
 
 ## ✨ 精选亮点
@@ -26,10 +33,10 @@
 几个别处不好找、或者做得特别顺手的：
 
 - **🌐 myip · 本机 IP** —— 不只是查 IP。同时对比国内 / 国际多个回显源,**一眼看穿你走没走代理、是不是多出口分流**(国内看 A、国际看 B),还带 IPv6 与 WebRTC 本地地址探测。
-- **🔒 cert · SSL 证书深检** —— 完整证书链、SAN 列表、密钥类型、TLS 版本、到期天数,一个 URL 全给你。
-- **🌍 dnsprop · DNS 传播检测** —— 改了解析记录多久全网生效?并发查 Cloudflare / Google / Quad9 + 阿里 / DNSPod / 114 共 7 个解析器,对比是否一致。
-- **📖 read · 正文提取** —— 去广告、去导航、去侧栏,任意网页只留干净正文。
-- **🔀 trace · 重定向追踪** —— 完整跳转链,每一跳的状态码、耗时、Location,调 301/302 利器。
+- **🔒 [cert · SSL 证书深检](https://boluo66.top/cert/?host=github.com)** —— 完整证书链、SAN 列表、密钥类型、TLS 版本、到期天数,一个 URL 全给你。
+- **🌍 [dnsprop · DNS 传播检测](https://boluo66.top/dnsprop/?domain=github.com)** —— 改了解析记录多久全网生效?并发查 Cloudflare / Google / Quad9 + 阿里 / DNSPod / 114 共 7 个解析器,对比是否一致。
+- **📖 [read · 正文提取](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com)** —— 去广告、去导航、去侧栏,任意网页只留干净正文。
+- **🔀 [trace · 重定向追踪](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com)** —— 完整跳转链,每一跳的状态码、耗时、Location,调 301/302 利器。
 
 ---
 
@@ -61,22 +68,22 @@
 fetch('https://boluo66.top/ip/?ip=8.8.8.8').then(r => r.json())
 
 <!-- 终端里一行命令 -->
-curl https://boluo66.top/uptime/?url=example.com
+curl "https://boluo66.top/dnsprop/?domain=github.com"
 ```
 
 | 工具 | 示例 | 返回 | 说明 |
 |---|---|---|---|
-| **favimg · 图标获取** | `GET /favimg/?url=xxx` | 图片 | 一行 URL,一张 favicon |
-| **ip · 地理位置** | `GET /ip/?ip=xxx` | JSON | 国家、城市、ISP、ASN,支持 `&lang=zh-CN` |
-| **uptime · 网站监测** | `GET /uptime/?url=xxx` | JSON | 状态码、响应耗时、SSL 到期日 |
-| **security · 安全检测** | `GET /security/?url=xxx` | JSON | 9 项安全头加权评分 + TLS 分析 |
-| **cert · SSL 证书深检** | `GET /cert/?host=xxx` | JSON | 完整证书链、SAN、密钥类型、TLS 版本 |
-| **trace · 重定向追踪** | `GET /trace/?url=xxx` | JSON | 完整跳转链 + 每跳耗时 + 终点响应头 |
-| **dns · DNS 查询** | `GET /dns/?domain=xxx&type=A` | JSON | 10 种 DNS 记录类型,A/AAAA 带真实 TTL |
-| **dnsprop · DNS 传播检测** | `GET /dnsprop/?domain=xxx` | JSON | 7 个全球 / 国内解析器并发对比 |
-| **whois · 域名信息** | `GET /whois/?domain=xxx` | JSON | 注册商、创建 / 到期日、DNS 服务器 |
-| **metadata · 元数据提取** | `GET /metadata/?url=xxx` | JSON | title、OG 标签、favicon、h1-h3、所有 link |
-| **read · 正文提取** | `GET /read/?url=xxx` | JSON | Mozilla Readability 去广告正文 |
+| [**favicon-api · 图标获取**](https://boluo66.top/favimg/) | `GET /favimg/?url=xxx` | 图片 | 一行 URL,一张 favicon |
+| [**ip · 地理位置**](https://boluo66.top/ip/?ip=8.8.8.8) | `GET /ip/?ip=xxx` | JSON | 国家、城市、ISP、ASN,支持 `&lang=zh-CN` |
+| [**uptime · 网站监测**](https://boluo66.top/toolkit/) | `GET /uptime/?url=xxx` | JSON | 状态码、响应耗时、SSL 到期日 |
+| [**security · 安全检测**](https://boluo66.top/toolkit/) | `GET /security/?url=xxx` | JSON | 9 项安全头加权评分 + TLS 分析 |
+| [**cert · SSL 证书深检**](https://boluo66.top/cert/?host=github.com) | `GET /cert/?host=xxx` | JSON | 完整证书链、SAN、密钥类型、TLS 版本 |
+| [**trace · 重定向追踪**](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com) | `GET /trace/?url=xxx` | JSON | 完整跳转链 + 每跳耗时 + 终点响应头 |
+| [**dns · DNS 查询**](https://boluo66.top/dns/?domain=github.com&type=A) | `GET /dns/?domain=xxx&type=A` | JSON | 10 种 DNS 记录类型,A/AAAA 带真实 TTL |
+| [**dnsprop · DNS 传播检测**](https://boluo66.top/dnsprop/?domain=github.com) | `GET /dnsprop/?domain=xxx` | JSON | 7 个全球 / 国内解析器并发对比 |
+| [**whois · 域名信息**](https://boluo66.top/whois/?domain=github.com) | `GET /whois/?domain=xxx` | JSON | 注册商、创建 / 到期日、DNS 服务器 |
+| [**metadata · 元数据提取**](https://boluo66.top/metadata/?url=https%3A%2F%2Fboluo66.top) | `GET /metadata/?url=xxx` | JSON | title、OG 标签、favicon、h1-h3、所有 link |
+| [**read · 正文提取**](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com) | `GET /read/?url=xxx` | JSON | Mozilla Readability 去广告正文 |
 
 ### Bookmarklet — 拖到收藏栏，随时可用
 
@@ -101,8 +108,8 @@ curl https://boluo66.top/uptime/?url=example.com
 
 | 工具 | 命令 |
 |---|---|
-| **git-heat · 年度报告** | `npx git-heat` |
-| **rmport · 端口清理** | `npx rmport 3000` |
+| [**git-heat · 年度报告**](https://www.npmjs.com/package/git-heat) | `npx git-heat` |
+| [**rmport · 端口清理**](https://www.npmjs.com/package/rmport) | `npx rmport 3000` |
 
 ### 在线工具 — 打开即用
 
@@ -125,14 +132,10 @@ curl https://boluo66.top/uptime/?url=example.com
 
 ## 🔒 关于隐私与实现
 
-- **API 工具**:零第三方依赖,服务端拦截内网 / 保留地址(SSRF 防护)。
-- **Bookmarklet / 在线工具**:纯浏览器运行,你的输入(密钥、令牌、文本)**不上传服务器**。
+- **API 工具**:多数采用轻量、无第三方运行时依赖的实现；服务端拦截内网 / 保留地址(SSRF 防护)。正文提取使用 Mozilla Readability 与 jsdom。
+- **Bookmarklet / 在线工具**:多数功能只在浏览器本地运行；需要联网查询的工具只发送完成当前操作所必需的请求。
 
 ---
-
-<p align="center">
-  <img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="开发者工具箱截图" width="70%" style="border-radius: 12px" />
-</p>
 
 <p align="center">
   如果这些工具对你有帮助,欢迎 ⭐ Star 支持 ✨<br>

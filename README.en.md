@@ -1,14 +1,14 @@
-<h1 align="center">🛠 Developer Toolkit</h1>
+<h1 align="center">🛠 Boluo Developer Toolkit · 35 Free Online Tools</h1>
 
 <p align="center">
-  One URL for your everyday dev needs —— <b>no client, no signup, no setup</b><br>
-  <sub>API · Bookmarklet · CLI · Web tools · 35 tools in total</sub>
+  One place for everyday developer tasks —— <b>no install · no signup · ready to use</b><br>
+  <sub>Free Online Developer Toolkit · API · Bookmarklet · CLI · Web Tools</sub>
 </p>
 
 <p align="center">
   <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/Live%20Demo-615ced?style=for-the-badge" alt="demo"></a>
   <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
-  <img src="https://img.shields.io/badge/dependencies-0-3fb950?style=for-the-badge" alt="deps">
+  <img src="https://img.shields.io/badge/No%20Signup-3fb950?style=for-the-badge" alt="no signup">
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
 </p>
 
@@ -19,6 +19,13 @@
   <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-555?style=for-the-badge" alt="한국어"></a>
 </p>
 
+<p align="center">
+  <a href="https://boluo66.top/toolkit/"><img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="Boluo Developer Toolkit online interface" width="88%" /></a>
+</p>
+
+> [!NOTE]
+> This is the official navigation and multilingual showcase repository for Boluo Toolkit. It focuses on tool descriptions and live entry points and does not contain the server source code. Every public tool is free to use from the [online toolkit](https://boluo66.top/toolkit/).
+
 ---
 
 ## ✨ Highlights
@@ -26,10 +33,10 @@
 A few that are hard to find elsewhere, or just feel really smooth:
 
 - **🌐 [myip · My IP](https://boluo66.top/toolkit/myip.html)** — more than an IP lookup. Cross-checks several domestic & international echo sources at once, so you can **tell at a glance whether you're behind a proxy or split routing** (source A sees one IP, source B sees another). Plus IPv6 and WebRTC local-address probing.
-- **🔒 cert · SSL inspector** — full certificate chain, SAN list, key type, TLS version, days-until-expiry, all from one URL.
-- **🌍 dnsprop · DNS propagation** — changed a DNS record and wondering if it's live yet? Queries Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114 (7 resolvers) in parallel and compares.
-- **📖 read · Article extractor** — strip ads, nav and sidebars; keep only the clean article body of any page.
-- **🔀 trace · Redirect tracer** — the full redirect chain with every hop's status code, timing and Location. Great for debugging 301/302.
+- **🔒 [cert · SSL inspector](https://boluo66.top/cert/?host=github.com)** — full certificate chain, SAN list, key type, TLS version, days-until-expiry, all from one URL.
+- **🌍 [dnsprop · DNS propagation](https://boluo66.top/dnsprop/?domain=github.com)** — changed a DNS record and wondering if it's live yet? Queries Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114 (7 resolvers) in parallel and compares.
+- **📖 [read · Article extractor](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com)** — strip ads, nav and sidebars; keep only the clean article body of any page.
+- **🔀 [trace · Redirect tracer](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com)** — the full redirect chain with every hop's status code, timing and Location. Great for debugging 301/302.
 
 ---
 
@@ -61,22 +68,22 @@ All APIs accept `GET`, return JSON or an image. **No SDK, no auth** — usable f
 fetch('https://boluo66.top/ip/?ip=8.8.8.8').then(r => r.json())
 
 <!-- One line in the terminal -->
-curl https://boluo66.top/uptime/?url=example.com
+curl "https://boluo66.top/dnsprop/?domain=github.com"
 ```
 
 | Tool | Example | Returns | Notes |
 |---|---|---|---|
-| **favimg** | `GET /favimg/?url=xxx` | image | one URL, one favicon |
-| **ip** | `GET /ip/?ip=xxx` | JSON | country, city, ISP, ASN; supports `&lang=zh-CN` |
-| **uptime** | `GET /uptime/?url=xxx` | JSON | status code, latency, SSL expiry |
-| **security** | `GET /security/?url=xxx` | JSON | 9 security headers weighted-scored + TLS analysis |
-| **cert** | `GET /cert/?host=xxx` | JSON | full chain, SAN, key type, TLS version |
-| **trace** | `GET /trace/?url=xxx` | JSON | full redirect chain + per-hop timing + final headers |
-| **dns** | `GET /dns/?domain=xxx&type=A` | JSON | 10 record types, real TTL for A/AAAA |
-| **dnsprop** | `GET /dnsprop/?domain=xxx` | JSON | 7 global/domestic resolvers compared in parallel |
-| **whois** | `GET /whois/?domain=xxx` | JSON | registrar, created/expiry dates, name servers |
-| **metadata** | `GET /metadata/?url=xxx` | JSON | title, OG tags, favicon, h1-h3, all links |
-| **read** | `GET /read/?url=xxx` | JSON | Mozilla Readability clean article body |
+| [**favicon-api**](https://boluo66.top/favimg/) | `GET /favimg/?url=xxx` | image | one URL, one favicon |
+| [**ip**](https://boluo66.top/ip/?ip=8.8.8.8) | `GET /ip/?ip=xxx` | JSON | country, city, ISP, ASN; supports `&lang=zh-CN` |
+| [**uptime**](https://boluo66.top/toolkit/) | `GET /uptime/?url=xxx` | JSON | status code, latency, SSL expiry |
+| [**security**](https://boluo66.top/toolkit/) | `GET /security/?url=xxx` | JSON | 9 security headers weighted-scored + TLS analysis |
+| [**cert**](https://boluo66.top/cert/?host=github.com) | `GET /cert/?host=xxx` | JSON | full chain, SAN, key type, TLS version |
+| [**trace**](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com) | `GET /trace/?url=xxx` | JSON | full redirect chain + per-hop timing + final headers |
+| [**dns**](https://boluo66.top/dns/?domain=github.com&type=A) | `GET /dns/?domain=xxx&type=A` | JSON | 10 record types, real TTL for A/AAAA |
+| [**dnsprop**](https://boluo66.top/dnsprop/?domain=github.com) | `GET /dnsprop/?domain=xxx` | JSON | 7 global/domestic resolvers compared in parallel |
+| [**whois**](https://boluo66.top/whois/?domain=github.com) | `GET /whois/?domain=xxx` | JSON | registrar, created/expiry dates, name servers |
+| [**metadata**](https://boluo66.top/metadata/?url=https%3A%2F%2Fboluo66.top) | `GET /metadata/?url=xxx` | JSON | title, OG tags, favicon, h1-h3, all links |
+| [**read**](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com) | `GET /read/?url=xxx` | JSON | Mozilla Readability clean article body |
 
 ### Bookmarklet — drag to your bookmarks bar, use anywhere
 
@@ -101,8 +108,8 @@ Runs on **any page** with one click, all client-side, nothing uploaded:
 
 | Tool | Command |
 |---|---|
-| **git-heat** | `npx git-heat` |
-| **rmport** | `npx rmport 3000` |
+| [**git-heat**](https://www.npmjs.com/package/git-heat) | `npx git-heat` |
+| [**rmport**](https://www.npmjs.com/package/rmport) | `npx rmport 3000` |
 
 ### Web tools — open and go
 
@@ -125,14 +132,10 @@ Runs on **any page** with one click, all client-side, nothing uploaded:
 
 ## 🔒 Privacy & implementation
 
-- **API tools**: zero third-party dependencies; the server blocks internal/reserved addresses (SSRF protection).
-- **Bookmarklet / Web tools**: run entirely in your browser — your input (keys, tokens, text) **is never uploaded**.
+- **API tools**: most use lightweight implementations with no third-party runtime dependencies; the server blocks internal/reserved addresses (SSRF protection). Article extraction uses Mozilla Readability and jsdom.
+- **Bookmarklet / Web tools**: most features run locally in your browser; tools that need network access send only the requests required for the action you initiate.
 
 ---
-
-<p align="center">
-  <img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="Developer Toolkit screenshot" width="70%" style="border-radius: 12px" />
-</p>
 
 <p align="center">
   If these tools help you, a ⭐ Star is much appreciated ✨<br>
