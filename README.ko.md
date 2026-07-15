@@ -24,7 +24,7 @@
 </p>
 
 > [!NOTE]
-> 이 저장소는 Boluo Toolkit의 공식 탐색 및 다국어 쇼케이스 저장소입니다. 도구 설명과 온라인 진입점에 집중하며 서버 소스 코드는 포함하지 않습니다. 모든 공개 도구는 [온라인 도구 모음](https://boluo66.top/toolkit/)에서 무료로 사용할 수 있습니다.
+> Boluo 개발자 도구 모음의 최신 도구와 사용 링크를 한곳에서 확인할 수 있습니다. 모든 도구는 [온라인 도구 모음](https://boluo66.top/toolkit/)에서 무료로 사용할 수 있습니다.
 
 ---
 
@@ -32,11 +32,11 @@
 
 다른 곳에서는 찾기 어렵거나, 특히 손에 잘 맞는 것들:
 
-- **🌐 [myip · 내 IP](https://boluo66.top/toolkit/myip.html)** —— 단순 IP 조회가 아닙니다. 국내·해외의 여러 에코 소스를 동시에 대조해 **프록시나 분할 라우팅 사용 여부를 한눈에** 알 수 있습니다(소스 A는 다른 IP, 소스 B는 또 다른 IP). IPv6와 WebRTC 로컬 주소 탐지도 포함.
-- **🔒 [cert · SSL 인증서 심층 조회](https://boluo66.top/cert/?host=github.com)** —— 전체 인증서 체인, SAN 목록, 키 종류, TLS 버전, 만료까지 남은 일수를 URL 하나로.
-- **🌍 [dnsprop · DNS 전파 확인](https://boluo66.top/dnsprop/?domain=github.com)** —— DNS 레코드를 바꿨는데 반영됐을까? Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7개 리졸버)를 병렬 조회해 비교.
-- **📖 [read · 본문 추출](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com)** —— 광고·내비게이션·사이드바를 제거하고 기사 본문만 남깁니다.
-- **🔀 [trace · 리디렉션 추적](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com)** —— 전체 리디렉션 체인, 각 홉의 상태 코드·소요 시간·Location. 301/302 디버깅에 유용.
+- **🌐 myip · 내 IP** —— 단순 IP 조회가 아닙니다. 국내·해외의 여러 에코 소스를 동시에 대조해 **프록시나 분할 라우팅 사용 여부를 한눈에** 알 수 있습니다(소스 A는 다른 IP, 소스 B는 또 다른 IP). IPv6와 WebRTC 로컬 주소 탐지도 포함.
+- **🔒 cert · SSL 인증서 심층 조회** —— 전체 인증서 체인, SAN 목록, 키 종류, TLS 버전, 만료까지 남은 일수를 URL 하나로.
+- **🌍 dnsprop · DNS 전파 확인** —— DNS 레코드를 바꿨는데 반영됐을까? Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7개 리졸버)를 병렬 조회해 비교.
+- **📖 read · 본문 추출** —— 광고·내비게이션·사이드바를 제거하고 기사 본문만 남깁니다.
+- **🔀 trace · 리디렉션 추적** —— 전체 리디렉션 체인, 각 홉의 상태 코드·소요 시간·Location. 301/302 디버깅에 유용.
 
 ---
 
@@ -73,17 +73,17 @@ curl "https://boluo66.top/dnsprop/?domain=github.com"
 
 | 도구 | 예시 | 반환 | 설명 |
 |---|---|---|---|
-| [**favicon-api**](https://boluo66.top/favimg/) | `GET /favimg/?url=xxx` | 이미지 | URL 하나로 favicon |
-| [**ip**](https://boluo66.top/ip/?ip=8.8.8.8) | `GET /ip/?ip=xxx` | JSON | 국가·도시·ISP·ASN, `&lang=ko` 지원 |
-| [**uptime**](https://boluo66.top/toolkit/) | `GET /uptime/?url=xxx` | JSON | 상태 코드·응답 시간·SSL 만료 |
-| [**security**](https://boluo66.top/toolkit/) | `GET /security/?url=xxx` | JSON | 9개 보안 헤더 가중 채점 + TLS 분석 |
-| [**cert**](https://boluo66.top/cert/?host=github.com) | `GET /cert/?host=xxx` | JSON | 인증서 체인·SAN·키 종류·TLS 버전 |
-| [**trace**](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com) | `GET /trace/?url=xxx` | JSON | 전체 리디렉션 체인 + 홉별 시간 + 최종 헤더 |
-| [**dns**](https://boluo66.top/dns/?domain=github.com&type=A) | `GET /dns/?domain=xxx&type=A` | JSON | 10종 레코드, A/AAAA는 실제 TTL |
-| [**dnsprop**](https://boluo66.top/dnsprop/?domain=github.com) | `GET /dnsprop/?domain=xxx` | JSON | 7개 글로벌 / 국내 리졸버 병렬 비교 |
-| [**whois**](https://boluo66.top/whois/?domain=github.com) | `GET /whois/?domain=xxx` | JSON | 등록기관·등록 / 만료일·네임서버 |
-| [**metadata**](https://boluo66.top/metadata/?url=https%3A%2F%2Fboluo66.top) | `GET /metadata/?url=xxx` | JSON | title·OG 태그·favicon·h1-h3·모든 link |
-| [**read**](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com) | `GET /read/?url=xxx` | JSON | Mozilla Readability 기반 깔끔한 본문 |
+| **favicon-api** | `GET /favimg/?url=xxx` | 이미지 | URL 하나로 favicon |
+| **ip** | `GET /ip/?ip=xxx` | JSON | 국가·도시·ISP·ASN, `&lang=ko` 지원 |
+| **uptime** | `GET /uptime/?url=xxx` | JSON | 상태 코드·응답 시간·SSL 만료 |
+| **security** | `GET /security/?url=xxx` | JSON | 9개 보안 헤더 가중 채점 + TLS 분석 |
+| **cert** | `GET /cert/?host=xxx` | JSON | 인증서 체인·SAN·키 종류·TLS 버전 |
+| **trace** | `GET /trace/?url=xxx` | JSON | 전체 리디렉션 체인 + 홉별 시간 + 최종 헤더 |
+| **dns** | `GET /dns/?domain=xxx&type=A` | JSON | 10종 레코드, A/AAAA는 실제 TTL |
+| **dnsprop** | `GET /dnsprop/?domain=xxx` | JSON | 7개 글로벌 / 국내 리졸버 병렬 비교 |
+| **whois** | `GET /whois/?domain=xxx` | JSON | 등록기관·등록 / 만료일·네임서버 |
+| **metadata** | `GET /metadata/?url=xxx` | JSON | title·OG 태그·favicon·h1-h3·모든 link |
+| **read** | `GET /read/?url=xxx` | JSON | Mozilla Readability 기반 깔끔한 본문 |
 
 ### Bookmarklet — 북마크바에 드래그, 어디서나 사용
 
@@ -108,8 +108,8 @@ curl "https://boluo66.top/dnsprop/?domain=github.com"
 
 | 도구 | 명령어 |
 |---|---|
-| [**git-heat**](https://www.npmjs.com/package/git-heat) | `npx git-heat` |
-| [**rmport**](https://www.npmjs.com/package/rmport) | `npx rmport 3000` |
+| **git-heat** | `npx git-heat` |
+| **rmport** | `npx rmport 3000` |
 
 ### 웹 도구 — 열면 바로 사용
 

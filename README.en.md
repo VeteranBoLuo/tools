@@ -24,7 +24,7 @@
 </p>
 
 > [!NOTE]
-> This is the official navigation and multilingual showcase repository for Boluo Toolkit. It focuses on tool descriptions and live entry points and does not contain the server source code. Every public tool is free to use from the [online toolkit](https://boluo66.top/toolkit/).
+> Find the latest Boluo Developer Toolkit tools and their entry points here. Every tool is free to use from the [online toolkit](https://boluo66.top/toolkit/).
 
 ---
 
@@ -32,11 +32,11 @@
 
 A few that are hard to find elsewhere, or just feel really smooth:
 
-- **🌐 [myip · My IP](https://boluo66.top/toolkit/myip.html)** — more than an IP lookup. Cross-checks several domestic & international echo sources at once, so you can **tell at a glance whether you're behind a proxy or split routing** (source A sees one IP, source B sees another). Plus IPv6 and WebRTC local-address probing.
-- **🔒 [cert · SSL inspector](https://boluo66.top/cert/?host=github.com)** — full certificate chain, SAN list, key type, TLS version, days-until-expiry, all from one URL.
-- **🌍 [dnsprop · DNS propagation](https://boluo66.top/dnsprop/?domain=github.com)** — changed a DNS record and wondering if it's live yet? Queries Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114 (7 resolvers) in parallel and compares.
-- **📖 [read · Article extractor](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com)** — strip ads, nav and sidebars; keep only the clean article body of any page.
-- **🔀 [trace · Redirect tracer](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com)** — the full redirect chain with every hop's status code, timing and Location. Great for debugging 301/302.
+- **🌐 myip · My IP** — more than an IP lookup. Cross-checks several domestic & international echo sources at once, so you can **tell at a glance whether you're behind a proxy or split routing** (source A sees one IP, source B sees another). Plus IPv6 and WebRTC local-address probing.
+- **🔒 cert · SSL inspector** — full certificate chain, SAN list, key type, TLS version, days-until-expiry, all from one URL.
+- **🌍 dnsprop · DNS propagation** — changed a DNS record and wondering if it's live yet? Queries Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114 (7 resolvers) in parallel and compares.
+- **📖 read · Article extractor** — strip ads, nav and sidebars; keep only the clean article body of any page.
+- **🔀 trace · Redirect tracer** — the full redirect chain with every hop's status code, timing and Location. Great for debugging 301/302.
 
 ---
 
@@ -73,17 +73,17 @@ curl "https://boluo66.top/dnsprop/?domain=github.com"
 
 | Tool | Example | Returns | Notes |
 |---|---|---|---|
-| [**favicon-api**](https://boluo66.top/favimg/) | `GET /favimg/?url=xxx` | image | one URL, one favicon |
-| [**ip**](https://boluo66.top/ip/?ip=8.8.8.8) | `GET /ip/?ip=xxx` | JSON | country, city, ISP, ASN; supports `&lang=zh-CN` |
-| [**uptime**](https://boluo66.top/toolkit/) | `GET /uptime/?url=xxx` | JSON | status code, latency, SSL expiry |
-| [**security**](https://boluo66.top/toolkit/) | `GET /security/?url=xxx` | JSON | 9 security headers weighted-scored + TLS analysis |
-| [**cert**](https://boluo66.top/cert/?host=github.com) | `GET /cert/?host=xxx` | JSON | full chain, SAN, key type, TLS version |
-| [**trace**](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com) | `GET /trace/?url=xxx` | JSON | full redirect chain + per-hop timing + final headers |
-| [**dns**](https://boluo66.top/dns/?domain=github.com&type=A) | `GET /dns/?domain=xxx&type=A` | JSON | 10 record types, real TTL for A/AAAA |
-| [**dnsprop**](https://boluo66.top/dnsprop/?domain=github.com) | `GET /dnsprop/?domain=xxx` | JSON | 7 global/domestic resolvers compared in parallel |
-| [**whois**](https://boluo66.top/whois/?domain=github.com) | `GET /whois/?domain=xxx` | JSON | registrar, created/expiry dates, name servers |
-| [**metadata**](https://boluo66.top/metadata/?url=https%3A%2F%2Fboluo66.top) | `GET /metadata/?url=xxx` | JSON | title, OG tags, favicon, h1-h3, all links |
-| [**read**](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com) | `GET /read/?url=xxx` | JSON | Mozilla Readability clean article body |
+| **favicon-api** | `GET /favimg/?url=xxx` | image | one URL, one favicon |
+| **ip** | `GET /ip/?ip=xxx` | JSON | country, city, ISP, ASN; supports `&lang=zh-CN` |
+| **uptime** | `GET /uptime/?url=xxx` | JSON | status code, latency, SSL expiry |
+| **security** | `GET /security/?url=xxx` | JSON | 9 security headers weighted-scored + TLS analysis |
+| **cert** | `GET /cert/?host=xxx` | JSON | full chain, SAN, key type, TLS version |
+| **trace** | `GET /trace/?url=xxx` | JSON | full redirect chain + per-hop timing + final headers |
+| **dns** | `GET /dns/?domain=xxx&type=A` | JSON | 10 record types, real TTL for A/AAAA |
+| **dnsprop** | `GET /dnsprop/?domain=xxx` | JSON | 7 global/domestic resolvers compared in parallel |
+| **whois** | `GET /whois/?domain=xxx` | JSON | registrar, created/expiry dates, name servers |
+| **metadata** | `GET /metadata/?url=xxx` | JSON | title, OG tags, favicon, h1-h3, all links |
+| **read** | `GET /read/?url=xxx` | JSON | Mozilla Readability clean article body |
 
 ### Bookmarklet — drag to your bookmarks bar, use anywhere
 
@@ -108,8 +108,8 @@ Runs on **any page** with one click, all client-side, nothing uploaded:
 
 | Tool | Command |
 |---|---|
-| [**git-heat**](https://www.npmjs.com/package/git-heat) | `npx git-heat` |
-| [**rmport**](https://www.npmjs.com/package/rmport) | `npx rmport 3000` |
+| **git-heat** | `npx git-heat` |
+| **rmport** | `npx rmport 3000` |
 
 ### Web tools — open and go
 

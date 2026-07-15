@@ -24,7 +24,7 @@
 </p>
 
 > [!NOTE]
-> このリポジトリは Boluo Toolkit の公式ナビゲーション兼多言語ショーケースです。ツールの説明とオンライン入口に特化し、サーバのソースコードは含みません。公開ツールはすべて [オンラインツールキット](https://boluo66.top/toolkit/) から無料で利用できます。
+> Boluo 開発者ツールキットの最新ツールと利用入口をまとめています。すべてのツールは [オンラインツールキット](https://boluo66.top/toolkit/) から無料で利用できます。
 
 ---
 
@@ -32,11 +32,11 @@
 
 他ではなかなか無い、または特に使い心地の良いものをいくつか：
 
-- **🌐 [myip · 自分の IP](https://boluo66.top/toolkit/myip.html)** —— 単なる IP 確認ではありません。国内・海外の複数のエコーソースを同時に照合し、**プロキシや分割ルーティングを使っているか一目で分かります**(ソース A は別の IP、ソース B はまた別）。IPv6 と WebRTC ローカルアドレス探索も。
-- **🔒 [cert · SSL 証明書チェック](https://boluo66.top/cert/?host=github.com)** —— 完全な証明書チェーン、SAN リスト、鍵種別、TLS バージョン、有効期限までの日数を URL ひとつで。
-- **🌍 [dnsprop · DNS 伝播チェック](https://boluo66.top/dnsprop/?domain=github.com)** —— DNS レコードを変更して反映されたか?Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7 リゾルバ)を並列に問い合わせて比較。
-- **📖 [read · 本文抽出](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com)** —— 広告・ナビ・サイドバーを除去し、記事本文だけを残します。
-- **🔀 [trace · リダイレクト追跡](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com)** —— 完全なリダイレクトチェーン、各ホップのステータスコード・所要時間・Location。301/302 のデバッグに最適。
+- **🌐 myip · 自分の IP** —— 単なる IP 確認ではありません。国内・海外の複数のエコーソースを同時に照合し、**プロキシや分割ルーティングを使っているか一目で分かります**(ソース A は別の IP、ソース B はまた別）。IPv6 と WebRTC ローカルアドレス探索も。
+- **🔒 cert · SSL 証明書チェック** —— 完全な証明書チェーン、SAN リスト、鍵種別、TLS バージョン、有効期限までの日数を URL ひとつで。
+- **🌍 dnsprop · DNS 伝播チェック** —— DNS レコードを変更して反映されたか?Cloudflare / Google / Quad9 + AliDNS / DNSPod / 114(7 リゾルバ)を並列に問い合わせて比較。
+- **📖 read · 本文抽出** —— 広告・ナビ・サイドバーを除去し、記事本文だけを残します。
+- **🔀 trace · リダイレクト追跡** —— 完全なリダイレクトチェーン、各ホップのステータスコード・所要時間・Location。301/302 のデバッグに最適。
 
 ---
 
@@ -73,17 +73,17 @@ curl "https://boluo66.top/dnsprop/?domain=github.com"
 
 | ツール | 例 | 返却 | 説明 |
 |---|---|---|---|
-| [**favicon-api**](https://boluo66.top/favimg/) | `GET /favimg/?url=xxx` | 画像 | URL ひとつで favicon |
-| [**ip**](https://boluo66.top/ip/?ip=8.8.8.8) | `GET /ip/?ip=xxx` | JSON | 国・都市・ISP・ASN、`&lang=ja` 対応 |
-| [**uptime**](https://boluo66.top/toolkit/) | `GET /uptime/?url=xxx` | JSON | ステータス・応答時間・SSL 期限 |
-| [**security**](https://boluo66.top/toolkit/) | `GET /security/?url=xxx` | JSON | 9 種のセキュリティヘッダを加重採点 + TLS 分析 |
-| [**cert**](https://boluo66.top/cert/?host=github.com) | `GET /cert/?host=xxx` | JSON | 証明書チェーン・SAN・鍵種別・TLS バージョン |
-| [**trace**](https://boluo66.top/trace/?url=https%3A%2F%2Fgithub.com) | `GET /trace/?url=xxx` | JSON | 完全なリダイレクトチェーン + 各ホップ時間 + 最終ヘッダ |
-| [**dns**](https://boluo66.top/dns/?domain=github.com&type=A) | `GET /dns/?domain=xxx&type=A` | JSON | 10 種のレコード、A/AAAA は実 TTL |
-| [**dnsprop**](https://boluo66.top/dnsprop/?domain=github.com) | `GET /dnsprop/?domain=xxx` | JSON | 7 つのグローバル / 国内リゾルバを並列比較 |
-| [**whois**](https://boluo66.top/whois/?domain=github.com) | `GET /whois/?domain=xxx` | JSON | レジストラ・登録 / 期限日・ネームサーバ |
-| [**metadata**](https://boluo66.top/metadata/?url=https%3A%2F%2Fboluo66.top) | `GET /metadata/?url=xxx` | JSON | title・OG タグ・favicon・h1-h3・全 link |
-| [**read**](https://boluo66.top/read/?url=https%3A%2F%2Fexample.com) | `GET /read/?url=xxx` | JSON | Mozilla Readability によるクリーンな本文 |
+| **favicon-api** | `GET /favimg/?url=xxx` | 画像 | URL ひとつで favicon |
+| **ip** | `GET /ip/?ip=xxx` | JSON | 国・都市・ISP・ASN、`&lang=ja` 対応 |
+| **uptime** | `GET /uptime/?url=xxx` | JSON | ステータス・応答時間・SSL 期限 |
+| **security** | `GET /security/?url=xxx` | JSON | 9 種のセキュリティヘッダを加重採点 + TLS 分析 |
+| **cert** | `GET /cert/?host=xxx` | JSON | 証明書チェーン・SAN・鍵種別・TLS バージョン |
+| **trace** | `GET /trace/?url=xxx` | JSON | 完全なリダイレクトチェーン + 各ホップ時間 + 最終ヘッダ |
+| **dns** | `GET /dns/?domain=xxx&type=A` | JSON | 10 種のレコード、A/AAAA は実 TTL |
+| **dnsprop** | `GET /dnsprop/?domain=xxx` | JSON | 7 つのグローバル / 国内リゾルバを並列比較 |
+| **whois** | `GET /whois/?domain=xxx` | JSON | レジストラ・登録 / 期限日・ネームサーバ |
+| **metadata** | `GET /metadata/?url=xxx` | JSON | title・OG タグ・favicon・h1-h3・全 link |
+| **read** | `GET /read/?url=xxx` | JSON | Mozilla Readability によるクリーンな本文 |
 
 ### Bookmarklet — ブックマークバーにドラッグ、どこでも使える
 
@@ -108,8 +108,8 @@ curl "https://boluo66.top/dnsprop/?domain=github.com"
 
 | ツール | コマンド |
 |---|---|
-| [**git-heat**](https://www.npmjs.com/package/git-heat) | `npx git-heat` |
-| [**rmport**](https://www.npmjs.com/package/rmport) | `npx rmport 3000` |
+| **git-heat** | `npx git-heat` |
+| **rmport** | `npx rmport 3000` |
 
 ### Web ツール — 開くだけ
 
