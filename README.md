@@ -1,4 +1,4 @@
-<h1 align="center">🛠 菠萝开发者工具箱｜35 个免费在线工具</h1>
+<h1 align="center">🛠 菠萝开发者工具箱｜免费在线开发者工具</h1>
 
 <p align="center">
   一个入口解决日常开发需求 —— <b>不装客户端 · 不注册账号 · 打开即用</b><br>
@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%BD%93%E9%AA%8C-615ced?style=for-the-badge" alt="demo"></a>
-  <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
+  <img src="https://img.shields.io/badge/tools-growing-3fb950?style=for-the-badge" alt="tools">
   <img src="https://img.shields.io/badge/%E6%97%A0%E9%9C%80%E6%B3%A8%E5%86%8C-3fb950?style=for-the-badge" alt="无需注册">
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
 </p>
@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="https://boluo66.top/toolkit/"><img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="菠萝开发者工具箱在线页面截图" width="88%" /></a>
+  <a href="https://boluo66.top/toolkit/"><img src="assets/screenshot-v4.png" alt="菠萝开发者工具箱在线页面截图" width="84%" /></a>
 </p>
 
 > [!NOTE]

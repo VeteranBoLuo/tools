@@ -1,4 +1,4 @@
-<h1 align="center">🛠 Boluo 開発者ツールキット｜無料オンラインツール 35 種</h1>
+<h1 align="center">🛠 Boluo 開発者ツールキット｜無料オンライン開発ツール</h1>
 
 <p align="center">
   日々の開発作業をひとつの場所で —— <b>インストール不要・登録不要・すぐ使える</b><br>
@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://boluo66.top/toolkit/"><img src="https://img.shields.io/badge/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E4%BD%93%E9%A8%93-615ced?style=for-the-badge" alt="demo"></a>
-  <img src="https://img.shields.io/badge/tools-35-3fb950?style=for-the-badge" alt="tools">
+  <img src="https://img.shields.io/badge/tools-growing-3fb950?style=for-the-badge" alt="tools">
   <img src="https://img.shields.io/badge/%E7%99%BB%E9%8C%B2%E4%B8%8D%E8%A6%81-3fb950?style=for-the-badge" alt="登録不要">
   <a href="https://github.com/VeteranBoLuo/tools/stargazers"><img src="https://img.shields.io/github/stars/VeteranBoLuo/tools?style=for-the-badge&color=555&label=stars" alt="stars"></a>
 </p>
@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="https://boluo66.top/toolkit/"><img src="https://boluo66.top/toolkit/screenshot-v3.png" alt="Boluo 開発者ツールキットのオンライン画面" width="88%" /></a>
+  <a href="https://boluo66.top/toolkit/"><img src="assets/screenshot-v4.png" alt="Boluo 開発者ツールキットのオンライン画面" width="84%" /></a>
 </p>
 
 > [!NOTE]
